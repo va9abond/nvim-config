@@ -164,12 +164,6 @@ local plugins = {
     { 'rose-pine/neovim', name = 'rose-pine' },
 
     {
-        'kabouzeid/nvim-jellybeans', name = 'jbns',
-        lazy = false, priority = 1000,
-        dependencies = { 'rktjmp/lush.nvim' }
-    },
-
-    {
         'metalelf0/jellybeans-nvim',
         lazy = false, priority = 1000,
         dependencies = { 'rktjmp/lush.nvim' }
