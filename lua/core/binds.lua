@@ -15,6 +15,7 @@ vim.keymap.set('c', '<C-h>', '<Left>')
 vim.keymap.set('c', '<C-l>', '<Right>')
 vim.keymap.set('c', '<C-j>', '<S-Left>')
 vim.keymap.set('c', '<C-k>', '<S-Right>')
+vim.keymap.set('c', '<C-d>', '<del>')
 -- ---------------------------------------------------------
                                         -- Buffes navigation
 map('n', '<C-n>', '<cmd>bnext<cr>')
@@ -128,12 +129,6 @@ vim.keymap.set("n", "<leader>v", "printf('`[%s`]', getregtype()[0])", {
 -- :cd <mydirectory>
 -- :cd -  // chande current to home dir
 -- :pwd // print current dir
--- ---------------------------------------------------------
-                         -- Use Esc to quit builtin terminal
-vim.keymap.set("t", "<Esc>", '<C-\\><C-n>')
-vim.keymap.set('n', 'q<leader>', 'q:')
--- vim.keymap.set({'c', 't'}, '<Esc>', '<cmd>q<cr>')
--- vim.cmd[[cnoremap <Esc> <c]]
 -- ---------------------------------------------------------
     -- Change text without putting it into the vim register;
             -- see https://stackoverflow.com/q/54255/6064933
