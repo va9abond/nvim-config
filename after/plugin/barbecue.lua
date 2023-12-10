@@ -4,6 +4,7 @@
 require('barbecue').setup({
     show_dirname = true,
     show_basename = false,
-    exclude_filetypes = { "netrw", "toggleterm", "tex", "pdf", "txt", "text",
-                            "wiki", "Trouble" },
+    exclude_filetypes = {
+        "toggleterm", "pdf", "text", "wiki", "Trouble"
+    },
 })
