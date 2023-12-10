@@ -119,7 +119,8 @@ local plugins = {
     { 'phaazon/hop.nvim', branch = 'v2' },
 
     {
-        'echasnovski/mini.pairs', version = '*'
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
     },
 
     { 'mbbill/undotree' },
