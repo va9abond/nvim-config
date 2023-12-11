@@ -130,3 +130,13 @@ MNIST
 TOC
 valgrind
 lstlisting
+colorlinks
+linkcolor
+filecolor
+urlcolor
+pdftitle
+DeclareMathOperator
+newcommand
+renewcommand
+struct
+Kohonen

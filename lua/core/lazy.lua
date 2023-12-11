@@ -11,14 +11,12 @@ local plugins = {
         branch = '0.1.x',
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                build = 'make',
+            },
             "nvim-tree/nvim-web-devicons"
         }
-    },
-
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
     },
 
 -- ---------------------------------------------------------
@@ -133,8 +131,6 @@ local plugins = {
 
     -- { 'christoomey/vim-tmux-navigator' },
 
-    { 'lervag/vimtex' },
-
     { 'lyokha/vim-xkbswitch' },
 
 -- ---------------------------------------------------------
@@ -174,6 +170,9 @@ local plugins = {
     {
         'metalelf0/jellybeans-nvim',
         lazy = false, priority = 1000,
+        config = function()
+            vim.cmd([[colorscheme jellybeans-nvim]])
+        end,
         dependencies = { 'rktjmp/lush.nvim' }
     },
 
@@ -191,6 +190,12 @@ local plugins = {
         init = function()
             vim.g.mkdp_filetypes = { "markdown" }
         end,
+    },
+-- ---------------------------------------------------------
+                                                    -- Latex
+    {
+        'lervag/vimtex',
+        ft = { "tex" }
     },
 }
 -- ---------------------------------------------------------

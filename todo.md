@@ -1,8 +1,12 @@
-[] Why using Tab and S-Tab is wrong and bad in nvim-cmp
+[ ] Why using Tab and S-Tab is wrong and bad in nvim-cmp
    https://youtu.be/_DnmphIwnjo?t=493
 
-[] sg.nvim
+[ ] sg.nvim
 
-[] symbols-outline.nvim
+[ ] symbols-outline.nvim
+
+[ ] mini.surround
+
+[ ] refactor keymaps
 
 
