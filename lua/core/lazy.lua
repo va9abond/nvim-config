@@ -47,9 +47,9 @@ local plugins = {
         event = "InsertEnter",
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp", lazy = false },
-            { 'hrsh7th/cmp-buffer', lazy = false },
-            { 'hrsh7th/cmp-path', lazy = false },
-            { 'hrsh7th/cmp-cmdline', lazy = false },
+            { 'hrsh7th/cmp-buffer',   lazy = false },
+            { 'hrsh7th/cmp-path',     lazy = false },
+            { 'hrsh7th/cmp-cmdline',  lazy = false },
             { 'hrsh7th/cmp-nvim-lua', lazy = false },
             { 'onsails/lspkind.nvim', lazy = false },
                                                  -- Snippets
@@ -62,14 +62,14 @@ local plugins = {
         version = "v2.*",
         event = "InsertEnter",
         dependencies = {
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'rafamadriz/friendly-snippets' },
+            { 'saadparwaiz1/cmp_luasnip',     lazy = false },
+            { 'rafamadriz/friendly-snippets', lazy = false },
         }
     },
 
 -- ---------------------------------------------------------
                                                       -- C++
-    { 'p00f/clangd_extensions.nvim', lazy = false },
+    { 'p00f/clangd_extensions.nvim' },
 
 -- ---------------------------------------------------------
                                                -- Treesitter
@@ -146,7 +146,10 @@ local plugins = {
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons"
         },
-        config = function() require('barbecue').setup() end
+        config = false,
+        -- config = function() require('barbecue').setup() end,
+        -- cond = false,
+        -- init = function() print("HELLO FROM BARBECUE!") end,
     },
 
     { 'folke/zen-mode.nvim' },
@@ -155,13 +158,18 @@ local plugins = {
 
 -- ---------------------------------------------------------
                                                    -- Colors
+-- assert(lazy == false) if this is my main colorsheme
+--                       it makes it load durign startup
     {
         'ellisonleao/gruvbox.nvim',
-        lazy = false, priority = 1000,
+        lazy = true, priority = 1000,
         config = function() require('gruvbox') end
     },
 
-    { 'rose-pine/neovim', name = 'rose-pine' },
+    {
+        'rose-pine/neovim', name = 'rose-pine',
+        lazy = true, priority = 1000,
+    },
 
     {
         'metalelf0/jellybeans-nvim',
@@ -173,19 +181,21 @@ local plugins = {
                                                  -- Markdown
     {
         "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        cmd = {
+            "MarkdownPreviewToggle",
+            "MarkdownPreview",
+            "MarkdownPreviewStop"
+        },
         build = "cd app && yarn install",
+        ft = { "markdown" },
         init = function()
             vim.g.mkdp_filetypes = { "markdown" }
         end,
-        ft = { "markdown" },
     },
-
--- ---------------------------------------------------------
-    { 'nvim-lua/plenary.nvim' },
 }
 -- ---------------------------------------------------------
 local opts = {}
+-- ---------------------------------------------------------
 -- ---------------------------------------------------------
                                    -- Bootstraping lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -200,5 +210,6 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
+-- ---------------------------------------------------------
 -- ---------------------------------------------------------
 require("lazy").setup(plugins, opts)
