@@ -98,12 +98,6 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- ---------------------------------------------------------
                                                  -- undotree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
--- ---------------------------------------------------------
-                                                  -- Trouble
-vim.keymap.set("n", "<space>x", function() require("trouble").toggle() end)
-vim.keymap.set("n", "<space>q", function() require("trouble").toggle("quickfix") end)
-vim.keymap.set("n", "<space>l", function() require("trouble").toggle("loclist") end)
 -- ---------------------------------------------------------
 -- Do not include white space characters when using $ in visual mode;
            -- see https://vi.stackexchange.com/q/12607/15292

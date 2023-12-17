@@ -6,14 +6,15 @@ vim.opt.showcmd = true
 -- vim.opt.wildmode = "longest:full"
 -- vim.opt.wildoptions = "pum"
 
-vim.g.XkbSwitchEnabled = 1
-vim.g.XkbSwitchIMappings = { 'ru' }
-
 vim.opt.mouse = "a"
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+
+vim.g.XkbSwitchEnabled = 1
+vim.g.XkbSwitchNLayout = "us"
+vim.g.XkbSwitchIMappings = { "ru" }
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4

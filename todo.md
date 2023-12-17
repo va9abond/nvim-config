@@ -5,7 +5,7 @@
 
 [ ] symbols-outline.nvim
 
-[ ] mini.surround
+[ ] clangd extensions
 
 [ ] refactor keymaps
 
