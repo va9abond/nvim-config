@@ -7,7 +7,7 @@ vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
 -- ---------------------------------------------------------
                                         -- Insert mode binds
-vim.keymap.set('i', 'jk', '<ESC>')
+-- vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', '<C-d>', '<del>')
 -- ---------------------------------------------------------
                                   -- Command-line mode binds
@@ -18,8 +18,8 @@ vim.keymap.set('c', '<C-k>', '<S-Right>')
 vim.keymap.set('c', '<C-d>', '<del>')
 -- ---------------------------------------------------------
                                         -- Buffes navigation
-map('n', '<C-n>', '<cmd>bnext<cr>')
-map('n', '<C-p>', '<cmd>bprevious<cr>')
+map('n', 'b]', '<cmd>bnext<cr>')
+map('n', 'b[', '<cmd>bprevious<cr>')
 map('n', '<leader>t', '<cmd>enew<cr>')
 map('n', '<leader>x', '<cmd>bd<cr>')
 map('n', '<leader>q', '<cmd>q<cr>')
@@ -30,8 +30,12 @@ map('n', '<CR>', 'o<ESC>')
 map('n', '<S-Enter>', 'O<ESC>')
 -- ---------------------------------------------------------
                                              -- Split window
-map('n', '<Bslash>v', '<CMD>vsplit<CR>')
-map('n', '<Bslash>x', '<CMD>split<CR>')
+map('n', '<C-w>v', '<CMD>vsplit<CR>')
+map('n', '<C-w>x', '<CMD>split<CR>')
+-- ---------------------------------------------------------
+                                            -- Zooming panes
+map('n', '<C-w>z', '<C-w>|')
+-- map('n', '<leader>=', '<C-w>=')
 -- ---------------------------------------------------------
 -- Use operator pending mode to visually select the whole
 -- buffer e.g. dA = delete buffer ALL, yA = copy whole buffer
@@ -62,10 +66,6 @@ map({ 'n', 'i' }, '<C-l>', '<C-w><C-l>')
                                                    -- tagbar
 -- vim.keymap.set('n', '<Bslash>t', '<cmd>AerialToggle!<CR>')
 -- vim.keymap.set('n', '<Bslash>t', '<cmd>Vista!!<CR>')
--- ---------------------------------------------------------
-                                            -- Zooming panes
-vim.keymap.set('n', '<leader>z', '<C-w>|')
-vim.keymap.set('n', '<leader>=', '<C-w>=')
 -- ---------------------------------------------------------
                                              -- Panes resize
 vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -5<cr>')

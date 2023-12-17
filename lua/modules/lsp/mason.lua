@@ -1,9 +1,23 @@
 return {
-    "williamboman/mason.nvim",
-    config = true,
-    dependencies = {
-        {
-            "williamboman/mason-lspconfig.nvim",
+    {
+        "williamboman/mason.nvim",
+        cmd = "Mason",
+
+        opts = {
+            ensure_installed = {
+--                "stylua",
+ --               "shfmt",
+                -- "flake8",
+            },
+        },
+
+        config = function(_, opts)
+            require("mason").setup(opts)
+        end
+    },
+
+    {
+        "williamboman/mason-lspconfig.nvim",
             opts = {
                 ensure_installed = {
                     'clangd', -- 'clangd@16.0.2',
@@ -11,10 +25,7 @@ return {
                     'lua_ls',
                     'julials',
                     'texlab',
-                    "stylua",
-                    "shfmt",
                 },
             },
-        },
     }
 }

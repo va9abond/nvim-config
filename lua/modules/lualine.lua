@@ -13,101 +13,148 @@ local colors = {
     ship_cove   = '#8197bf'
 }
 
+
 local _mytheme = {
     normal = {
         a = { bg = colors.black, fg = colors.grey },
         b = { bg = colors.black, fg = colors.grey },
         c = { bg = colors.black, fg = colors.grey },
+        x = { bg = colors.black, fg = colors.grey },
+        y = { bg = colors.black, fg = colors.grey },
+        z = { bg = colors.black, fg = colors.grey },
     },
     insert = {
         a = { bg = colors.black, fg = colors.grey },
         b = { bg = colors.black, fg = colors.grey },
         c = { bg = colors.black, fg = colors.grey },
+        x = { bg = colors.black, fg = colors.grey },
+        y = { bg = colors.black, fg = colors.grey },
+        z = { bg = colors.black, fg = colors.grey },
     },
     visual = {
         a = { bg = colors.black, fg = colors.grey },
         b = { bg = colors.black, fg = colors.grey },
+        c = { bg = colors.black, fg = colors.grey },
+        x = { bg = colors.black, fg = colors.grey },
+        y = { bg = colors.black, fg = colors.grey },
         z = { bg = colors.black, fg = colors.grey },
     },
     replace = {
-        a = { bg = colors.black, fg = colors.white },
+        a = { bg = colors.black, fg = colors.grey },
         b = { bg = colors.black, fg = colors.grey },
         c = { bg = colors.black, fg = colors.grey },
+        x = { bg = colors.black, fg = colors.grey },
+        y = { bg = colors.black, fg = colors.grey },
+        z = { bg = colors.black, fg = colors.grey },
     },
     command = {
-        a = { bg = colors.black, fg = colors.white, gui = 'bold' },
+        a = { bg = colors.black, fg = colors.white, gui = "bold" },
         b = { bg = colors.black, fg = colors.grey },
         c = { bg = colors.black, fg = colors.grey },
+        x = { bg = colors.black, fg = colors.grey },
+        y = { bg = colors.black, fg = colors.grey },
+        z = { bg = colors.black, fg = colors.grey },
     },
     innactive = {
         a = { bg = colors.black, fg = colors.grey },
         b = { bg = colors.black, fg = colors.grey },
         c = { bg = colors.black, fg = colors.grey },
+        x = { bg = colors.black, fg = colors.grey },
+        y = { bg = colors.black, fg = colors.grey },
+        z = { bg = colors.black, fg = colors.grey },
     },
 }
 
-require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = _mytheme,
-        -- theme = 'gruvbox', -- auto
-        -- component_separators = { left = '', right = ''},
-        -- section_separators = { left = '', right = ''},
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
-        disabled_filetypes = {
-            {'pdf' },
-            statusline = {},       -- only ignores the ft for statusline.
-            winbar = {},           -- only ignores the ft for winbar.
-        },
 
-        ignore_focus = {'NvimTree'},
-            -- If current filetype is in this list it'll
-            -- always be drawn as inactive statusline
-            -- and the last window will be drawn as active statusline.
-            -- for example if you don't want statusline of
-            -- your file tree / sidebar window to have active
-            -- statusline you can add their filetypes here.
+return {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
 
-        always_divide_middle = true,
-            -- When set to true, left sections i.e. 'a','b' and 'c'
-            -- can't take over the entire statusline even
-            -- if neither of 'x', 'y' or 'z' are present.
+    init = function()
+        vim.g.lualine_laststatus = vim.o.laststatus
+        if vim.fn.argc(-1) > 0 then
+            -- set an empty statusline till lualine loads
+            vim.o.statusline = " "
+        else
+            -- hide the statusline on the starter page
+            vim.o.laststatus = 0
+        end
+    end,
 
-        globalstatus = false,
-            -- enable global statusline (have a single statusline
-            -- at bottom of neovim instead of one for  every window).
-            -- This feature is only available in neovim 0.7 and higher.
+    opts = function()
+        return {
+            options = {
+                icons_enabled = true,
+                theme = _mytheme,
+                disabled_filetypes = {
+                    statusline = {
+                        "dashboard", "alpha", "starter", "pdf", "aerial"
+                    },
+                    winbar = {},
+                },
+                component_separators = { left = '', right = ''},
+                section_separators = { left = '', right = ''},
+                ignore_focus = {'NvimTree'},
+                    -- If current filetype is in this list it'll
+                    -- always be drawn as inactive statusline
+                    -- and the last window will be drawn as active statusline.
+                    -- for example if you don't want statusline of
+                    -- your file tree / sidebar window to have active
+                    -- statusline you can add their filetypes here.
 
-        refresh = {              -- sets how often lualine should refresh it's contents (in ms)
-            statusline = 1000,   -- The refresh option sets minimum time that lualine tries
-            tabline = 1000,      -- to maintain between refresh. It's not guarantied if situation
-            winbar = 1000        -- arises that lualine needs to refresh itself before this time
-                -- it'll do it.
+                always_divide_middle = true,
+                    -- When set to true, left sections i.e. 'a','b' and 'c'
+                    -- can't take over the entire statusline even
+                    -- if neither of 'x', 'y' or 'z' are present.
 
-                -- Also you can force lualine's refresh by calling refresh function
-                -- like require('lualine').refresh()
+                globalstatus = false,
+                    -- enable global statusline (have a single statusline
+                    -- at bottom of neovim instead of one for  every window).
+                    -- This feature is only available in neovim 0.7 and higher.
+
+                refresh = {              -- sets how often lualine should refresh it's contents (in ms)
+                    statusline = 1000,   -- The refresh option sets minimum time that lualine tries
+                    tabline = 1000,      -- to maintain between refresh. It's not guarantied if situation
+                    winbar = 1000        -- arises that lualine needs to refresh itself before this time
+                                         -- it'll do it.
+
+                        -- Also you can force lualine's refresh by calling refresh function
+                        -- like require('lualine').refresh()
+                },
+            },
+
+            sections = {
+                lualine_a = {"branch"},
+                lualine_b = {{"filename", path = 4}},
+                lualine_c = {"diff", "diagnostics"},
+                lualine_x = {"aerial"},
+                lualine_y = {"location"}, -- fileformat | filetype | encoding
+                lualine_z = {"progress"}
+            },
+
+            inactive_sections = {
+                lualine_a = {"branch"},
+                lualine_b = {"filename"},
+                lualine_c = {"diff"},
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = {}
+            },
+
+            -- winbar = {
+            --     lualine_z = {
+            --         {"filename", path = 4}
+            --     }
+            -- },
+            --
+            -- inactive_winbar = {
+            --     lualine_z = {
+            --         {"filename", path = 4}
+            --     }
+            -- },
+
+            extensions = {}
         }
-    },
-
-    sections = {
-        lualine_a = {'branch'},
-        lualine_b = {'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'location'}, -- fileformat | filetype | encoding
-        lualine_y = {},
-        lualine_z = {'progress'}
-    },
-
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
-        lualine_y = {},
-        lualine_z = {'progress'}
-    },
-
-    inactive_winbar = {},
-    extensions = {}
+    end,
 }
+

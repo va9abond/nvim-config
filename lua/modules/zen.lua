@@ -1,9 +1,13 @@
 -- ---------------------------------------------------------
                    -- https://github.com/folke/zen-mode.nvim
 -- ---------------------------------------------------------
-require('zen-mode').setup({
-    plugins = {
-        gitsigns = { enable = true },
-        tmux = { enable = false }
+return {
+    "folke/zen-mode.nvim",
+    opts = {
+        plugins = {
+            options = { showcmd = true },
+            gitsigns = { enable = true },
+            tmux = { enable = false }
+        }
     }
-})
+}

@@ -58,7 +58,10 @@ vim.opt.timeoutlen = 1500
 vim.opt.history = 100
 
 -- vim.g.cedit = '<C-i>'
-
+-- ---------------------------------------------------------
+                                               -- completion
+-- Don't show the dumb matching stuff.
+vim.opt.shortmess:append "c"
 -- ---------------------------------------------------------
         -- Disable continuation of comments to the next line
                                         -- It's doesn't work

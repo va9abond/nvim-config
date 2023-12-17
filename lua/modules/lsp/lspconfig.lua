@@ -12,9 +12,9 @@ return {
         "hrsh7th/cmp-nvim-lsp",
     },
 
-    opts = {
+    config = function()
                                 -- vim.diagnostic.config({})
-        diagnostics = {
+        vim.diagnostic.config({
             underline = true,
             update_in_insert = false,
             virtual_text = {
@@ -22,18 +22,17 @@ return {
                 source = "if_many",
                 prefix = '●', -- Could be '■', '▎', 'x'
             },
+
             severty_sort = true,
-        },
 
-        inlay_hints = { enabled = false },
+            inlay_hints = { enabled = false },
 
-        format = {
-            formatting_options = nil,
-            timeout_ms = nil,
-        },
-    },
+            format = {
+                formatting_options = nil,
+                timeout_ms = nil,
+            },
+        })
 
-    config = function()
         local lspconfig = require("lspconfig")
         local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
         local opts = { noremap = true, silent = true }
@@ -108,7 +107,7 @@ return {
                 }
             }
         })
-                                                           -- clangd
+                                                   -- clangd
         lspconfig['clangd'].setup({
             root_dir = function(fname)
                 return require("lspconfig.util").root_pattern(
@@ -146,7 +145,7 @@ return {
                 clangdFileStatus = true,
             },
         })
-                                                           -- texlab
+                                                   -- texlab
         lspconfig['texlab'].setup({
             capabilities = default_capabilities,
             on_attach = _on_attach,
@@ -158,10 +157,10 @@ return {
                 }
             }
         })
-                                                           -- bashls
+                                                   -- bashls
         lspconfig['bashls'].setup({
             capabilities = default_capabilities,
             on_attach = _on_attach,
         })
-    end,
+    end
 }
