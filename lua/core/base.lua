@@ -1,5 +1,6 @@
 vim.opt.encoding = "utf-8"
 vim.opt.showcmd = true
+vim.opt.shortmess:append({ I = true })
 -- vim.opt.showmatch = true
 
 -- vim.opt.pumblend = 17
