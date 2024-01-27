@@ -60,6 +60,11 @@ vim.o.background = "dark"
 vim.o.splitbelow = true
 vim.o.splitright = true
 
+if vim.fn.has("nvim-0.9") == 1 then
+-- cursor (def) | screen (stabilize text) | topline (stabilize topline)
+    vim.o.splitkeep = "screen"
+end
+
 
 ------------------------------------------------------------
                                                    -- Editor
