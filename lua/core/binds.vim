@@ -9,7 +9,7 @@ function! NetrwMapping()
     nmap <buffer> <Leader><TAB> mF
 
 
-    nmap <buffer> fi %:w<CR>:buffer #<CR>
+    nmap <buffer> o %:w<CR>:buffer #<CR>
     " nmap <buffer> fr R
 
     nmap <buffer> fc mc
