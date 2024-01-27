@@ -1,3 +1,5 @@
+"  ---------------------------------------------------------
+                                                     " Netrw
 function! NetrwMapping()
     nmap <buffer> h u
     nmap <buffer> o -^
@@ -27,3 +29,4 @@ augroup netrw_mapping
     autocmd!
     autocmd filetype netrw call NetrwMapping()
 augroup END
+"  ---------------------------------------------------------

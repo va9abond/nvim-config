@@ -1,10 +1,8 @@
 ------------------------------------------------------------
                                                -- Leader Key
-vim.g.mapleader = ';'
+vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
-vim.opt.timeoutlen = 1500
-
-
+vim.opt.timeoutlen   = 1500
 ------------------------------------------------------------
                                                   -- General
 vim.opt.encoding = "utf-8"
@@ -12,8 +10,8 @@ vim.opt.encoding = "utf-8"
 vim.o.backup       = false
 vim.o.switchbuf    = 'usetab'
 vim.o.writebackup  = false
-vim.o.hidden = true
-vim.o.swapfile = false
+vim.o.hidden       = true
+vim.o.swapfile     = false
 
 vim.o.mouse = 'a'
 vim.o.scrolloff = 8
@@ -36,7 +34,7 @@ vim.opt.updatetime = 200
 
 ------------------------------------------------------------
                                                        -- UI
--- vim.o.textwidth = 80
+vim.o.textwidth = 80
 vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.breakindent = true
@@ -53,7 +51,7 @@ vim.o.relativenumber = false
 vim.o.laststatus = 2
 vim.o.showmode = false
 vim.o.showtabline = 1
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 vim.o.termguicolors = true
 vim.o.background = "dark"
 
