@@ -1,18 +1,18 @@
 -- ---------------------------------------------------------
                                                       -- Set
-vim.opt.colorcolumn = "60"
-vim.opt.textwidth = 70
-vim.opt.wrap = true
-vim.opt.breakindent = true
-vim.opt.showbreak = string.rep(" ", 3)
-vim.opt.linebreak = true
+-- vim.bo.colorcolumn = "70"
+-- vim.bo.textwidth = 70
+-- vim.bo.wrap = true
+-- vim.bo.breakindent = true
+-- vim.bo.showbreak = string.rep(" ", 3)
+-- vim.bo.linebreak = true
 -- ---------------------------------------------------------
                                                     -- Binds
 -- Clear 'jk' bind
-vim.cmd [[imapclear]]
-vim.keymap.set('i', '<C-d>', '<del>')
+-- vim.cmd [[imapclear]]
+-- vim.keymap.set('i', '<C-d>', '<del>')
 -- ---------------------------------------------------------
                                               -- Spell check
-vim.opt.spelllang = 'en_us,ru_ru'
-vim.opt.spell = true
+-- vim.opt.spelllang = 'en_us,ru_ru'
+-- vim.opt.spell = true
 

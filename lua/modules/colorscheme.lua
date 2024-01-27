@@ -10,7 +10,7 @@ local _colors_list =
 -- ---------------------------------------------------------
 return {
     {
-        'ellisonleao/gruvbox.nvim',
+        "ellisonleao/gruvbox.nvim", enabled = false,
         lazy = true, priority = 1000,
         opts = {
             terminal_colors = true,
@@ -45,7 +45,7 @@ return {
     },
 
     {
-        'rose-pine/neovim', name = 'rose-pine',
+        "rose-pine/neovim", name = "rose-pine", enabled = false,
         lazy = true, priority = 1000,
         opts = {
             --- @usage 'auto'|'main'|'moon'|'dawn'
@@ -112,11 +112,108 @@ return {
     },
 
     {
-        'metalelf0/jellybeans-nvim',
+        "metalelf0/jellybeans-nvim", enabled = false,
         lazy = false, priority = 1000,
         config = function()
-            vim.cmd([[colorscheme jellybeans-nvim]])
+            vim.cmd.colorscheme("jellybeans-nvim")
         end,
-        dependencies = { 'rktjmp/lush.nvim' }
+        dependencies = { "rktjmp/lush.nvim" }
     },
+
+    { "vim-scripts/hornet.vim", enabled = false,
+        lazy = false, priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("hornet")
+        end,
+    },
+
+    { "jnurmine/Zenburn", enabled = false,
+        lazy = false, priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("jellybeans-nvim")
+        end,
+    },
+
+    {
+        "vim-scripts/less.vim", enabled = false,
+        lazy = false, priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("colorscheme less")
+        end,
+    },
+
+    {
+        "thimc/gruber-darker.nvim", enabled = false,
+        name = "thimc-gruber-darker",
+        lazy = false, priority = 1000,
+        config = function()
+            require("gruber-darker").setup({
+                transparent = false, -- removes the background
+                underline = true,    -- disables underline fonts
+                bold = true,         -- disables bold fonts
+            })
+            vim.cmd.colorscheme("gruber-darker")
+        end,
+    },
+
+    {
+        "blazkowolf/gruber-darker.nvim", enabled = true,
+        name = "blazkowolf-gruber-darker",
+        lazy = false, priority = 1000,
+        config = function()
+            require("gruber-darker").setup({
+                bold = true,
+                invert = {
+                    signs = false,
+                    tabline = false,
+                    visual = false,
+                },
+                italic = {
+                    strings = true,
+                    comments = true,
+                    operators = false,
+                    folds = true,
+                },
+                undercurl = true,
+                underline = true,
+            })
+            vim.cmd.colorscheme("gruber-darker")
+        end,
+    },
+
+    {
+        "va9abond/gruber-extended.nvim", enabled = false,
+
+        url = "git@github.com:va9abond/gruber-extended.nvim.git",
+        dir = "~/gitlocal/gruber-extended.nvim",
+        lazy = false, priority = 1000,
+
+        config = function()
+            require("gruber-darker").setup({
+                bold = true,
+
+                invert = {
+                    signs = false,
+                    tabline = false,
+                    visual = false,
+                },
+
+                italic = {
+                    strings = false,
+                    comments = false,
+                    operators = false,
+                    folds = false,
+                },
+
+                undercurl = false,
+                underline = false,
+            })
+            vim.cmd.colorscheme("gruber-darker")
+        end,
+    },
+
+    {
+        "rktjmp/lush.nvim", enabled = true,
+        lazy = false
+    }
 }

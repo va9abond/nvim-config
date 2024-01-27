@@ -1,7 +1,7 @@
 -- ---------------------------------------------------------
                                                       -- Set
 -- vim.opt.colorcolumn = "60"
-vim.opt.textwidth = 80
+vim.opt.textwidth = 70
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.showbreak = string.rep(" ", 3)

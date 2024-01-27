@@ -67,7 +67,7 @@ local _mytheme = {
 
 
 return {
-    "nvim-lualine/lualine.nvim",
+    "nvim-lualine/lualine.nvim", enabled = true,
     event = "VeryLazy",
 
     init = function()
@@ -77,7 +77,7 @@ return {
             vim.o.statusline = " "
         else
             -- hide the statusline on the starter page
-            vim.o.laststatus = 0
+            vim.o.laststatus = 2
         end
     end,
 
@@ -88,7 +88,8 @@ return {
                 theme = _mytheme,
                 disabled_filetypes = {
                     statusline = {
-                        "dashboard", "alpha", "starter", "pdf", "aerial"
+                        "dashboard", "alpha", "starter", "pdf", "aerial",
+                        "Trouble", "undotree", "diff", "git"
                     },
                     winbar = {},
                 },

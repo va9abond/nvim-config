@@ -7,7 +7,7 @@ return {
         plugins = {
             options = { showcmd = true },
             gitsigns = { enable = true },
-            tmux = { enable = false }
+            tmux = { enable = true }
         }
     }
 }

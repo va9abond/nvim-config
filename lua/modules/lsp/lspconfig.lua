@@ -52,8 +52,8 @@ return {
             opts.desc = "Show LSP implementations"
             vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
-            opts.desc = "Show LSP type definitions"
-            vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+            -- opts.desc = "Show LSP type definitions"
+            -- vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
             opts.desc = "See available code actions"
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)

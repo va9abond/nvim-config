@@ -54,7 +54,7 @@ return {
 
     opts = {
         highlight = {
-            enable = true,
+            enable = false,
             disable = { "latex" },
         },
 

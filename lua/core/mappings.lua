@@ -7,19 +7,21 @@ vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
 -- ---------------------------------------------------------
                                         -- Insert mode binds
--- vim.keymap.set('i', 'jk', '<esc>')
+vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', '<C-d>', '<del>')
+vim.keymap.set('n', "<C-]", "<Nop>")
+vim.keymap.set('n', "<C-]", "<Nop>")
 -- ---------------------------------------------------------
                                   -- Command-line mode binds
-vim.keymap.set('c', '<C-h>', '<Left>')
-vim.keymap.set('c', '<C-l>', '<Right>')
-vim.keymap.set('c', '<C-j>', '<S-Left>')
-vim.keymap.set('c', '<C-k>', '<S-Right>')
-vim.keymap.set('c', '<C-d>', '<del>')
+vim.keymap.set({'t','c'}, '<C-h>', '<Left>')
+vim.keymap.set({'t','c'}, '<C-l>', '<Right>')
+vim.keymap.set({'t','c'}, '<C-j>', '<S-Left>')
+vim.keymap.set({'t','c'}, '<C-k>', '<S-Right>')
+vim.keymap.set({'t','c'}, '<C-d>', '<del>')
 -- ---------------------------------------------------------
                                         -- Buffes navigation
-map('n', 'b]', '<cmd>bnext<cr>')
-map('n', 'b[', '<cmd>bprevious<cr>')
+-- map('n', 'b]', '<cmd>bnext<cr>')
+-- map('n', 'b[', '<cmd>bprevious<cr>')
 map('n', '<leader>t', '<cmd>enew<cr>')
 map('n', '<leader>x', '<cmd>bd<cr>')
 map('n', '<leader>q', '<cmd>q<cr>')
@@ -54,14 +56,11 @@ map('n',        '<leader>P', [["+P]])
                                       -- Where do they lead?
 map('n', 'x', '"_x')
 -- ---------------------------------------------------------
-                                    -- Splits navigation
+                                        -- Splits navigation
 map({ 'n', 'i' }, '<C-h>', '<C-w><C-h>')
 map({ 'n', 'i' }, '<C-j>', '<C-w><C-j>')
 map({ 'n', 'i' }, '<C-k>', '<C-w><C-k>')
 map({ 'n', 'i' }, '<C-l>', '<C-w><C-l>')
--- ---------------------------------------------------------
--- Goes to the first line above/below that isn't whitespace
---
 -- ---------------------------------------------------------
                                                    -- tagbar
 -- vim.keymap.set('n', '<Bslash>t', '<cmd>AerialToggle!<CR>')
@@ -74,8 +73,8 @@ vim.keymap.set('n', '<C-Up>', '<cmd>res -5<cr>')
 vim.keymap.set('n', '<C-Down>', '<cmd>res +5<cr>')
 -- ---------------------------------------------------------
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({'n', 'v'}, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set({'n', 'v'}, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- ---------------------------------------------------------
                              -- Fix * (Keep cursor position,
                              --    don't move to next match)
@@ -87,9 +86,15 @@ map('n', 'N', 'Nzz')
 map('n', '<leader>>', '<cmd>.right 60<cr>')
 map('n', '<leader><', '<cmd>.left 0<cr>')
 -- ---------------------------------------------------------
-                                         -- Thx ThePrimeagen
-                                         -- Open netrw
-vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
+                                                    -- Netrw
+vim.keymap.set('n', "<leader><leader>", vim.cmd.Lexplore)
+-- vim.keymap.set('n', '-', vim.cmd.Sexplore)
+
+
+                                 -- other binds in binds.vim
+-- ---------------------------------------------------------
+
+
                                    -- Move lines up and down
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
@@ -142,12 +147,15 @@ vim.keymap.set("x", "c", '"_c')
     -- see also https://stackoverflow.com/q/10723700/6064933
 vim.keymap.set("x", "p", '"_c<Esc>p')
 -- ---------------------------------------------------------
+                                       -- Vim Tmux Navigator
+-- ---------------------------------------------------------
                                         -- clandg_extensions
 -- vim.keymap.set("n", "<C-i>", "<cmd>ClangdSymbolInfo<cr>")
 -- ---------------------------------------------------------
--- Thanks a lot to:
+-- Thanks to:
                 --  ThePrimeagen,
                 --  jdhao,
                 --  Tj DeVries
                 --  asbjornHaland,
                 --  sdaschner
+

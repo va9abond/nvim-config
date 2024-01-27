@@ -22,7 +22,7 @@ return {
           'Token not allowed in a PDF string',
         })
 
-        vim.g.vimtex_view_method = "zathura"
+        vim.g.vimtex_view_method = "sioyek"
         vim.g.vimtex_compiler_silent = 0
         vim.g.vimtex_compiler_latexmk = {
             options = {
