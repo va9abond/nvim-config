@@ -47,7 +47,7 @@ return {
                 ["g?"] = "actions.show_help",
 
                 ["<CR>"] = "actions.select",
-                ["l"] = "actions.select",
+                ["<S-l>"] = "actions.select",
 
                 ["<C-v>"] = "actions.select_vsplit",
                 ["<C-x>"] = "actions.select_split",
@@ -57,10 +57,10 @@ return {
                 ["<C-c>"] = "actions.close",
                 ["q"] = "actions.close",
 
-                ["<S-l>"] = "actions.refresh",
+                ["<gr>"] = "actions.refresh",
 
                 ["-"] = "actions.parent",
-                ["h"] = "actions.parent",
+                ["<S-h>"] = "actions.parent",
 
                 ["_"] = "actions.open_cwd",
                 ["G"] = "actions.cd",
