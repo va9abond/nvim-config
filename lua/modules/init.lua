@@ -1,11 +1,17 @@
 return {
     { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons" },
-    -- "inkarkat/vim-ReplaceWithRegister",
     { "tpope/vim-fugitive" },
-    { "tpope/vim-vinegar", enabled = true },
-    { "mbbill/undotree" },
+    { "tpope/vim-vinegar", enabled = false },
+
     {
-        "lyokha/vim-xkbswitch",
+        "mbbill/undotree", enabled = true,
+        config = function()
+            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+        end,
+    },
+
+    {
+        "lyokha/vim-xkbswitch", enabled = true,
     },
 }
