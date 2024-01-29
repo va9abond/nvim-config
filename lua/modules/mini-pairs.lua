@@ -1,5 +1,5 @@
 return {
-    "echasnovski/mini.pairs",
+    "echasnovski/mini.pairs", enabled = false,
     dependencies = {
         'lyokha/vim-xkbswitch'
     },
