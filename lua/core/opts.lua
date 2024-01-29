@@ -15,7 +15,6 @@ vim.o.swapfile     = false
 
 vim.o.mouse = 'a'
 vim.o.scrolloff = 8
-
 vim.o.undofile = true
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 

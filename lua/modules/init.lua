@@ -1,17 +1,19 @@
 return {
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-tree/nvim-web-devicons" },
-    { "tpope/vim-fugitive" },
-    { "tpope/vim-vinegar", enabled = false },
+    { "lyokha/vim-xkbswitch", enabled = true, },
 
     {
-        "mbbill/undotree", enabled = true,
+        "m4xshen/autoclose.nvim", enabled = true,
         config = function()
-            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-        end,
-    },
-
-    {
-        "lyokha/vim-xkbswitch", enabled = true,
+            require("autoclose").setup({
+                keys = {
+                    ["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {} },
+                    ["<"] = { escape = true, close = true, pair = "<>" },
+                },
+                options = {
+                    disabled_filetypes = { "text", "markdown" },
+                    disable_command_mode = true,
+                }
+            })
+        end
     },
 }
