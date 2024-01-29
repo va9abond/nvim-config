@@ -93,9 +93,9 @@ if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
 
 ------------------------------------------------------------
                                                     -- Spell
-vim.g.spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
-vim.o.spelllang = 'en,ru'
-vim.o.spelloptions = 'camel'
+vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
+vim.o.spelllang = "en,ru"
+vim.o.spelloptions = "camel"
 
 
 ------------------------------------------------------------
@@ -116,22 +116,6 @@ vim.g.netrw_localcopydircmd = 'cp -r'
 
 -- nice explanation
 -- https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
-
-
-------------------------------------------------------------
-                                      -- Custom Autocommands
-local augroup = vim.api.nvim_create_augroup('CustomSettings', {})
-vim.api.nvim_create_autocmd('FileType', {
-    callback = function()
-        -- Don't auto-wrap comments and don't insert comment leader after hitting 'o'
-        -- If don't do this on `FileType`, this keeps reappearing due to being set in
-        -- filetype plugins.
-        vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=o')
-    end,
-    desc = [[Ensure proper 'formatoptions']],
-})
-
-
 ------------------------------------------------------------
                                                 -- Reference
 -- https://github.com/echasnovski/nvim/blob/master/src/settings.lua
