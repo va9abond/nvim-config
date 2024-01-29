@@ -11,10 +11,10 @@ return {
 
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
-        "hrsh7th/cmp-nvim-lua",
         "saadparwaiz1/cmp_luasnip",
         "p00f/clangd_extensions.nvim",
         "onsails/lspkind.nvim",
@@ -47,8 +47,8 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-j>"] = cmp.mapping.scroll_docs(4),
+                ["<C-k>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({
@@ -60,15 +60,15 @@ return {
 -- https://www.youtube.com/watch?v=1K1bNTOQi5g&list=PLOe6AggsTaVuIXZU4gxWJpIQNHMrDknfN&index=43
             sources = cmp.config.sources(
                 {
-                    { name = "nvim_lua", max_item_count = 13 },
+                    { name = "nvim_lua", max_item_count = 9 },
                     { name = "vimtex",   max_item_count = 5  },
-                    { name = "nvim_lsp", max_item_count = 5  },
+                    { name = "nvim_lsp", max_item_count = 9  },
                     { name = "luasnip",  max_item_count = 8  },
                     { name = "treesitter" },
                 },
                 {
                     { name = "path"     },
-                    { name = "buffer", max_item_count = 3, keyword_length = 3 },
+                    { name = "buffer", max_item_count = 4, keyword_length = 3 },
                 }
             ),
 
@@ -112,10 +112,10 @@ return {
                         nvim_lua      = "[API]",
                         vim_tex       = "[Vimtex]",
                         latex_symbols = "[Latex]",
-                        treesitter    = "[TS]",
+                        treesitter    = "[TRS]",
                         nvim_lsp      = "[LSP]",
                     },
-                    maxwidth = 25,
+                    maxwidth = 30,
                     ellipsis_char = "...",
                 }),
             },

@@ -1,5 +1,5 @@
 return {
-    "L3MON4D3/LuaSnip",
+    "L3MON4D3/LuaSnip", enabled = true,
 
     dependencies = {
         "rafamadriz/friendly-snippets",
@@ -21,7 +21,7 @@ return {
             end,
             expr = true, silent = true, mode = 'i',
         },
-        { "<tab>", function() require("luasnip").jump(1) end, mode = 's' },
-        { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { 'i', 's' } },
+        { "<C-l>", function() require("luasnip").jump(1) end, mode = 's' },
+        { "<C-h>", function() require("luasnip").jump(-1) end, mode = { 'i', 's' } },
     },
 }
