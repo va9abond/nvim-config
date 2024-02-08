@@ -112,108 +112,52 @@ return {
     },
 
     {
-        "metalelf0/jellybeans-nvim", enabled = false,
+        "metalelf0/jellybeans-nvim", enabled = true,
         lazy = false, priority = 1000,
-        config = function()
-            vim.cmd.colorscheme("jellybeans-nvim")
-        end,
+        -- config = function()
+        --     vim.cmd.colorscheme("jellybeans-nvim")
+        -- end,
         dependencies = { "rktjmp/lush.nvim" }
-    },
-
-    { "vim-scripts/hornet.vim", enabled = false,
-        lazy = false, priority = 1000,
-        config = function()
-            vim.cmd.colorscheme("hornet")
-        end,
-    },
-
-    { "jnurmine/Zenburn", enabled = false,
-        lazy = false, priority = 1000,
-        config = function()
-            vim.cmd.colorscheme("jellybeans-nvim")
-        end,
-    },
-
-    {
-        "vim-scripts/less.vim", enabled = false,
-        lazy = false, priority = 1000,
-        config = function()
-            vim.cmd.colorscheme("colorscheme less")
-        end,
-    },
-
-    {
-        "thimc/gruber-darker.nvim", enabled = false,
-        name = "thimc-gruber-darker",
-        lazy = false, priority = 1000,
-        config = function()
-            require("gruber-darker").setup({
-                transparent = false, -- removes the background
-                underline = true,    -- disables underline fonts
-                bold = true,         -- disables bold fonts
-            })
-            vim.cmd.colorscheme("gruber-darker")
-        end,
     },
 
     {
         "blazkowolf/gruber-darker.nvim", enabled = true,
         name = "blazkowolf-gruber-darker",
         lazy = false, priority = 1000,
-        config = function()
-            require("gruber-darker").setup({
-                bold = true,
-                invert = {
-                    signs = false,
-                    tabline = false,
-                    visual = false,
-                },
-                italic = {
-                    strings = true,
-                    comments = true,
-                    operators = false,
-                    folds = true,
-                },
-                undercurl = true,
-                underline = true,
-            })
-            vim.cmd.colorscheme("gruber-darker")
-        end,
+        -- config = function()
+        --     require("gruber-darker").setup({
+        --         bold = true,
+        --         invert = {
+        --             signs = false,
+        --             tabline = false,
+        --             visual = false,
+        --         },
+        --         italic = {
+        --             strings = true,
+        --             comments = true,
+        --             operators = false,
+        --             folds = true,
+        --         },
+        --         undercurl = true,
+        --         underline = true,
+        --     })
+        --     vim.cmd.colorscheme("gruber-darker")
+        -- end,
     },
 
     {
-        "va9abond/gruber-extended.nvim", enabled = false,
-
-        url = "git@github.com:va9abond/gruber-extended.nvim.git",
-        dir = "~/gitlocal/gruber-extended.nvim",
+        "va9abond/colors.nvim", enabled = true,
+        dir = "~/gitlocal/jzf.nvim",
+        dependencies = { "rktjmp/lush.nvim" },
         lazy = false, priority = 1000,
 
         config = function()
-            require("gruber-darker").setup({
-                bold = true,
-
-                invert = {
-                    signs = false,
-                    tabline = false,
-                    visual = false,
-                },
-
-                italic = {
-                    strings = false,
-                    comments = false,
-                    operators = false,
-                    folds = false,
-                },
-
-                undercurl = false,
-                underline = false,
-            })
-            vim.cmd.colorscheme("gruber-darker")
+            vim.cmd.colorscheme("jzf")
         end,
     },
 
     {
         "rktjmp/lush.nvim", enabled = true,
-        lazy = false
+        lazy = true,
     }
 }

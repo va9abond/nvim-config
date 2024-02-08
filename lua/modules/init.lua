@@ -12,6 +12,6 @@ return {
     },
 
     {
-        "lyokha/vim-xkbswitch", enabled = true,
+        "lyokha/vim-xkbswitch", enabled = false,
     },
 }

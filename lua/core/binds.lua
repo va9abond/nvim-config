@@ -49,6 +49,11 @@ map('n', '<C-w>z', '<C-w>|')
 
 
 -- ---------------------------------------------------------
+                                          -- Should not used
+-- map('n', '<C-w>z', '<C-w>|')
+
+
+-- ---------------------------------------------------------
                                              -- Panes resize
 vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -5<cr>')
 vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +5<cr>')

@@ -35,7 +35,7 @@ vim.opt.updatetime = 200
 ------------------------------------------------------------
                                                        -- UI
 vim.o.textwidth = 80
-vim.o.wrap = true
+vim.opt.wrap = true
 vim.o.linebreak = true
 vim.o.breakindent = true
 vim.opt.showbreak = string.rep(" ", 3)
@@ -49,7 +49,7 @@ vim.o.number = true
 vim.o.relativenumber = false
 
 vim.o.laststatus = 2
-vim.o.showmode = false
+vim.o.showmode = true
 vim.o.showtabline = 1
 vim.o.signcolumn = "yes"
 vim.o.termguicolors = true
@@ -104,6 +104,21 @@ local langmap_keys = {
   'яЯ;zZ', 'чЧ;xX', 'сС;cC', 'мМ;vV', 'иИ;bB', 'тТ;nN', 'ьЬ;mM', [[бБ;\,<]], 'юЮ;.>',
 }
 vim.opt.langmap = table.concat(langmap_keys, ',')
+
+
+------------------------------------------------------------
+                                        -- Highlight on yank
+local highlight_group =
+    vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+        callback = function()
+            vim.highlight.on_yank()
+        end,
+        group = highlight_group,
+        pattern = '*',
+    }
+)
 
 
 ------------------------------------------------------------
