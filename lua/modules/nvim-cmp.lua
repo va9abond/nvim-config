@@ -60,15 +60,16 @@ return {
 -- https://www.youtube.com/watch?v=1K1bNTOQi5g&list=PLOe6AggsTaVuIXZU4gxWJpIQNHMrDknfN&index=43
             sources = cmp.config.sources(
                 {
-                    { name = "nvim_lua", max_item_count = 9 },
-                    { name = "vimtex",   max_item_count = 5  },
-                    { name = "nvim_lsp", max_item_count = 9  },
-                    { name = "luasnip",  max_item_count = 8  },
+                    -- { name = "server_name", max_item_count = 9, keyword_length = 3 },
+                    { name = "nvim_lua" },
+                    { name = "vimtex" },
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
                     { name = "treesitter" },
                 },
                 {
-                    { name = "path"     },
-                    { name = "buffer", max_item_count = 4, keyword_length = 3 },
+                    { name = "path" },
+                    { name = "buffer", max_item_count = 5, keyword_length = 3 },
                 }
             ),
 

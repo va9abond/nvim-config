@@ -50,7 +50,6 @@ vim.o.relativenumber = false
 
 vim.o.laststatus = 2
 vim.o.showmode = true
-vim.o.showtabline = 1
 vim.o.signcolumn = "yes"
 vim.o.termguicolors = true
 vim.o.background = "dark"
