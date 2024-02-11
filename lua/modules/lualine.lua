@@ -70,17 +70,6 @@ return {
     "nvim-lualine/lualine.nvim", enabled = true,
     event = "VeryLazy",
 
-    init = function()
-        vim.g.lualine_laststatus = vim.o.laststatus
-        if vim.fn.argc(-1) > 0 then
-            -- set an empty statusline till lualine loads
-            vim.o.statusline = " "
-        else
-            -- hide the statusline on the starter page
-            vim.o.laststatus = 2
-        end
-    end,
-
     opts = function()
         return {
             options = {
@@ -118,9 +107,6 @@ return {
                     tabline = 1000,      -- to maintain between refresh. It's not guarantied if situation
                     winbar = 1000        -- arises that lualine needs to refresh itself before this time
                                          -- it'll do it.
-
-                        -- Also you can force lualine's refresh by calling refresh function
-                        -- like require('lualine').refresh()
                 },
             },
 
@@ -142,17 +128,7 @@ return {
                 lualine_z = {}
             },
 
-            -- winbar = {
-            --     lualine_z = {
-            --         {"filename", path = 4}
-            --     }
-            -- },
-            --
-            -- inactive_winbar = {
-            --     lualine_z = {
-            --         {"filename", path = 4}
-            --     }
-            -- },
+            -- winbar | inactive_winbar
 
             extensions = {}
         }
