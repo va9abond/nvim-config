@@ -1,10 +1,12 @@
 return {
-    "echasnovski/mini.pairs", enabled = false,
-    dependencies = {
-        'lyokha/vim-xkbswitch'
-    },
+    "echasnovski/mini.pairs", enabled = true,
     event = "VeryLazy",
-    opts = {},
+    opts = {
+        mappings = {
+            ['$'] = { action = 'open', pair = '$$', neigh_pattern = '[^\\].' },
+            ['$'] = { action = 'close', pair = '$$', neigh_pattern = '[^\\].' },
+        }
+    },
     keys = {
         {
             "<Bslash>mp",
