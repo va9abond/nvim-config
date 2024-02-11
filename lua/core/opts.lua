@@ -22,9 +22,9 @@ vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.history = 100
 
 vim.opt.showcmd = true
--- vim.opt.showmatch = true
+vim.opt.showmatch = false
 
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype plugin indent on")
 
 -- vim.o.autowrite = true
 -- vim.o.autoread = true
@@ -34,19 +34,19 @@ vim.opt.updatetime = 200
 
 ------------------------------------------------------------
                                                        -- UI
-vim.o.textwidth = 80
+vim.o.textwidth = 80 -- Do not auto break lines!
 vim.opt.wrap = true
 vim.o.linebreak = true
 vim.o.breakindent = true
 vim.opt.showbreak = string.rep(" ", 3)
 
-vim.o.colorcolumn = "+1"
+vim.o.colorcolumn = "81"
 vim.o.cursorline = false
 
 vim.o.list = true
-vim.opt.listchars:append { trail = "·" }
+vim.opt.listchars:append { trail = '·', --[[ eol = '↲' ]] }
 vim.o.number = true
-vim.o.relativenumber = false
+vim.o.relativenumber = true
 
 vim.o.laststatus = 2
 vim.o.showmode = true
