@@ -147,7 +147,7 @@ return {
 
     {
         "va9abond/colors.nvim", enabled = true,
-        dir = "~/gitlocal/jzf.nvim",
+        dir = "~/gitlocal/colors.nvim",
         dependencies = { "rktjmp/lush.nvim" },
         lazy = false, priority = 1000,
 
