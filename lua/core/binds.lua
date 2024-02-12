@@ -25,6 +25,13 @@ map({'t','c'}, "<C-d>", "<del>")
 
 
 -- ---------------------------------------------------------
+                                                  -- Buffers
+map('n', "[b", "<cmd>bprev<cr>")
+map('n', "]b", "<cmd>bnext<cr>")
+map('n', "<leader>b", "<cmd>ls<cr>")
+
+
+-- ---------------------------------------------------------
                                                -- Fast quite
 map('n', "<leader>x", "<cmd>bd<cr>")
 map('n', "<leader>q", "<cmd>q<cr>")
