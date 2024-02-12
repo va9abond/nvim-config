@@ -1,5 +1,5 @@
 return {
-    'stevearc/aerial.nvim',
+    "stevearc/aerial.nvim",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {
         attach_mode = "global", -- window

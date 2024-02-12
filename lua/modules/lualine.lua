@@ -1,67 +1,60 @@
-local colors = {
-    black       = '#000000',
-    white       = '#ffffff',
-    foreground  = '#e8e8d3',
-    background  = '#151515',
-    grey        = '#888888',
-    grey_one    = '#1c1c1c',
-    grey_two    = '#f0f0f0',
-    grey_three  = '#333333',
-    regent_grey = '#9098A0',
-    scorpion    = '#606060',
-    cod_grey    = '#101010',
-    ship_cove   = '#8197bf'
+local c = {
+    black       = "#000000",
+    white       = "#ffffff",
+    rice        = "#faf5ef",
+    pearl       = "#faf5ef",
+    grey        = "#888888",
 }
 
 
-local _mytheme = {
+local _custom = {
     normal = {
-        a = { bg = colors.black, fg = colors.grey },
-        b = { bg = colors.black, fg = colors.grey },
-        c = { bg = colors.black, fg = colors.grey },
-        x = { bg = colors.black, fg = colors.grey },
-        y = { bg = colors.black, fg = colors.grey },
-        z = { bg = colors.black, fg = colors.grey },
+        a = { bg = c.black, fg = c.grey },
+        b = { bg = c.black, fg = c.grey },
+        c = { bg = c.black, fg = c.grey },
+        x = { bg = c.black, fg = c.grey },
+        y = { bg = c.black, fg = c.grey },
+        z = { bg = c.black, fg = c.grey },
     },
     insert = {
-        a = { bg = colors.black, fg = colors.grey },
-        b = { bg = colors.black, fg = colors.grey },
-        c = { bg = colors.black, fg = colors.grey },
-        x = { bg = colors.black, fg = colors.grey },
-        y = { bg = colors.black, fg = colors.grey },
-        z = { bg = colors.black, fg = colors.grey },
+        a = { bg = c.black, fg = c.grey },
+        b = { bg = c.black, fg = c.grey },
+        c = { bg = c.black, fg = c.grey },
+        x = { bg = c.black, fg = c.grey },
+        y = { bg = c.black, fg = c.grey },
+        z = { bg = c.black, fg = c.grey },
     },
     visual = {
-        a = { bg = colors.black, fg = colors.grey },
-        b = { bg = colors.black, fg = colors.grey },
-        c = { bg = colors.black, fg = colors.grey },
-        x = { bg = colors.black, fg = colors.grey },
-        y = { bg = colors.black, fg = colors.grey },
-        z = { bg = colors.black, fg = colors.grey },
+        a = { bg = c.black, fg = c.grey },
+        b = { bg = c.black, fg = c.grey },
+        c = { bg = c.black, fg = c.grey },
+        x = { bg = c.black, fg = c.grey },
+        y = { bg = c.black, fg = c.grey },
+        z = { bg = c.black, fg = c.grey },
     },
     replace = {
-        a = { bg = colors.black, fg = colors.grey },
-        b = { bg = colors.black, fg = colors.grey },
-        c = { bg = colors.black, fg = colors.grey },
-        x = { bg = colors.black, fg = colors.grey },
-        y = { bg = colors.black, fg = colors.grey },
-        z = { bg = colors.black, fg = colors.grey },
+        a = { bg = c.black, fg = c.grey },
+        b = { bg = c.black, fg = c.grey },
+        c = { bg = c.black, fg = c.grey },
+        x = { bg = c.black, fg = c.grey },
+        y = { bg = c.black, fg = c.grey },
+        z = { bg = c.black, fg = c.grey },
     },
     command = {
-        a = { bg = colors.black, fg = colors.white, gui = "bold" },
-        b = { bg = colors.black, fg = colors.grey },
-        c = { bg = colors.black, fg = colors.grey },
-        x = { bg = colors.black, fg = colors.grey },
-        y = { bg = colors.black, fg = colors.grey },
-        z = { bg = colors.black, fg = colors.grey },
+        a = { bg = c.black, fg = c.white, gui = "bold" },
+        b = { bg = c.black, fg = c.grey },
+        c = { bg = c.black, fg = c.grey },
+        x = { bg = c.black, fg = c.grey },
+        y = { bg = c.black, fg = c.grey },
+        z = { bg = c.black, fg = c.grey },
     },
     innactive = {
-        a = { bg = colors.black, fg = colors.grey },
-        b = { bg = colors.black, fg = colors.grey },
-        c = { bg = colors.black, fg = colors.grey },
-        x = { bg = colors.black, fg = colors.grey },
-        y = { bg = colors.black, fg = colors.grey },
-        z = { bg = colors.black, fg = colors.grey },
+        a = { bg = c.black, fg = c.grey },
+        b = { bg = c.black, fg = c.grey },
+        c = { bg = c.black, fg = c.grey },
+        x = { bg = c.black, fg = c.grey },
+        y = { bg = c.black, fg = c.grey },
+        z = { bg = c.black, fg = c.grey },
     },
 }
 
@@ -74,7 +67,7 @@ return {
         return {
             options = {
                 icons_enabled = true,
-                theme = _mytheme,
+                theme = _custom,
                 disabled_filetypes = {
                     statusline = {
                         "dashboard", "alpha", "starter", "pdf", "aerial",
@@ -111,21 +104,21 @@ return {
             },
 
             sections = {
-                lualine_a = {"branch"},
-                lualine_b = {{"filename", path = 4}},
-                lualine_c = {"diff", "diagnostics"},
-                lualine_x = {"aerial"},
-                lualine_y = {"location"}, -- fileformat | filetype | encoding
-                lualine_z = {"progress"}
+                lualine_a = { "branch" },
+                lualine_b = { {"filename", path = 4} },
+                lualine_c = { "diff", "diagnostics" },
+                lualine_x = { "aerial" },
+                lualine_y = { "location" }, -- fileformat | filetype | encoding
+                lualine_z = { "progress" }
             },
 
             inactive_sections = {
-                lualine_a = {"branch"},
-                lualine_b = {"filename"},
-                lualine_c = {"diff"},
-                lualine_x = {},
-                lualine_y = {},
-                lualine_z = {}
+                lualine_a = { "branch" },
+                lualine_b = { "filename" },
+                lualine_c = { "diff" },
+                lualine_x = { },
+                lualine_y = { },
+                lualine_z = { }
             },
 
             -- winbar | inactive_winbar
