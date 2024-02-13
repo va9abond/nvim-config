@@ -69,7 +69,7 @@ vim.o.cindent     = true -- C style indenting
 
 vim.o.formatoptions = 'rqnl1j' -- Improve comment editing
 
-vim.o.hlsearch   = false -- see :h 'hlsearch'
+vim.o.hlsearch   = true  -- see :h 'hlsearch'
 vim.o.smartcase  = false -- see :h 'smartcase'
 vim.o.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.o.incsearch  = true  -- Show search results while typing

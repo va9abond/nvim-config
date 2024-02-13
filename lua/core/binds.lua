@@ -5,6 +5,7 @@ end
 -- ---------------------------------------------------------
 vim.g.mapleader = ';'
 vim.g.maplocalleader = ';'
+map('n', "<leader><leader>", "<cmd>Ex<cr>")
 -- ---------------------------------------------------------
                                         -- Insert mode binds
 map('i', "jk", "<esc>")
