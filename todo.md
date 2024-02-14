@@ -5,8 +5,6 @@
 
 [ ] symbols-outline.nvim
 
-[ ] mini.surround
+[x] mini.surround
 
-[ ] refactor keymaps
-
-
+[x] refactor keymaps

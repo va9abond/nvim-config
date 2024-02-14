@@ -2,7 +2,11 @@ local plugins_table = {
 ------------------------------------------------------------
                                              -- plenary.nvim
     {
-        "nvim-lua/plenary.nvim", cond = true, lazy = false
+        "nvim-lua/plenary.nvim", cond = true, lazy = true
+    },
+
+    {
+        "nvim-tree/nvim-web-devicons", cond = true, lazy = true
     },
 
 
@@ -56,7 +60,7 @@ local plugins_table = {
 ------------------------------------------------------------
                                                -- Treesitter
    {
-       "nvim-treesitter/nvim-treesitter", enabled = true, lazy = true,
+       "nvim-treesitter/nvim-treesitter", cond = true, lazy = true,
        build = ":TSUpdate", version = false,
        event = { "BufReadPost", "BufWritePost", "BufNewFile" , "VeryLazy" },
        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
@@ -78,7 +82,7 @@ local plugins_table = {
     },
 
     {
-        "p00f/clangd_extensions.nvim", enabled = true, lazy = true,
+        "p00f/clangd_extensions.nvim", cond = true, lazy = true,
         config = function()
             require("plugins.config.clangd_extensions")
         end,
@@ -93,11 +97,28 @@ local plugins_table = {
         end,
     },
 
+    {
+        "phaazon/hop.nvim", cond = false, lazy = true,
+        event = "VeryLazy",
+        branch = "v2",
+
+        opts = {
+            keys = "eovqpdgflhckisuran",
+        },
+
+        keys = {
+            { "<space>h", "<cmd>HopWord<cr>", 'n' },
+            { "<space>l", "<cmd>HopLine<cr>", 'n' },
+        },
+    },
+
+
 ------------------------------------------------------------
                                               -- Colorscheme
+    -- lazy = true, priority = 1000 (should be for main colorscheme)
     { -- TODO change opts to separate config
-        "rose-pine/neovim", enabled = true, lazy = false,
-        priority = 1000,
+        "rose-pine/neovim", cond = true,
+        lazy = true, --[[ priority = 1000, ]]
         name = "rose-pine",
         opts = {
             -- Change specific vim highlight groups
@@ -118,14 +139,14 @@ local plugins_table = {
     },
 
     {
-        "metalelf0/jellybeans-nvim", enabled = true, lazy = false,
-        priority = 1000,
+        "metalelf0/jellybeans-nvim", cond = true,
+        lazy = true, --[[ priority = 1000, ]]
         dependencies = { "rktjmp/lush.nvim" },
     },
 
     {
-        dir = "~/gitlocal/colors.nvim", enabled = true, lazy = false,
-        priority = 1000,
+        dir = "~/gitlocal/colors.nvim", enabled = true,
+        lazy = false, priority = 1000,
         dependencies = { "rktjmp/lush.nvim" },
 
         config = function()
@@ -134,8 +155,8 @@ local plugins_table = {
     },
 
     {
-        "blazkowolf/gruber-darker.nvim", enabled = true, lazy = false,
-        priority = 1000,
+        "blazkowolf/gruber-darker.nvim", cond = true,
+        lazy = true, --[[ priority = 1000, ]]
         name = "blazkowolf-gruber-darker",
         config = function()
             require("plugins.config.gruber-darker")

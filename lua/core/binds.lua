@@ -5,7 +5,6 @@ end
 -- ---------------------------------------------------------
 vim.g.mapleader = ';'
 vim.g.maplocalleader = ';'
-map('n', "<leader><leader>", "<cmd>Ex<cr>")
 -- ---------------------------------------------------------
                                         -- Insert mode binds
 map('i', "jk", "<esc>")
@@ -31,10 +30,12 @@ map('n', "[b", "<cmd>bprev<cr>")
 map('n', "]b", "<cmd>bnext<cr>")
 map('n', "<leader>b", "<cmd>ls<cr>")
 
+-- map('n', "<leader>x", "<cmd>bd<cr>")
+-- <leader>bd = delete buffer (mini-bufremove)
+
 
 -- ---------------------------------------------------------
                                                -- Fast quite
-map('n', "<leader>x", "<cmd>bd<cr>")
 map('n', "<leader>q", "<cmd>q<cr>")
 
 
@@ -92,7 +93,7 @@ map('n', "<leader>P", [["+P]])
                        -- Where do black hole register lead?
 map('n', 'x', '"_x')
 -- ---------------------------------------------------------
-map({'n', 'v'}, "<Space>", "<Nop>", { silent = true })
+map({'n', 'v'}, "<Space>", "<Nop>")
 
 vim.keymap.set({'n', 'v'}, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set({'n', 'v'}, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -149,10 +150,10 @@ map('x', '>', '>gv')
 -- ---------------------------------------------------------
              -- Reselect the text that has just been pasted;
          -- see https://stackoverflow.com/a/4317090/6064933
-map('n', "<leader>v", "printf('`[%s`]', getregtype()[0])", {
-	expr = true,
-	desc = "reselect last pasted area",
-})
+vim.keymap.set(
+    'n', "<leader>v", "printf('`[%s`]', getregtype()[0])",
+    { expr = true, desc = "reselect last pasted area" }
+)
 
 
 -- ---------------------------------------------------------
