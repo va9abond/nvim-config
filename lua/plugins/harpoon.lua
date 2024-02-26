@@ -22,7 +22,7 @@ return {
         },
 
         menu = {
-            width = vim.api.nvim_win_get_width(0) * 0.5
+            width = vim.api.nvim_win_get_width(0) - 40
         },
     },
 
