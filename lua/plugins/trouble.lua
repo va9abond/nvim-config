@@ -17,7 +17,7 @@ return {
         { "<space>dw", function() require("trouble").toggle("workspace_diagnostics") end, mode = "n" },
         { "<space>dq", function() require("trouble").toggle("quickfix") end, mode = "n" },
         { "<space>dl", function() require("trouble").toggle("loclist") end, mode = "n" },
-        { "gr", function() require("trouble").toggle("lsp_references") end, mode = "n" },
+        -- { "gr", function() require("trouble").toggle("lsp_references") end, mode = "n" },
         {
             "[q", -- prev quickfix item
             function()

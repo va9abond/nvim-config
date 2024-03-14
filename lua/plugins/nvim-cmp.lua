@@ -141,7 +141,8 @@ return {
             sources = cmp.config.sources({
                 { name = 'path' },
             }, {
-                { name = 'cmdline', max_item_count = 13 }
+                -- { name = 'cmdline', max_item_count = 13 }
+                { name = 'cmdline' }
             })
         })
         ------------------------------------------------------------

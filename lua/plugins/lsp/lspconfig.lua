@@ -73,13 +73,18 @@ return {
                 -- Attach mappings to buffer
                 local opts = { buffer = bufnr, noremap = true, silent = true }
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-                vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 
-                -- gr function() require("trouble").toggle("lsp_references")
+                -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+                vim.keymap.set('n', 'gd', function() require("trouble").toggle("lsp_definitions") end)
+
+                -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+                vim.keymap.set('n', 'gi', function() require("trouble").toggle("lsp_implementations") end)
+
                 -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                vim.keymap.set('n', 'gr', function() require("trouble").toggle("lsp_references") end)
 
-                vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+                -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+                vim.keymap.set('n', '<space>D', function() require("trouble").toggle("lsp_type_definitions") end)
 
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
                 vim.keymap.set('n', '<space><C-k>', vim.lsp.buf.signature_help, opts)
