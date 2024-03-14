@@ -126,7 +126,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 ------------------------------------------------------------
                                                     -- Folds
-vim.g.markdown_folding = 1   -- Use folding by heading in markdown files
+vim.g.markdown_folding = 0   -- Use folding by heading in markdown files
 
 
 ------------------------------------------------------------
