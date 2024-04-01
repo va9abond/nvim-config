@@ -25,7 +25,7 @@ return {
         vim.g.vimtex_compiler_silent = 0
         vim.g.vimtex_compiler_latexmk = {
             options = {
-                -- '-aux-directory=aux',
+                '-aux-directory=aux',
                 -- '-include-directory=~/.latex-template/inc',
                 -- '-output-directory=out',
                 '-verbose',

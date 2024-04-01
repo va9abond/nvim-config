@@ -1,8 +1,9 @@
 return {
+
     "nvim-treesitter/nvim-treesitter", cond = true,
 
-    lazy = true,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" , "VeryLazy" },
+    lazy = false,
+    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 
     build = ":TSUpdate", version = false,
@@ -24,17 +25,6 @@ return {
 
         highlight = {
             enable = true,
-
-            disable = function(lang, buf)
-                print("file too large for tresitter")
-
-                local max_filesize = 100 * 1024 -- 100 KB
-                local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-                if ok and stats and stats.size > max_filesize then
-                    return true
-                end
-            end,
-
             additional_vim_regex_highlighting = false,
         },
 
