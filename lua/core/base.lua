@@ -3,7 +3,7 @@
 vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
 vim.opt.timeoutlen   = 1500
-vim.opt.updatetime = 750
+vim.opt.updatetime   = 750
 ------------------------------------------------------------
                                                   -- General
 vim.opt.encoding = "utf-8"
@@ -67,13 +67,15 @@ vim.o.tabstop     = 4    -- Insert X spaces for a tab
 vim.o.smartindent = true -- Make indenting smart
 vim.o.cindent     = true -- C style indenting
 
-vim.o.formatoptions = 'rqnl1j' -- Improve comment editing
+vim.opt.formatoptions = 'rqnl1j' -- Improve comment editing
 
 vim.o.hlsearch   = true  -- see :h 'hlsearch'
 vim.o.smartcase  = false -- see :h 'smartcase'
 vim.o.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.o.incsearch  = true  -- Show search results while typing
 vim.o.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
+
+vim.opt.cursorline = true
 
 vim.o.virtualedit = 'block' -- Allow going past the end of line in visual block mode
 
