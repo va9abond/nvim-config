@@ -1,5 +1,5 @@
 return {
-    "phaazon/hop.nvim", cond = true, lazy = false,
+    "phaazon/hop.nvim", cond = false, lazy = false,
     branch = "v2",
 
     opts = {

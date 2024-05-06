@@ -8,17 +8,17 @@ vim.opt.updatetime   = 750
                                                   -- General
 vim.opt.encoding = "utf-8"
 
-vim.o.backup      = false    -- Don't store backup
-vim.o.writebackup = false    -- Don't store backup
-vim.o.switchbuf   = 'usetab' -- Use already opened buffers when switching
-vim.o.hidden      = true
-vim.o.swapfile    = false
+vim.opt.backup      = false    -- Don't store backup
+vim.opt.writebackup = false    -- Don't store backup
+vim.opt.switchbuf   = 'usetab' -- Use already opened buffers when switching
+vim.opt.hidden      = true
+vim.opt.swapfile    = false
 
-vim.o.mouse     = 'a' -- Enable mouse
-vim.o.scrolloff = 8   -- Hold X lines in the bottom when scrolling
+vim.opt.mouse     = 'a' -- Enable mouse
+vim.opt.scrolloff = 8   -- Hold X lines in the bottom when scrolling
 
-vim.o.undofile = true -- Enable persistent undo
-vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true -- Enable persistent undo
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 vim.opt.history = 100
 
@@ -27,57 +27,57 @@ vim.cmd('filetype plugin indent on') -- Enable all filetype plugins
 
 ------------------------------------------------------------
                                                        -- UI
-vim.o.textwidth   = 80
-vim.o.wrap        = true  -- Wrap long lines when it doesn't fit in window
-vim.o.linebreak   = false -- Do not break long lines at 'breakat' (if 'wrap' is set)
-vim.o.breakindent = true  -- Indent wrapped lines to match line start
+vim.opt.textwidth   = 80
+vim.opt.wrap        = true  -- Wrap long lines when it doesn't fit in window
+vim.opt.linebreak   = false -- Do not break long lines at 'breakat' (if 'wrap' is set)
+vim.opt.breakindent = true  -- Indent wrapped lines to match line start
 vim.opt.showbreak = string.rep(" ", 3)
 
-vim.o.colorcolumn = "+1" -- 'textwidth' + 1
-vim.o.cursorline = false -- Switch highlighting of the current line
+vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
+vim.opt.cursorline = false -- Switch highlighting of the current line
 
-vim.o.list = true
+vim.opt.list = true
 vim.opt.listchars:append { trail = '·', --[[ eol = '↲' ]] }
 
-vim.o.number         = true
-vim.o.relativenumber = false
+vim.opt.number         = true
+vim.opt.relativenumber = false
 
-vim.o.laststatus = 2     -- Always show statusline
-vim.o.showmode   = true  -- Show -- INSERT --, -- REPLACE --, ... in cmdline
-vim.o.signcolumn = "yes" -- Always show sighcolumn
+vim.opt.laststatus = 2     -- Always show statusline
+vim.opt.showmode   = true  -- Show -- INSERT --, -- REPLACE --, ... in cmdline
+vim.opt.signcolumn = "yes" -- Always show sighcolumn
 
-vim.o.termguicolors = true   -- Switch gui colors
-vim.o.background    = "dark" -- Set dark background
+vim.opt.termguicolors = true   -- Switch gui colors
+vim.opt.background    = "dark" -- Set dark background
 
-vim.o.splitbelow = true
-vim.o.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 if vim.fn.has("nvim-0.9") == 1 then
 -- cursor (def) | screen (stabilize text) | topline (stabilize topline)
-    vim.o.splitkeep = "screen"
+    vim.opt.splitkeep = "screen"
 end
 
 
 ------------------------------------------------------------
                                                    -- Editor
-vim.o.autoindent  = true -- Use auto indent
-vim.o.expandtab   = true -- Use spaces instead of tabs
-vim.o.shiftwidth  = 4    -- Shift lines with '>/<' on X chars
-vim.o.tabstop     = 4    -- Insert X spaces for a tab
-vim.o.smartindent = true -- Make indenting smart
-vim.o.cindent     = true -- C style indenting
+vim.opt.autoindent  = true -- Use auto indent
+vim.opt.expandtab   = true -- Use spaces instead of tabs
+vim.opt.shiftwidth  = 4    -- Shift lines with '>/<' on X chars
+vim.opt.tabstop     = 4    -- Insert X spaces for a tab
+vim.opt.smartindent = true -- Make indenting smart
+vim.opt.cindent     = true -- C style indenting
 
 vim.opt.formatoptions = 'rqnl1j' -- Improve comment editing
 
-vim.o.hlsearch   = true  -- see :h 'hlsearch'
-vim.o.smartcase  = false -- see :h 'smartcase'
-vim.o.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
-vim.o.incsearch  = true  -- Show search results while typing
-vim.o.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
+vim.opt.hlsearch   = true  -- see :h 'hlsearch'
+vim.opt.smartcase  = false -- see :h 'smartcase'
+vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
+vim.opt.incsearch  = true  -- Show search results while typing
+vim.opt.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
 
 vim.opt.cursorline = true
 
-vim.o.virtualedit = 'block' -- Allow going past the end of line in visual block mode
+vim.opt.virtualedit = "block" -- Allow going past the end of line in visual block mode
 
 vim.opt.iskeyword:append('-') -- Treat dash separated words as a word text object
 
@@ -86,7 +86,7 @@ vim.opt.iskeyword:append('-') -- Treat dash separated words as a word text objec
 -- least one special character (digit, -, +, *) possibly followed some
 -- punctuation (. or `)`) followed by at least one space is a start of list
 -- item'
-vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+vim.opt.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
 
 
 ------------------------------------------------------------
@@ -99,8 +99,8 @@ end
 ------------------------------------------------------------
                                                     -- Spell
 vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
-vim.o.spelllang     = "en,ru"
-vim.o.spelloptions  = "camel"
+vim.opt.spelllang     = "en,ru"
+vim.opt.spelloptions  = "camel"
 
 local langmap_keys = {
   'ёЁ;`~', '№;#',
