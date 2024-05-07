@@ -2,19 +2,17 @@
                                                -- Leader Key
 vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
-vim.opt.timeoutlen   = 1500
-vim.opt.updatetime   = 750
+vim.opt.timeoutlen   = 1000
+vim.opt.updatetime   = 450
 ------------------------------------------------------------
                                                   -- General
 vim.opt.encoding = "utf-8"
+vim.opt.isfname:append("@-@")
 
 vim.opt.backup      = false    -- Don't store backup
-vim.opt.writebackup = false    -- Don't store backup
-vim.opt.switchbuf   = 'usetab' -- Use already opened buffers when switching
 vim.opt.hidden      = true
 vim.opt.swapfile    = false
 
-vim.opt.mouse     = 'a' -- Enable mouse
 vim.opt.scrolloff = 8   -- Hold X lines in the bottom when scrolling
 
 vim.opt.undofile = true -- Enable persistent undo
@@ -22,28 +20,23 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 vim.opt.history = 100
 
-vim.cmd('filetype plugin indent on') -- Enable all filetype plugins
-
 
 ------------------------------------------------------------
                                                        -- UI
 vim.opt.textwidth   = 80
 vim.opt.wrap        = true  -- Wrap long lines when it doesn't fit in window
-vim.opt.linebreak   = false -- Do not break long lines at 'breakat' (if 'wrap' is set)
+vim.opt.linebreak   = true  -- Do not break long lines at 'breakat' (if 'wrap' is set)
 vim.opt.breakindent = true  -- Indent wrapped lines to match line start
 vim.opt.showbreak = string.rep(" ", 3)
 
 vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
-vim.opt.cursorline = false -- Switch highlighting of the current line
-
+vim.opt.cursorline = true  -- Switch highlighting of the current line
 vim.opt.list = true
-vim.opt.listchars:append { trail = '·', --[[ eol = '↲' ]] }
+vim.opt.listchars:append { tab = '→ ', trail = '·',  --[[ eol = '↲' ]] }
 
 vim.opt.number         = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
-vim.opt.laststatus = 2     -- Always show statusline
-vim.opt.showmode   = true  -- Show -- INSERT --, -- REPLACE --, ... in cmdline
 vim.opt.signcolumn = "yes" -- Always show sighcolumn
 
 vim.opt.termguicolors = true   -- Switch gui colors
@@ -60,26 +53,19 @@ end
 
 ------------------------------------------------------------
                                                    -- Editor
-vim.opt.autoindent  = true -- Use auto indent
-vim.opt.expandtab   = true -- Use spaces instead of tabs
-vim.opt.shiftwidth  = 4    -- Shift lines with '>/<' on X chars
-vim.opt.tabstop     = 4    -- Insert X spaces for a tab
-vim.opt.smartindent = true -- Make indenting smart
-vim.opt.cindent     = true -- C style indenting
-
-vim.opt.formatoptions = 'rqnl1j' -- Improve comment editing
+vim.opt.expandtab   = true  -- Use spaces instead of tabs
+vim.opt.tabstop     = 4     -- Insert X spaces for a tab
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth  = 4     -- Shift lines with '>/<' on X chars
+-- vim.opt.autoindent  = true  -- Use auto indent
+vim.opt.smartindent = true  -- Make indenting smart
+-- vim.opt.cindent     = true  -- C style indenting
 
 vim.opt.hlsearch   = true  -- see :h 'hlsearch'
 vim.opt.smartcase  = false -- see :h 'smartcase'
 vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.opt.incsearch  = true  -- Show search results while typing
-vim.opt.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
-
-vim.opt.cursorline = true
-
-vim.opt.virtualedit = "block" -- Allow going past the end of line in visual block mode
-
-vim.opt.iskeyword:append('-') -- Treat dash separated words as a word text object
+-- vim.opt.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
 
 -- Define pattern for a start of 'numbered' list. This is responsible for
 -- correct formatting of lists when using `gw`. This basically reads as 'at
@@ -130,11 +116,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 
 ------------------------------------------------------------
-                                                    -- Folds
-vim.g.markdown_folding = 0   -- Use folding by heading in markdown files
-
-
-------------------------------------------------------------
                                                     -- Netrw
 vim.g.netrw_banner = 0
 -- vim.g.netrw_liststyle = 3
@@ -144,6 +125,3 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_localcopydircmd = 'cp -r'
 
 -- https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
-------------------------------------------------------------
-                                                -- Reference
--- https://github.com/echasnovski/nvim/blob/master/src/settings.lua
