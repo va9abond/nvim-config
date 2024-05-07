@@ -82,7 +82,7 @@ map('x', 'A', ":<C-U>normal! ggVG<CR>")
 
 -- ---------------------------------------------------------
 map({'v', 'n'}, "<leader>y", [["+y]])
-map({'n', 'v'}, "<leader>d", [["+d]])
+map({'n', 'v'}, "<leader>d", [["_d]])
 map({'n', 'v'}, "<leader>p", [["+p]])
 map('n', "<leader>Y", [["+Y]])
 map('n', "<leader>D", [["+D]])
@@ -180,4 +180,3 @@ map('x', 'p', '"_c<Esc>p')
     -- Tj DeVries
     -- asbjornHaland,
     -- sdaschner
-
