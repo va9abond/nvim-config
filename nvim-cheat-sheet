@@ -1,0 +1,17 @@
+------------------------------------------------------------
+                                                         LSP
+gd - n - trouble.lsp_definitions
+K  - n - vim.lsp.buf.hover
+gi - n - trouble.lsp_implementations
+gr - n - trouble.lsp_references
+gD - n - vim.lsp.buf.declaration
+[d - n - vim.diagnostic.goto_prev
+]d - n - vim.diagnostic.goto_next
+<space>D     - n - trouble.lsp_type_definitions
+<space><C-k> - n - vim.lsp.buf.signature_help
+<space>wa    - n - vim.lsp.buf.add_workspace_folder
+<space>wr    - n - vim.lsp.buf.remove_workspace_folder
+<space>wl    - n - print vim.lsp.buf.list_workspace_folders
+<space>ca    - n - vim.lsp.buf.code_action
+<space>e     - n - vim.diagnostic.open_float
+<space>rn    - n - vim.lsp.buf.rename
