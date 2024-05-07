@@ -6,6 +6,7 @@ return {
     opts = {
         highlight_duration = 2000,
         mappings = {
+            -- TODO: change mapping for add surround to not conflict with yank
             add = 'ys', -- Add surrounding in Normal and Visual modes
             delete = 'ds', -- Delete surrounding
             find = '', -- Find surrounding (to the right)

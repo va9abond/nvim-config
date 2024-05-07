@@ -72,6 +72,7 @@ return {
 
                 -- Attach mappings to buffer
                 local opts = { buffer = bufnr, noremap = true, silent = true }
+
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 
                 -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
