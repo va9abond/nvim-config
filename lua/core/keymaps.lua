@@ -102,8 +102,8 @@ vim.keymap.set({'n', 'v'}, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, sile
                              -- Fix * (Keep cursor position,
                                 -- don't move to next match)
 map('n', '*', "*N")
-map('n', 'n', "nzz")
-map('n', 'N', "Nzz")
+map('n', 'n', "nzzzv")
+map('n', 'N', "Nzzzv")
 
 
 -- ---------------------------------------------------------
