@@ -7,7 +7,6 @@ vim.opt.updatetime   = 450
 ------------------------------------------------------------
                                                   -- General
 vim.opt.encoding = "utf-8"
-vim.opt.isfname:append("@-@")
 
 vim.opt.backup      = false    -- Don't store backup
 vim.opt.hidden      = true
@@ -66,20 +65,6 @@ vim.opt.smartcase  = false -- see :h 'smartcase'
 vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.opt.incsearch  = true  -- Show search results while typing
 -- vim.opt.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
-
--- Define pattern for a start of 'numbered' list. This is responsible for
--- correct formatting of lists when using `gw`. This basically reads as 'at
--- least one special character (digit, -, +, *) possibly followed some
--- punctuation (. or `)`) followed by at least one space is a start of list
--- item'
-vim.opt.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-
-
-------------------------------------------------------------
-                                         -- Syntax Highlight
-if vim.fn.exists('syntax_on') ~= 1 then
-    vim.cmd('syntax enable')
-end
 
 
 ------------------------------------------------------------
