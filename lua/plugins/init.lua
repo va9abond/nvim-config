@@ -21,7 +21,7 @@ return {
     {
         "mbbill/undotree", cond = true,
         keys = {
-            { "<space>u", "<cmd>UndotreeToggle<cr>", mode = "n" },
+            { "<leader>u", "<cmd>UndotreeToggle<cr>", mode = "n" },
         },
     },
 ------------------------------------------------------------
