@@ -31,12 +31,11 @@ vim.opt.showbreak = string.rep(" ", 3)
 vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
 vim.opt.cursorline = true  -- Switch highlighting of the current line
 vim.opt.list = true
-vim.opt.listchars:append { tab = '→ ', trail = '·',  --[[ eol = '↲' ]] }
-
+vim.opt.listchars:append { tab = '→ ', trail = '·',  --[[ eol = '↲' ]] } -- NOTE: leadmultispace??
 vim.opt.number         = true
 vim.opt.relativenumber = true
 
-vim.opt.signcolumn = "yes" -- Always show sighcolumn
+vim.opt.signcolumn = "yes" -- Always show signcolumn
 
 vim.opt.termguicolors = true   -- Switch gui colors
 vim.opt.background    = "dark" -- Set dark background
