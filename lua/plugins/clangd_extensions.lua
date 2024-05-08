@@ -1,5 +1,5 @@
 return {
-    "p00f/clangd_extensions.nvim", cond = true, lazy = true,
+    "p00f/clangd_extensions.nvim", cond = false, lazy = true,
     opts = {
         inlay_hints = {
             inline = false,

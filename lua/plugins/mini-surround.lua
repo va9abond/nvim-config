@@ -7,12 +7,12 @@ return {
         highlight_duration = 2000,
         mappings = {
             -- TODO: change mapping for add surround to not conflict with yank
-            add = 'ys', -- Add surrounding in Normal and Visual modes
-            delete = 'ds', -- Delete surrounding
+            add = 'sa', -- Add surrounding in Normal and Visual modes
+            delete = 'sd', -- Delete surrounding
             find = '', -- Find surrounding (to the right)
             find_left = '', -- Find surrounding (to the left)
             highlight = '', -- Highlight surrounding
-            replace = 'cs', -- Replace surrounding
+            replace = 'sc', -- Replace surrounding
             update_n_lines = '', -- Update `n_lines`
 
             suffix_last = '', -- Suffix to search with "prev" method

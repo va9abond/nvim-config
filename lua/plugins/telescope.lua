@@ -1,5 +1,5 @@
 return {
-    "nvim-telescope/telescope.nvim", cond = true, lazy = true,
+    "nvim-telescope/telescope.nvim", cond = false, lazy = true,
     cmd = "Telescope",
     version = false,
 

@@ -1,5 +1,5 @@
 return {
-    "folke/trouble.nvim", cond = true, lazy = true,
+    "folke/trouble.nvim", cond = false, lazy = true,
     cmd = { "TroubleToggle", "Trouble" },
     dependencies = { "nvim-tree/nvim-web-devicons" },
 

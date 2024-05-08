@@ -62,7 +62,7 @@ local custom = {
 
 
 return {
-    "nvim-lualine/lualine.nvim", cond = true, lazy = true,
+    "nvim-lualine/lualine.nvim", cond = false, lazy = true,
     event = "VeryLazy",
 
     opts = {

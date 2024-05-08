@@ -1,6 +1,6 @@
 return {
     "hrsh7th/nvim-cmp", cond = true, lazy = true,
-    event = { "InsertEnter" },
+    event = { "InsertEnter", "CmdlineEnter" },
     version = false,
 
     dependencies = {
@@ -77,7 +77,7 @@ return {
                     cmp.config.compare.score,
                     cmp.config.compare.recently_used,
 
-                    require("clangd_extensions.cmp_scores"),
+                    -- require("clangd_extensions.cmp_scores"),
 
                     function(entry1, entry2)
                         local _, entry1_under = entry1.completion_item.label:find "^_+"

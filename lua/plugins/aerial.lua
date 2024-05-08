@@ -1,5 +1,5 @@
 return {
-    "stevearc/aerial.nvim", cond = true, lazy = true,
+    "stevearc/aerial.nvim", cond = false, lazy = true,
 
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 

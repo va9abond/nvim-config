@@ -1,11 +1,11 @@
 return {
-    "echasnovski/mini.bufremove", cond = true, lazy = true,
+    "echasnovski/mini.bufremove", cond = false, lazy = true,
     version = false,
     config = true,
 
     keys = {
         {
-            "<leader>x",
+            "<leader>bd",
             function()
                 local bd = require("mini.bufremove").delete
                 if vim.bo.modified then

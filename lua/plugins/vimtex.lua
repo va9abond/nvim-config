@@ -1,5 +1,5 @@
 return {
-    "lervag/vimtex", cond = true, lazy = true, ft = { "tex" },
+    "lervag/vimtex", cond = false, lazy = true, ft = { "tex" },
 
     config = function()
         vim.g.tex_flavor = "latex"
