@@ -6,18 +6,27 @@ end
 vim.g.mapleader = ';'
 vim.g.maplocalleader = ';'
 -- ---------------------------------------------------------
+map({'n', 'v'}, "<Space>", "<Nop>")
                                         -- Insert mode binds
 map('i', "jk", "<esc>")
 map('i', "<C-d>", "<del>")
+-- map('i', "<C-h>", "<Left>")
+-- map('i', "<C-l>", "<Right>")
+-- map('i', "<C-j>", "<S-Left>")
+-- map('i', "<C-k>", "<S-Right>")
 
 
 -- ---------------------------------------------------------
                                   -- Command-line mode binds
-map({'t','c'}, "<C-h>", "<Left>")
-map({'t','c'}, "<C-l>", "<Right>")
-map({'t','c'}, "<C-j>", "<S-Left>")
-map({'t','c'}, "<C-k>", "<S-Right>")
-map({'t','c'}, "<C-d>", "<del>")
+map('c', "<C-h>", "<Left>")
+map('c', "<C-l>", "<Right>")
+map('c', "<C-j>", "<S-Left>")
+map('c', "<C-k>", "<S-Right>")
+
+map('c', "<C-d>", "<del>")
+
+-- map('c', '<C-p>', '<Up>')
+-- map('c', '<C-n>', '<Down>')
 
 
 -- ---------------------------------------------------------
@@ -25,14 +34,18 @@ map({'t','c'}, "<C-d>", "<del>")
 map('n', "[b", "<cmd>bprev<cr>")
 map('n', "]b", "<cmd>bnext<cr>")
 map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
+-- map('n', "<leader>bd", "<cmd>bd<cr>") -- check mini-bufremove (to save layout)
+map('n', "<leader>x", "<cmd>bd<cr>") -- buffer delete + close window
 
--- map('n', "<leader>x", "<cmd>bd<cr>")
--- <leader>x = buffer delete (mini-bufremove)
+
+map('n', "<leader>tn", "<cmd>tabnew<cr>") -- tab new
+map('n', "<leader>tc", "<cmd>tabclose<cr>") -- tab close
+-- map('n', "<leader>tl", "<cmd>ls<cr>") -- tab list
 
 
 -- ---------------------------------------------------------
                                                -- Fast quite
-map('n', "<leader>q", "<cmd>q<cr>")
+-- map('n', "<leader>q", "<cmd>q<cr>")
 
 
 -- ---------------------------------------------------------
@@ -44,7 +57,18 @@ map('n', "<S-Enter>", "O<ESC>")
 -- ---------------------------------------------------------
                                              -- Split window
 map('n', "<C-w>v", "<CMD>vsplit<CR>")
-map('n', "<C-w>x", "<CMD>split<CR>")
+-- map('n', "<C-w>x", "<CMD>split<CR>") -- <C-w>s originally
+
+-- <C-w>n - create new window with empty file as (:new)
+-- <C-w>q - similar to :q
+-- <C-w>o - make the current window the only one on the screen. All other
+         -- windows are closed
+-- <C-w>w - next-layout window
+-- <C-w>W - prev-layout window
+-- <C-w>t - top-left window
+-- <C-w>b - bottom-right window
+-- <C-w>p - last accessed window
+-- <C-w>P - go to preview window
 
 
 -- ---------------------------------------------------------
@@ -62,10 +86,10 @@ map('n', "<C-Down>", "<cmd>res +5<cr>")
 
 -- ---------------------------------------------------------
                                          -- Panes navigation
-map({'n', 'i'}, "<C-h>", "<C-w><C-h>")
-map({'n', 'i'}, "<C-j>", "<C-w><C-j>")
-map({'n', 'i'}, "<C-k>", "<C-w><C-k>")
-map({'n', 'i'}, "<C-l>", "<C-w><C-l>")
+map('n', "<C-h>", "<C-w><C-h>")
+map('n', "<C-j>", "<C-w><C-j>")
+map('n', "<C-k>", "<C-w><C-k>")
+map('n', "<C-l>", "<C-w><C-l>")
 
 
 -- ---------------------------------------------------------
@@ -77,9 +101,9 @@ map('x', 'A', ":<C-U>normal! ggVG<CR>")
 
 
 -- ---------------------------------------------------------
-map({'v', 'n'}, "<leader>y", [["+y]])
-map({'n', 'v'}, "<leader>d", [["_d]])
+map({'n', 'v'}, "<leader>y", [["+y]])
 map({'n', 'v'}, "<leader>p", [["+p]])
+map({'n', 'v'}, "<leader>d", [["_d]])
 map('n', "<leader>Y", [["+Y]])
 map('n', "<leader>D", [["+D]])
 map('n', "<leader>P", [["+P]])
@@ -88,11 +112,12 @@ map('n', "<leader>P", [["+P]])
 -- ---------------------------------------------------------
                        -- Where do black hole register lead?
 map('n', 'x', '"_x')
--- ---------------------------------------------------------
-map({'n', 'v'}, "<Space>", "<Nop>")
 
+
+-- ---------------------------------------------------------
 vim.keymap.set({'n', 'v'}, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set({'n', 'v'}, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 
 -- ---------------------------------------------------------
                              -- Fix * (Keep cursor position,
@@ -103,7 +128,9 @@ map('n', 'N', "Nzzzv")
 
 
 -- ---------------------------------------------------------
-                          -- Halp page scroll with centering
+                            -- Page scrolling with centering
+map('n', "<C-d>", "<C-d>zz")
+map('n', "<C-u>", "<C-u>zz")
 map('n', "<C-d>", "<C-d>zz")
 map('n', "<C-u>", "<C-u>zz")
 
