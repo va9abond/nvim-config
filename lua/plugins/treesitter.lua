@@ -1,31 +1,33 @@
 return {
-
-    "nvim-treesitter/nvim-treesitter", cond = true, lazy = false,
-    -- event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    "nvim-treesitter/nvim-treesitter", cond = true, lazy = true,
     build = ":TSUpdate", version = false,
+    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 
-    opts = {
-        -- A list of parser names, or "all" (the five listed parsers should always
-        -- be installed)
-        ensure_installed = { "c", "cpp", "lua", "julia", "vim", "vimdoc", "bash" },
+    config = function()
+        require("nvim-treesitter.configs").setup({
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false,
 
-        sync_install = false,
+                disable = { "gitcommit" },
+            },
 
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter`
-        -- CLI installed locally
-        auto_install = true,
+            indent = { enable = true },
 
-        -- List of parsers to ignore installing (for "all")
-        ignore_install = { "javascript" },
+            -- A list of parser names, or "all" (the five listed parsers should always
+            -- be installed)
+            ensure_installed = { "c", "cpp", "lua", "julia", "vim", "vimdoc", "bash" },
 
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
+            sync_install = false,
 
-        indent = { enable = true },
-    },
+            -- Automatically install missing parsers when entering buffer
+            -- Recommendation: set to false if you don't have `tree-sitter`
+            -- CLI installed locally
+            auto_install = true,
+
+            -- List of parsers to ignore installing (for "all")
+            ignore_install = { "javascript" },
+        })
+    end,
 }
