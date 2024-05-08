@@ -9,10 +9,6 @@ vim.g.maplocalleader = ';'
                                         -- Insert mode binds
 map('i', "jk", "<esc>")
 map('i', "<C-d>", "<del>")
-map('i', "<C-h>", "<Left>")
-map('i', "<C-l>", "<Right>")
-map('i', "<C-j>", "<S-Left>")
-map('i', "<C-k>", "<S-Right>")
 
 
 -- ---------------------------------------------------------
@@ -28,10 +24,10 @@ map({'t','c'}, "<C-d>", "<del>")
                                                   -- Buffers
 map('n', "[b", "<cmd>bprev<cr>")
 map('n', "]b", "<cmd>bnext<cr>")
-map('n', "<leader>b", "<cmd>ls<cr>")
+map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
 
 -- map('n', "<leader>x", "<cmd>bd<cr>")
--- <leader>bd = delete buffer (mini-bufremove)
+-- <leader>x = buffer delete (mini-bufremove)
 
 
 -- ---------------------------------------------------------

@@ -20,7 +20,7 @@ return {
                     bd(0)
                 end
             end,
-            desc = "Delete Buffer",
+            desc = "Buffer Delete",
         },
     },
 }
