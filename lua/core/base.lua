@@ -23,7 +23,7 @@ vim.opt.history = 100
 ------------------------------------------------------------
                                                        -- UI
 vim.opt.textwidth   = 80
-vim.opt.wrap        = true  -- Wrap long lines when it doesn't fit in window
+vim.opt.wrap        = false  -- Wrap long lines when it doesn't fit in window
 vim.opt.linebreak   = true  -- Do not break long lines at 'breakat' (if 'wrap' is set)
 vim.opt.breakindent = true  -- Indent wrapped lines to match line start
 vim.opt.showbreak = string.rep(" ", 3)
@@ -36,6 +36,8 @@ vim.opt.number         = true
 vim.opt.relativenumber = true
 
 vim.opt.signcolumn = "yes" -- Always show signcolumn
+-- vim.o.laststatus = 2       -- Always show statusline (:h status-line)
+vim.o.laststatus = 3       -- Global statusline (:h status-line)
 
 vim.opt.termguicolors = true   -- Switch gui colors
 vim.opt.background    = "dark" -- Set dark background

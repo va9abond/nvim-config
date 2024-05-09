@@ -51,7 +51,7 @@ map('n', "<leader>tc", "<cmd>tabclose<cr>") -- tab close
 -- ---------------------------------------------------------
                            -- Inserts blank line below/above
 map('n', "<CR>", "o<ESC>")
-map('n', "<S-Enter>", "O<ESC>")
+map('n', "<S-CR>", "O<ESC>")
 
 
 -- ---------------------------------------------------------
