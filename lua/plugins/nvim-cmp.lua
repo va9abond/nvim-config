@@ -9,6 +9,8 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        -- "micangl/cmp-vimtex",
         "saadparwaiz1/cmp_luasnip",
         -- "p00f/clangd_extensions.nvim",
         "onsails/lspkind.nvim",
@@ -47,11 +49,15 @@ return {
                 {
                     -- { name = "server_name", max_item_count = 9, keyword_length = 3 },
                     { name = "nvim_lsp" },
+                    { name = "nvim_lsp_signature_help" },
                     { name = "luasnip" },
+                    { name = "nvim_lua" },
                 },
                 {
                     { name = "path" },
-                    { name = "buffer", max_item_count = 5, keyword_length = 3 },
+                    -- { name = "buffer", max_item_count = 5, keyword_length = 3 },
+                    { name = "buffer", keyword_length = 3 },
+                    { name = "vimtex" },
                 }
             ),
 
@@ -76,11 +82,13 @@ return {
                     mode = "text", -- text | symbol | text_symbol
                     menu = {
                         nvim_lsp      = "[LSP]",
+                        nvim_lsp_signature_help = "[...]",
                         buffer        = "[Buf]",
                         path          = "[Path]",
                         cmdline       = "[Cmd]",
                         luasnip       = "[Snip]",
                         nvim_lua      = "[API]",
+                        vimtex        = "[VimTex]"
                     },
                     maxwidth = 30,
                     ellipsis_char = "...",
@@ -113,6 +121,14 @@ return {
                 -- { name = "cmdline", max_item_count = 13 }
                 { name = "cmdline" }
             })
+        })
+
+        cmp.setup.filetype("tex", {
+            sources = {
+                { name = 'vimtex' },
+                { name = 'buffer' },
+                -- other sources
+            },
         })
     end,
 }

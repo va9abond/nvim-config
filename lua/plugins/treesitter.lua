@@ -10,7 +10,7 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = false,
 
-                disable = { "gitcommit" },
+                disable = { "gitcommit", "tex", "bib", "latex"},
             },
 
             indent = { enable = true },
