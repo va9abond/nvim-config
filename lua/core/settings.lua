@@ -1,4 +1,5 @@
 ------------------------------------------------------------
+--
                                                -- Leader Key
 vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
@@ -23,15 +24,12 @@ vim.opt.history = 100
 ------------------------------------------------------------
                                                        -- UI
 vim.opt.textwidth   = 80
-vim.opt.wrap        = false  -- Wrap long lines when it doesn't fit in window
-vim.opt.linebreak   = true  -- Do not break long lines at 'breakat' (if 'wrap' is set)
-vim.opt.breakindent = true  -- Indent wrapped lines to match line start
-vim.opt.showbreak = string.rep(" ", 3)
-
+vim.opt.wrap        = false -- Wrap long lines when it doesn't fit in window
 vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
 vim.opt.cursorline = true  -- Switch highlighting of the current line
 vim.opt.list = true
-vim.opt.listchars:append { tab = '→ ', trail = '·',  --[[ eol = '↲' ]] } -- NOTE: leadmultispace??
+vim.opt.listchars:append { tab = '→ ', trail = '·',  --[[ eol = '↲' ]] }
+-- vim.opt.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
 vim.opt.number         = true
 vim.opt.relativenumber = true
 
@@ -61,11 +59,14 @@ vim.opt.shiftwidth  = 4     -- Shift lines with '>/<' on X chars
 vim.opt.smartindent = true  -- Make indenting smart
 -- vim.opt.cindent     = true  -- C style indenting
 
+-- vim.opt.inccommmand = "split" -- soon
 vim.opt.hlsearch   = true  -- see :h 'hlsearch'
 vim.opt.smartcase  = false -- see :h 'smartcase'
 vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.opt.incsearch  = true  -- Show search results while typing
 -- vim.opt.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
+
+vim.opt.formatoptions:remove('o') -- Don't have `o` add a comment
 
 
 ------------------------------------------------------------
@@ -92,7 +93,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         callback = function()
             vim.highlight.on_yank({
                 higroup = "IncSearch",
-                timeout = 80,
+                timeout = 200,
             })
         end,
         group = highlight_group,
