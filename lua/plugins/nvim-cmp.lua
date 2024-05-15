@@ -10,13 +10,15 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp-signature-help",
-        -- "micangl/cmp-vimtex",
+        "micangl/cmp-vimtex",
         "saadparwaiz1/cmp_luasnip",
         -- "p00f/clangd_extensions.nvim",
         "onsails/lspkind.nvim",
     },
 
     config = function()
+        -- vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
         local cmp = require("cmp")
         cmp.setup({
             snippet = {
@@ -52,12 +54,12 @@ return {
                     { name = "nvim_lsp_signature_help" },
                     { name = "luasnip" },
                     { name = "nvim_lua" },
+                    { name = "vimtex" },
                 },
                 {
                     { name = "path" },
                     -- { name = "buffer", max_item_count = 5, keyword_length = 3 },
                     { name = "buffer", keyword_length = 3 },
-                    { name = "vimtex" },
                 }
             ),
 
@@ -88,7 +90,6 @@ return {
                         cmdline       = "[Cmd]",
                         luasnip       = "[Snip]",
                         nvim_lua      = "[API]",
-                        vimtex        = "[VimTex]"
                     },
                     maxwidth = 30,
                     ellipsis_char = "...",
@@ -116,18 +117,18 @@ return {
                 ["<CR>"] = cmp.mapping.confirm({ select = true })
             }),
             sources = cmp.config.sources({
-                { name = "path" },
-            }, {
                 -- { name = "cmdline", max_item_count = 13 }
-                { name = "cmdline" }
+                { name = "cmdline" },
+            }, {
+                { name = "path" },
             })
         })
 
         cmp.setup.filetype("tex", {
             sources = {
-                { name = 'vimtex' },
-                { name = 'buffer' },
-                -- other sources
+                { name = "nvim_lsp" },
+                { name = "vimtex" },
+                { name = "buffer" },
             },
         })
     end,
