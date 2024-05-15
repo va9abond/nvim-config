@@ -99,19 +99,18 @@ map('n', "<C-l>", "<C-w><C-l>")
 map('o', 'A', ":<C-U>normal! mzggVG<CR>`z")
 map('x', 'A', ":<C-U>normal! ggVG<CR>")
 
-
 -- ---------------------------------------------------------
 map({'n', 'v'}, "<leader>y", [["+y]])
 map({'n', 'v'}, "<leader>p", [["+p]])
-map({'n', 'v'}, "<leader>d", [["_d]])
+map({'n', 'v'}, "<leader>d", [["+x]]) -- cut (yank in register and delete)
 map('n', "<leader>Y", [["+Y]])
-map('n', "<leader>D", [["+D]])
+-- map('n', "<leader>D", [["+D]])
 map('n', "<leader>P", [["+P]])
 
 
 -- ---------------------------------------------------------
                        -- Where do black hole register lead?
-map('n', 'x', '"_x')
+map({'n', 'v'}, 'x', '"_x')
 
 
 -- ---------------------------------------------------------
@@ -131,8 +130,15 @@ map('n', 'N', "Nzzzv")
                             -- Page scrolling with centering
 map('n', "<C-d>", "<C-d>zz")
 map('n', "<C-u>", "<C-u>zz")
-map('n', "<C-d>", "<C-d>zz")
-map('n', "<C-u>", "<C-u>zz")
+map('n', "zH", "z<cr>")
+map('n', "zM", "z.")
+map('n', "zL", [[z-]])
+
+
+-- ---------------------------------------------------------
+                                   -- Move lines up and down
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
 
 
 -- ---------------------------------------------------------
@@ -149,17 +155,11 @@ map('n', "<leader><", "<cmd>.left 0<cr>")
 
                                  -- other binds in binds.vim
 -- ---------------------------------------------------------
-                                   -- Move lines up and down
-map('v', 'J', ":m '>+1<CR>gv=gv")
-map('v', 'K', ":m '<-2<CR>gv=gv")
-
-
--- ---------------------------------------------------------
 -- Do not include white space characters when using $ in visual mode;
            -- see https://vi.stackexchange.com/q/12607/15292
                         -- Go to start or end of line easier
-map({ 'n', 'x' }, 'H', '^')
-map({ 'n', 'x' }, 'L', 'g_')
+map({ 'n', 'v', 'o' }, 'H', '^')
+map({ 'n', 'v', 'o' }, 'L', 'g_')
 
 
 -- ---------------------------------------------------------
@@ -175,24 +175,26 @@ map('x', '>', '>gv')
          -- see https://stackoverflow.com/a/4317090/6064933
 vim.keymap.set(
     'n', "<leader>v", "printf('`[%s`]', getregtype()[0])",
-    { expr = true, desc = "reselect last pasted area" }
+    { expr = true, desc = "Reselect last pasted area" }
 )
 
 
 -- ---------------------------------------------------------
     -- Change text without putting it into the vim register;
             -- see https://stackoverflow.com/q/54255/6064933
-map('n', 'c', '"_c')
-map('n', 'C', '"_C')
-map('n', 'cc', '"_cc')
-map('x', 'c', '"_c')
+map({'n', 'v'}, 'c', [["_c]])
+map({'n', 'v'}, 'C', [["_C]])
 
 
 -- ---------------------------------------------------------
           -- Replace visual selection with text in register,
                            -- but not clogging the register;
-    -- see also https://stackoverflow.com/q/10723700/6064933
-map('x', 'p', '"_c<Esc>p')
+         -- see https://stackoverflow.com/q/10723700/6064933
+map('x', 'p', [["_c<Esc>p]])
+
+
+-- ---------------------------------------------------------
+map('n', "<C-\\>", "<C-l>")
 
 
 -- ---------------------------------------------------------
