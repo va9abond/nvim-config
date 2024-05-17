@@ -17,51 +17,41 @@ return {
     },
 
     config = function()
-        -- vim.opt.completeopt = { "menu", "menuone", "noselect" }
+        vim.opt.completeopt = { "menu", "menuone", "preview", "noselect" }
+        vim.opt.shortmess:append("c")
 
         local cmp = require("cmp")
         cmp.setup({
+            -- window = {
+            --     completion = cmp.config.window.bordered(),
+            --     documentation = cmp.config.window.bordered(),
+            -- },
+
+            sources = {
+                -- { name = "server_name", max_item_count = 9, keyword_length = 3 },
+                { name = "nvim_lsp" },
+                { name = "nvim_lsp_signature_help" },
+                { name = "luasnip" },
+                { name = "nvim_lua" },
+                { name = "vimtex" },
+                { name = "path" },
+                { name = "buffer", keyword_length = 3 },
+            },
+
+            mapping = {
+                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-d>"] = cmp.mapping.scroll_docs(4),
+                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-Space>"] = cmp.mapping.close(),
+                ["<C-e>"] = cmp.mapping.abort(),
+            },
+
             snippet = {
                 expand = function(args)
                     require("luasnip").lsp_expand(args.body)
                 end,
             },
-            view = {
-                entries = "custom", -- opts: custom / wildmenu / native
-            },
-            window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
-            },
-
-            mapping = cmp.mapping.preset.insert({
-                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = false,
-                }),
-            }),
-
-            sources = cmp.config.sources(
-                {
-                    -- { name = "server_name", max_item_count = 9, keyword_length = 3 },
-                    { name = "nvim_lsp" },
-                    { name = "nvim_lsp_signature_help" },
-                    { name = "luasnip" },
-                    { name = "nvim_lua" },
-                    { name = "vimtex" },
-                },
-                {
-                    { name = "path" },
-                    -- { name = "buffer", max_item_count = 5, keyword_length = 3 },
-                    { name = "buffer", keyword_length = 3 },
-                }
-            ),
 
             -- sorting = {
             --     comparators = {
@@ -81,7 +71,7 @@ return {
 
             formatting = {
                 format = require("lspkind").cmp_format({
-                    mode = "text", -- text | symbol | text_symbol
+                    mode = "text", -- "text" | "symbol" | "text_symbol"
                     menu = {
                         nvim_lsp      = "[LSP]",
                         nvim_lsp_signature_help = "[...]",
@@ -90,6 +80,7 @@ return {
                         cmdline       = "[Cmd]",
                         luasnip       = "[Snip]",
                         nvim_lua      = "[API]",
+                        latex_symbols = "[LaTex]"
                     },
                     maxwidth = 30,
                     ellipsis_char = "...",
@@ -98,11 +89,10 @@ return {
         })
 
         cmp.setup.filetype("gitcommit", {
-            sources = cmp.config.sources({
+            sources = {
                 { name = "git" },
-            }, {
                 { name = "buffer" },
-            })
+            },
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
@@ -113,22 +103,21 @@ return {
         })
 
         cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline({
-                ["<CR>"] = cmp.mapping.confirm({ select = true })
-            }),
-            sources = cmp.config.sources({
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
                 -- { name = "cmdline", max_item_count = 13 }
                 { name = "cmdline" },
-            }, {
                 { name = "path" },
-            })
+            }
         })
 
         cmp.setup.filetype("tex", {
             sources = {
                 { name = "nvim_lsp" },
+                { name = "luasnip" },
                 { name = "vimtex" },
                 { name = "buffer" },
+                { name = "path" },
             },
         })
     end,
