@@ -118,30 +118,40 @@ return {
                 -- local opts = { buffer = 0, noremap = true, silent = true }
 
                 vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
+                -- vim.opt_local.tagfunc = "v:lua.vim.lsp.tagfunc"
 
 
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                vim.keymap.set('n', "gd", vim.lsp.buf.definition, opts)
                 -- vim.keymap.set('n', "gd", function() require("trouble").toggle("lsp_definitions") end)
 
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+                vim.keymap.set('n', "gr", vim.lsp.buf.references, opts)
                 -- vim.keymap.set('n', "gr", function() require("trouble").toggle("lsp_references") end)
 
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+                vim.keymap.set('n', "gi", vim.lsp.buf.implementation, opts)
                 -- vim.keymap.set('n', "gi", function() require("trouble").toggle("lsp_implementations") end)
 
-                vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+                vim.keymap.set('n', "<space>D", vim.lsp.buf.type_definition, opts)
                 -- vim.keymap.set('n', "<space>D", function() require("trouble").toggle("lsp_type_definitions") end)
 
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                vim.keymap.set('n', "gD", vim.lsp.buf.declaration, opts)
+                vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
                 vim.keymap.set('n', "<space>k", vim.lsp.buf.signature_help, opts)
 
                 vim.keymap.set('n', "<space>rn", vim.lsp.buf.rename, opts)
-                vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
+                vim.keymap.set('n', "<space>ca", vim.lsp.buf.code_action, opts)
                 vim.keymap.set('n', "<space>e", vim.diagnostic.open_float, opts)
 
                 vim.keymap.set('n', "[d", vim.diagnostic.goto_prev, opts)
                 vim.keymap.set('n', "]d", vim.diagnostic.goto_next, opts)
+
+                -- Somnitelno no OK
+                vim.keymap.set('n', "<leader>fs", vim.lsp.buf.document_symbol, opts)
+                vim.keymap.set('n', "<leader>fS", vim.lsp.buf.workspace_symbol, opts)
+                vim.keymap.set('n', "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+                vim.keymap.set('n', "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+                vim.keymap.set('n', "<leader>wl", function()
+                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                end, opts)
 
 
                 local filetype = vim.bo[bufnr].filetype
