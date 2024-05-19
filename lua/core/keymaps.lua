@@ -143,7 +143,7 @@ map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- ---------------------------------------------------------
                                             -- Text aligning
-map('n', "<leader>>", "<cmd>.right 60<cr>")
+map('n', "<leader>>", "<cmd>.right textwidth<cr>")
 map('n', "<leader><", "<cmd>.left 0<cr>")
 
 
