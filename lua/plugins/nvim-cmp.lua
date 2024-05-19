@@ -41,8 +41,7 @@ return {
             mapping = {
                 ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                -- ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                 ["<C-Space>"] = cmp.mapping.close(),
                 ["<C-e>"] = cmp.mapping.abort(),
             },
