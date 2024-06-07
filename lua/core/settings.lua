@@ -1,5 +1,4 @@
 ------------------------------------------------------------
---
                                                -- Leader Key
 vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
@@ -23,12 +22,13 @@ vim.opt.history = 100
 
 ------------------------------------------------------------
                                                        -- UI
-vim.opt.textwidth   = 80
 vim.opt.wrap        = false -- Wrap long lines when it doesn't fit in window
-vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
+-- vim.opt.textwidth   = 80
+-- vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
+vim.opt.colorcolumn = "81" -- 'textwidth' + 1
 vim.opt.cursorline = true  -- Switch highlighting of the current line
 vim.opt.list = true
-vim.opt.listchars:append { tab = '→ ', trail = '·',  --[[ eol = '↲' ]] }
+vim.opt.listchars:append { tab='→ ', --[[ leadmultispace='·', ]] trail='·', eol = '↲' }
 -- vim.opt.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
 vim.opt.number         = true
 vim.opt.relativenumber = true
