@@ -32,12 +32,12 @@ return {
     },
 ------------------------------------------------------------
     {
-        dir = "~/gitlocal/colors.nvim", cond = true,
+        dir = "~/gitlocal/mycolors.nvim", cond = true,
         lazy = false, priority = 1000,
         dependencies = { "rktjmp/lush.nvim" },
 
         config = function()
-            vim.cmd.colorscheme("custom")
+            vim.cmd.colorscheme("mycolors")
         end,
     },
 ------------------------------------------------------------
@@ -46,7 +46,7 @@ return {
         lazy = true, --[[ priority = 1000, ]]
         name = "blazkowolf-gruber-darker",
         config = function()
-            require("plugins.config.gruber-darker")
+            require("gruber-darker")
         end
     },
 }
