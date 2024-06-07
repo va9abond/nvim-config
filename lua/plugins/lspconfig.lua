@@ -1,12 +1,11 @@
 return {
-
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" }, -- "LazyFile"
 
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/nvim-cmp",
+        { "hrsh7th/nvim-cmp", cond = true },
     },
 
     config = function()
@@ -17,7 +16,7 @@ return {
                 prefix = '●', -- Could be '■', '▎', 'x'
             },
 
-            float = { source = "always", },
+            float = { source = "if_many", },
         })
 
         local lspconfig = require("lspconfig")
@@ -47,7 +46,7 @@ return {
             }
         })
 
-        lspconfig['clangd'].setup({
+        lspconfig["clangd"].setup({
             capabilities = {
                 offsetEncoding = { "utf-16" },
             },
@@ -90,7 +89,7 @@ return {
             },
         })
 
-        lspconfig['texlab'].setup({
+        lspconfig["texlab"].setup({
             capabilities = default_capabilities,
             settings = {
                 texlab = {
@@ -101,7 +100,7 @@ return {
             }
         })
 
-        lspconfig['bashls'].setup({
+        lspconfig["bashls"].setup({
             capabilities = default_capabilities,
         })
 
@@ -118,7 +117,8 @@ return {
                 -- local opts = { buffer = 0, noremap = true, silent = true }
 
                 vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-                -- vim.opt_local.tagfunc = "v:lua.vim.lsp.tagfunc"
+                vim.opt_local.tagfunc = "v:lua.vim.lsp.tagfunc"
+
 
 
                 vim.keymap.set('n', "gd", vim.lsp.buf.definition, opts)
@@ -130,10 +130,10 @@ return {
                 vim.keymap.set('n', "gi", vim.lsp.buf.implementation, opts)
                 -- vim.keymap.set('n', "gi", function() require("trouble").toggle("lsp_implementations") end)
 
-                vim.keymap.set('n', "<space>D", vim.lsp.buf.type_definition, opts)
+                -- vim.keymap.set('n', "<space>D", vim.lsp.buf.type_definition, opts)
                 -- vim.keymap.set('n', "<space>D", function() require("trouble").toggle("lsp_type_definitions") end)
 
-                vim.keymap.set('n', "gD", vim.lsp.buf.declaration, opts)
+                -- vim.keymap.set('n', "gD", vim.lsp.buf.declaration, opts)
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
                 vim.keymap.set('n', "<space>k", vim.lsp.buf.signature_help, opts)
 
@@ -145,11 +145,11 @@ return {
                 vim.keymap.set('n', "]d", vim.diagnostic.goto_next, opts)
 
                 -- Somnitelno no OK
-                vim.keymap.set('n', "<leader>fs", vim.lsp.buf.document_symbol, opts)
-                vim.keymap.set('n', "<leader>fS", vim.lsp.buf.workspace_symbol, opts)
-                vim.keymap.set('n', "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-                vim.keymap.set('n', "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-                vim.keymap.set('n', "<leader>wl", function()
+                vim.keymap.set('n', "<space>fs", vim.lsp.buf.document_symbol, opts)
+                vim.keymap.set('n', "<space>fS", vim.lsp.buf.workspace_symbol, opts)
+                vim.keymap.set('n', "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+                vim.keymap.set('n', "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+                vim.keymap.set('n', "<space>wl", function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, opts)
 
