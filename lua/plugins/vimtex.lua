@@ -9,7 +9,9 @@ return {
         vim.g.vimtex_quickfix_mode = 2
         vim.g.vimtex_quickfix_open_on_warning = 0
         vim.g["vimtex_quickfix_ignore_filters"] = ({
-            "Marginpar on page"
+            "Marginpar on page",
+            "underfull",
+            "overfull",
         })
         -- vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
 
@@ -18,8 +20,6 @@ return {
         vim.g.vimtex_complete_enabled = 1
 
         vim.g["vimtex_log_ignore"] = ({
-          "Underfull",
-          "Overfull",
           "specifier changed to",
           "Token not allowed in a PDF string",
         })
@@ -45,10 +45,10 @@ return {
 
         -- vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
         vim.g.vimtex_mappings_enabled = 0 -- disable `K` as it conflicts with LSP hover
-        vim.g.vimtex_text_obj_enabled = 1
+        vim.g.vimtex_text_obj_enabled = 0
     end,
 
     keys = {
-        { "<C-CR>", "<cmd>VimtexCompile<cr>", desc = "Compile .tex document" },
+        { "<C-CR>", ft = "tex", "<cmd>VimtexCompile<cr>", desc = "Compile .tex document" },
     }
 }
