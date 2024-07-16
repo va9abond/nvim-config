@@ -122,7 +122,7 @@ return {
         })
 
         cmp.setup.filetype("tex", {
-            completion = { autocomplete = true, },
+            -- completion = { autocomplete = true, },
             sources = {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
