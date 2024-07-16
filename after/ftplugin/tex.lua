@@ -8,3 +8,6 @@ vim.opt_local.showbreak = string.rep(" ", 3)
 
 vim.opt_local.spelllang = 'en_us,ru_ru'
 vim.opt_local.spell = true
+
+
+-- vim.keymap.set('n', "<C-CR>", "<cmd>VimtexCompile<cr>", { noremap = true, silent = false, buffer = 0 })
