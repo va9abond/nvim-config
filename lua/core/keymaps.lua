@@ -130,9 +130,12 @@ map('n', 'N', "Nzzzv")
                             -- Page scrolling with centering
 map('n', "<C-d>", "<C-d>zz")
 map('n', "<C-u>", "<C-u>zz")
-map('n', "zH", "z<cr>")
-map('n', "zM", "z.")
-map('n', "zL", [[z-]])
+-- map('n', "zH", "z<cr>")
+-- map('n', "zM", "z.")
+-- map('n', "zL", [[z-]])
+-- map('n', "zH", "H")
+-- map('n', "zM", "M")
+-- map('n', "zL", "L")
 
 
 -- ---------------------------------------------------------

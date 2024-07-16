@@ -40,6 +40,8 @@ vim.o.laststatus = 3       -- Global statusline (:h status-line)
 vim.opt.termguicolors = true   -- Switch gui colors
 vim.opt.background    = "dark" -- Set dark background
 
+vim.opt.inccommand = "split" -- new 0.10 neovim feature
+
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -56,10 +58,9 @@ vim.opt.tabstop     = 4     -- Insert X spaces for a tab
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth  = 4     -- Shift lines with '>/<' on X chars
 -- vim.opt.autoindent  = true  -- Use auto indent
-vim.opt.smartindent = true  -- Make indenting smart
--- vim.opt.cindent     = true  -- C style indenting
+-- vim.opt.smartindent = true  -- Make indenting smart
+vim.opt.cindent     = true  -- C style indenting
 
--- vim.opt.inccommmand = "split" -- soon
 vim.opt.hlsearch   = true  -- see :h 'hlsearch'
 vim.opt.smartcase  = false -- see :h 'smartcase'
 vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
