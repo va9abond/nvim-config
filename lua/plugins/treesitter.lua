@@ -1,5 +1,5 @@
 return {
-    "nvim-treesitter/nvim-treesitter", cond = true, lazy = true,
+    "nvim-treesitter/nvim-treesitter", cond = false, lazy = true,
     build = ":TSUpdate", version = false,
     event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
@@ -13,7 +13,7 @@ return {
                 disable = { "gitcommit", "tex", "bib", "latex"},
             },
 
-            indent = { enable = true },
+            indent = { enable = false },
 
             -- A list of parser names, or "all" (the five listed parsers should always
             -- be installed)

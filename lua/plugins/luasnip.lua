@@ -1,5 +1,6 @@
 return {
     "L3MON4D3/LuaSnip", cond = true, lazy = true,
+    ft = { "tex" },
     version = "v2.*",
 
     dependencies = {
@@ -16,6 +17,6 @@ return {
 
     keys = {
         { "<C-l>", function() require("luasnip").jump(1) end, mode = {'s','i'} },
-        { "<C-h>", function() require("luasnip").jump(-1) end, mode = {'i','s'} },
+        { "<C-h>", function() require("luasnip").jump(-1) end, mode = {'s','i'} },
     },
 }

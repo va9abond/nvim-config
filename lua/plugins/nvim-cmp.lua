@@ -1,5 +1,5 @@
 return {
-    "hrsh7th/nvim-cmp", cond = true, --[[ lazy = true, ]]
+    "hrsh7th/nvim-cmp", cond = true, lazy = true,
     event = { "InsertEnter", "CmdlineEnter" },
     version = false,
 
@@ -10,7 +10,7 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp-signature-help",
-        "micangl/cmp-vimtex",
+        -- "micangl/cmp-vimtex",
         "saadparwaiz1/cmp_luasnip",
         -- "p00f/clangd_extensions.nvim",
         "onsails/lspkind.nvim",
@@ -22,6 +22,10 @@ return {
 
         local cmp = require("cmp")
         cmp.setup({
+            completion = {
+                autocomplete = false,
+            },
+
             -- window = {
             --     completion = cmp.config.window.bordered(),
             --     documentation = cmp.config.window.bordered(),
@@ -31,14 +35,18 @@ return {
                 -- { name = "server_name", max_item_count = 9, keyword_length = 3 },
                 { name = "nvim_lsp" },
                 { name = "nvim_lsp_signature_help" },
-                { name = "luasnip" },
-                { name = "nvim_lua" },
-                { name = "vimtex" },
                 { name = "path" },
                 { name = "buffer", keyword_length = 3 },
+                { }
             },
 
             mapping = {
+                ["<C-x><C-o>"] = cmp.mapping(function(fallback)
+                    if not cmp.visible() then
+                        cmp.complete({ behavior = cmp.SelectBehavior.Select })
+                    end
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                end, { 'i', 's' }),
                 ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
@@ -88,6 +96,7 @@ return {
         })
 
         cmp.setup.filetype("gitcommit", {
+            -- completion = { autocomplete = true, },
             sources = {
                 { name = "git" },
                 { name = "buffer" },
@@ -95,6 +104,7 @@ return {
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
+            -- completion = { autocomplete = true, },
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
                 { name = "buffer" }
@@ -102,7 +112,8 @@ return {
         })
 
         cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline(),
+            -- completion = { autocomplete = true, },
+            cmp.mapping.preset.cmdline(),
             sources = {
                 -- { name = "cmdline", max_item_count = 13 }
                 { name = "cmdline" },
@@ -111,6 +122,7 @@ return {
         })
 
         cmp.setup.filetype("tex", {
+            completion = { autocomplete = true, },
             sources = {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
