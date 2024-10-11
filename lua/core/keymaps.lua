@@ -7,23 +7,30 @@ vim.g.mapleader = ';'
 vim.g.maplocalleader = ';'
 -- ---------------------------------------------------------
 map({'n', 'v'}, "<Space>", "<Nop>")
-                                        -- Insert mode binds
+map('n', "<C-f>", "<Nop>")
+map('i', "<LeftMouse>", "<Nop>")
+map('i', "<RightMouse>", "<Nop>")
+-- Insert mode binds
 map('i', "jk", "<esc>")
-map('i', "<C-d>", "<del>")
--- map('i', "<C-h>", "<Left>")
--- map('i', "<C-l>", "<Right>")
--- map('i', "<C-j>", "<S-Left>")
--- map('i', "<C-k>", "<S-Right>")
+map('i', "<C-g>", "<del>")
+map('i', "<C-h>", "<BS>")
+map('i', "<BS>", "<NOP>")
+
+map('n', "<C-h>", "<C-w>h")
+map('n', "<C-l>", "<C-w>l")
+map('n', "<C-j>", "<C-w>j")
+map('n', "<C-k>", "<C-w>k")
 
 
 -- ---------------------------------------------------------
                                   -- Command-line mode binds
-map('c', "<C-h>", "<Left>")
-map('c', "<C-l>", "<Right>")
-map('c', "<C-j>", "<S-Left>")
-map('c', "<C-k>", "<S-Right>")
+map('c', "<C-b>", "<Left>")
+map('c', "<C-f>", "<Right>")
+-- map('c', "<C-j>", "<S-Left>")
+-- map('c', "<C-k>", "<S-Right>")
 
-map('c', "<C-d>", "<del>")
+map('c', "<C-g>", "<del>")
+-- map('c', "<C-x><C-o>", "<del>")
 
 -- map('c', '<C-p>', '<Up>')
 -- map('c', '<C-n>', '<Down>')
@@ -34,7 +41,7 @@ map('c', "<C-d>", "<del>")
 map('n', "[b", "<cmd>bprev<cr>")
 map('n', "]b", "<cmd>bnext<cr>")
 map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
--- map('n', "<leader>bd", "<cmd>bd<cr>") -- check mini-bufremove (to save layout)
+map('n', "<leader>bd", "<cmd>bd!<cr>") -- check mini-bufremove (to save layout)
 map('n', "<leader>x", "<cmd>bd<cr>") -- buffer delete + close window
 
 

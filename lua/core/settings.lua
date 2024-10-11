@@ -28,7 +28,7 @@ vim.opt.wrap        = false -- Wrap long lines when it doesn't fit in window
 vim.opt.colorcolumn = "81" -- 'textwidth' + 1
 vim.opt.cursorline = true  -- Switch highlighting of the current line
 vim.opt.list = true
-vim.opt.listchars:append { tab='→ ', --[[ leadmultispace='·', ]] trail='·', eol = '↲' }
+vim.opt.listchars:append { tab='→ ', leadmultispace='·', trail='·', --[[ eol = '↲' ]] }
 -- vim.opt.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
 vim.opt.number         = true
 vim.opt.relativenumber = true
@@ -45,10 +45,8 @@ vim.opt.inccommand = "split" -- new 0.10 neovim feature
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-if vim.fn.has("nvim-0.9") == 1 then
 -- cursor (def) | screen (stabilize text) | topline (stabilize topline)
-    vim.opt.splitkeep = "screen"
-end
+vim.opt.splitkeep = "screen"
 
 
 ------------------------------------------------------------
@@ -66,8 +64,6 @@ vim.opt.smartcase  = false -- see :h 'smartcase'
 vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.opt.incsearch  = true  -- Show search results while typing
 -- vim.opt.infercase  = true  -- Infer letter cases for a richer built-in keyword completion
-
-vim.opt.formatoptions:remove('o') -- Don't have `o` add a comment
 
 
 ------------------------------------------------------------
