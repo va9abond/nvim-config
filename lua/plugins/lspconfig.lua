@@ -5,7 +5,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        { "hrsh7th/nvim-cmp", cond = true },
+        { "hrsh7th/nvim-cmp" },
     },
 
     config = function()
@@ -26,7 +26,7 @@ return {
             cmp_lsp.default_capabilities()
         )
 
-        local servers = { "pyright", "marksman", "cmake" }
+        local servers = { "pyright", "julials", "marksman", "cmake", "bashls"}
         for _, lsp_server in ipairs(servers) do
             lspconfig[lsp_server].setup({
                 capabilities = default_capabilities,
@@ -100,11 +100,6 @@ return {
             }
         })
 
-        lspconfig["bashls"].setup({
-            capabilities = default_capabilities,
-        })
-
-
         local disable_semantic_tokens = {
             lua = true,
         }
@@ -160,6 +155,5 @@ return {
                 end
             end,
         })
-
     end,
 }

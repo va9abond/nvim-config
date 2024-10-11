@@ -9,6 +9,7 @@ return {
             "julials",
             "texlab",
             "pyright",
+            "bashls"
         },
     },
 }

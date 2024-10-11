@@ -1,5 +1,5 @@
 return {
-    "echasnovski/mini.bufremove", cond = false, lazy = true,
+    "echasnovski/mini.bufremove", cond = true, lazy = true,
     version = false,
     config = true,
 

@@ -41,8 +41,9 @@ map('c', "<C-g>", "<del>")
 map('n', "[b", "<cmd>bprev<cr>")
 map('n', "]b", "<cmd>bnext<cr>")
 map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
-map('n', "<leader>bd", "<cmd>bd!<cr>") -- check mini-bufremove (to save layout)
-map('n', "<leader>x", "<cmd>bd<cr>") -- buffer delete + close window
+-- enable mini-bufremove
+-- map('n', "<leader>bd", "<cmd>bd!<cr>") -- check mini-bufremove (to save layout)
+-- map('n', "<leader>x", "<cmd>bd<cr>") -- buffer delete + close window
 
 
 map('n', "<leader>tn", "<cmd>tabnew<cr>") -- tab new
