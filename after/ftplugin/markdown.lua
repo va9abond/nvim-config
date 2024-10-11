@@ -11,8 +11,5 @@ vim.opt_local.formatoptions:append('t')
 vim.opt_local.listchars:remove { eol = '↲' }
 -- ---------------------------------------------------------
                                               -- Spell check
-vim.opt_local.spelllang = 'en_us,ru_ru'
-vim.opt_local.spell = true
-
-
--- vim.keymap.set('n', "<C-CR>", "<cmd>!python3 %<cr>", { noremap = true, silent = false, buffer = 0 })
+-- vim.opt_local.spelllang = 'en_us,ru_ru'
+-- vim.opt_local.spell = true
