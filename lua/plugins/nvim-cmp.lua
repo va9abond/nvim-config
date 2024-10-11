@@ -11,7 +11,7 @@ return {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp-signature-help",
         -- "micangl/cmp-vimtex",
-        "saadparwaiz1/cmp_luasnip",
+        -- "saadparwaiz1/cmp_luasnip",
         -- "p00f/clangd_extensions.nvim",
         "onsails/lspkind.nvim",
     },
@@ -22,9 +22,9 @@ return {
 
         local cmp = require("cmp")
         cmp.setup({
-            completion = {
-                autocomplete = false,
-            },
+            -- completion = {
+            --     autocomplete = false,
+            -- },
 
             -- window = {
             --     completion = cmp.config.window.bordered(),
@@ -33,20 +33,23 @@ return {
 
             sources = {
                 -- { name = "server_name", max_item_count = 9, keyword_length = 3 },
-                { name = "nvim_lsp" },
+                { name = "nvim_lsp", keyword_length = 4 },
                 { name = "nvim_lsp_signature_help" },
                 { name = "path" },
-                { name = "buffer", keyword_length = 3 },
-                { }
+                { name = "buffer", keyword_length = 5 },
             },
 
             mapping = {
-                ["<C-x><C-o>"] = cmp.mapping(function(fallback)
-                    if not cmp.visible() then
-                        cmp.complete({ behavior = cmp.SelectBehavior.Select })
-                    end
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-                end, { 'i', 's' }),
+                -- ["<C-x><C-o>"] = cmp.mapping(function(fallback)
+                --     if not cmp.visible() then
+                --         cmp.complete({ behavior = cmp.SelectBehavior.Select })
+                --     end
+                --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                -- end, { 'i', 's' }),
+                -- ["<C-x><C-o>"] = cmp.mapping(function(fallback)
+                --     cmp.complete({ behavior = cmp.SelectBehavior.Select })
+                --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                -- end, { 'i', 's' }),
                 ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
@@ -54,11 +57,11 @@ return {
                 ["<C-e>"] = cmp.mapping.abort(),
             },
 
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
-                end,
-            },
+            -- snippet = {
+            --     expand = function(args)
+            --         require("luasnip").lsp_expand(args.body)
+            --     end,
+            -- },
 
             -- sorting = {
             --     comparators = {
@@ -104,31 +107,27 @@ return {
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
-            -- completion = { autocomplete = true, },
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
-                { name = "buffer" }
+                { name = "buffer", keyword_length = 4 }
             }
         })
 
         cmp.setup.cmdline(':', {
-            -- completion = { autocomplete = true, },
-            cmp.mapping.preset.cmdline(),
+            mapping = cmp.mapping.preset.cmdline(),
             sources = {
-                -- { name = "cmdline", max_item_count = 13 }
-                { name = "cmdline" },
+                { name = "cmdline", keyword_length = 4 },
                 { name = "path" },
             }
         })
 
         cmp.setup.filetype("tex", {
-            -- completion = { autocomplete = true, },
             sources = {
-                { name = "nvim_lsp" },
-                { name = "luasnip" },
+                -- { name = "nvim_lsp" },
+                -- { name = "luasnip" },
                 { name = "vimtex" },
-                { name = "buffer" },
-                { name = "path" },
+                -- { name = "buffer" },
+                -- { name = "path" },
             },
         })
     end,

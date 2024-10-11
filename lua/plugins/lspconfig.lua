@@ -26,7 +26,7 @@ return {
             cmp_lsp.default_capabilities()
         )
 
-        local servers = { "pyright", "julials", "marksman", "cmake" }
+        local servers = { "pyright", "marksman", "cmake" }
         for _, lsp_server in ipairs(servers) do
             lspconfig[lsp_server].setup({
                 capabilities = default_capabilities,
