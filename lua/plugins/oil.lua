@@ -1,5 +1,6 @@
 return {
     "stevearc/oil.nvim", cond = true, lazy = false,
+    -- dependencies = { "nvim-tree/nvim-web-devicons" } -- optional
     opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
         -- Set to false if you still want to use netrw.
@@ -59,11 +60,13 @@ return {
             ["<S-h>"] = "actions.parent",
 
             ["_"] = "actions.open_cwd",
-            ["G"] = "actions.cd",
-            ["B"] = "actions.tcd",
+            ["<leader>cd"] = "actions.cd",
+            ["<leader>tcd"] = "actions.tcd",
 
             ["gs"] = "actions.change_sort",
             ["g."] = "actions.toggle_hidden",
+
+            ["<leader>C"] = "actions.open_cmdline",
         },
 
         -- Set to false to disable all of the above keymaps
@@ -78,6 +81,4 @@ return {
     keys = {
         { "-", "<cmd>Oil<cr>", mode = "n" }
     },
-
-    -- dependencies = { "nvim-tree/nvim-web-devicons" } -- optional
 }
