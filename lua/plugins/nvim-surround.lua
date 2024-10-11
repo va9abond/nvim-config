@@ -10,12 +10,15 @@ return {
             normal_cur = "yss",
             normal_line = false,
             normal_cur_line = false,
-            visual = "S",
+            visual = "<C-x>",
             visual_line = false,
             delete = "ds",
             change = "cs",
             change_line = false,
         },
+
+        indent_lines = false,
+        move_cursor = false,
 
         -- keymaps        -- Defines plugin keymaps
         -- surrounds      -- Defines surround keys and behavior

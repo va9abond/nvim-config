@@ -1,5 +1,5 @@
 return {
-    "L3MON4D3/LuaSnip", cond = true, lazy = true,
+    "L3MON4D3/LuaSnip", cond = false, lazy = true,
     ft = { "tex" },
     version = "v2.*",
 

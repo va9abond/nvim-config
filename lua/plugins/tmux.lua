@@ -1,5 +1,5 @@
 return {
-    "aserowy/tmux.nvim", cond = true, lazy = false,
+    "aserowy/tmux.nvim", cond = false, lazy = false,
     opts = {
         copy_sync = { enable = false, },
 

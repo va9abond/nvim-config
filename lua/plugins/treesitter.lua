@@ -7,7 +7,7 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             highlight = {
-                enable = true,
+                enable = { "markdown" },
                 additional_vim_regex_highlighting = false,
 
                 disable = { "gitcommit", "tex", "bib", "latex"},
