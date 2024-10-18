@@ -148,10 +148,10 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, opts)
 
-                vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-                vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-                vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-                vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+                vim.keymap.set('n', "<space>e", vim.diagnostic.open_float, opts)
+                vim.keymap.set('n', "[d", vim.diagnostic.goto_prev, opts)
+                vim.keymap.set('n', "]d", vim.diagnostic.goto_next, opts)
+                vim.keymap.set('n', "<space>q", vim.diagnostic.setloclist, opts)
 
 
                 -- follow Tj (2)
@@ -175,6 +175,12 @@ return {
 
             end,
         })
+
+        local function toggle_diagnostics()
+            return vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+        end
+        vim.keymap.set('n', '<space>dt', toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle vim diagnostics" })
+
     end,
 
 }
