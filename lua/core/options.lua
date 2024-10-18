@@ -1,10 +1,10 @@
-------------------------------------------------------------
+-- ---------------------------------------------------------
 -- Leader key
 vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
 
 
-------------------------------------------------------------
+-- ---------------------------------------------------------
 -- General
 vim.opt.encoding = "utf-8"
 
@@ -23,7 +23,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.history = 100
 
 
-------------------------------------------------------------
+-- ---------------------------------------------------------
 -- UI
 vim.opt.wrap        = false -- Wrap long lines when it doesn't fit in window
 -- vim.opt.textwidth   = 80
@@ -51,7 +51,7 @@ vim.opt.termguicolors = true   -- Switch gui colors
 vim.opt.background    = "dark" -- Set dark background
 
 
-------------------------------------------------------------
+-- ---------------------------------------------------------
 -- Editor
 vim.opt.expandtab   = true  -- Use spaces instead of tabs
 vim.opt.tabstop     = 4     -- Insert N spaces for a tab
@@ -66,7 +66,7 @@ vim.opt.incsearch  = true  -- Show search results while typing
 vim.opt.infercase  = true  -- see :h 'infercase'
 
 
-------------------------------------------------------------
+-- ---------------------------------------------------------
 -- Spell
 vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
 vim.opt.spelllang     = "en,ru"
