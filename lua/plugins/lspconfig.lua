@@ -16,7 +16,7 @@ return {
             cmp_lsp.default_capabilities()
         )
 
-        local servers = { "pyright", "marksman", "cmake", "bashls"}
+        local servers = { "pyright", "marksman", "cmake", "bashls" }
         for _, lsp_server in ipairs(servers) do
             lspconfig[lsp_server].setup({
                 capabilities = default_capabilities,
@@ -98,14 +98,13 @@ return {
         vim.diagnostic.config({
             virtual_text = {
                 spacing = 4,
-                source = "if_many", -- "always"
+                -- source = "if_many", -- "always"
                 prefix = '●', -- Could be '■', '▎', 'x'
             },
 
             float = {
-                style = "minimal",
+                -- style = "minimal",
                 header = "rustem, check this:", -- "Diagnostic:" (def)
-                source = "if_many",
             },
         })
 
