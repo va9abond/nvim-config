@@ -1,5 +1,6 @@
 return {
-    "lervag/vimtex", cond = true, lazy = false,
+    "lervag/vimtex", cond = true,
+    lazy = true, ft = { "tex" },
 
     init = function()
         vim.opt.conceallevel = 0
