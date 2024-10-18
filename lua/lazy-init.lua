@@ -1,5 +1,5 @@
 -- ---------------------------------------------------------
-                                   -- Bootstraping lazy.nvim
+-- Bootstraping lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -14,9 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-local opts = { }
-local plugins = {
-    { import = "plugins" },
-}
-
-require("lazy").setup(plugins, opts)
+-- ---------------------------------------------------------
+require("lazy").setup(
+    { import = "plugins" }, {
+        change_detection = { notify = false, }
+})
