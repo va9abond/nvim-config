@@ -8,6 +8,7 @@ return {
             "<leader>x",
             function()
                 local bd = require("mini.bufremove").delete
+
                 if vim.bo.modified then
                     local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
                     if choice == 1 then -- Yes
@@ -19,8 +20,10 @@ return {
                 else
                     bd(0)
                 end
+
             end,
             desc = "Buffer Delete",
         },
+        { "<leader>bd", "<cmd>bd!<cr>" } -- just for terminal
     },
 }
