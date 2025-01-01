@@ -12,7 +12,7 @@ return {
 
         local default_capabilities = vim.lsp.protocol.make_client_capabilities()
 
-        local servers = { "pyright", "marksman", "cmake", "bashls", "julia" }
+        local servers = { "pyright", "marksman", "cmake", "bashls" }
         for _, lsp_server in ipairs(servers) do
             lspconfig[lsp_server].setup({
                 capabilities = default_capabilities,

@@ -13,6 +13,7 @@ return {
             "Marginpar on page",
             "underfull",
             "overfull",
+            "You have requested package*",
         })
         -- vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
 
@@ -42,7 +43,7 @@ return {
                 '-shell-escape',
             }
         }
-        vim.g.vimtex_compiler_clean_path = { "_minted*", "aux/" }
+        vim.g.vimtex_compiler_clean_path = { "aux/" }
 
         -- vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
         vim.g.vimtex_mappings_enabled = 0 -- disable `K` as it conflicts with LSP hover

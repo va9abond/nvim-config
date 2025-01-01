@@ -407,3 +407,13 @@ getchar
 setlist
 GL
 SL
+searchable
+PDFs
+name
+setspace
+RequirePackage
+allowbreak
+ensuremath
+numprint
+columnwidth
+fnsymbol
