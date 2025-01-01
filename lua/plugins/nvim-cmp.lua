@@ -1,5 +1,5 @@
 return {
-    "hrsh7th/nvim-cmp", cond = true, version = false,
+    "hrsh7th/nvim-cmp", cond = false, version = false,
     lazy = true, event = { "InsertEnter", "CmdlineEnter" },
 
     dependencies = {
@@ -65,6 +65,14 @@ return {
             sources = cmp.config.sources({
                 { name = "git" },
                 { name = "buffer" },
+            })
+        })
+
+        cmp.setup.filetype("tex", {
+            sources = cmp.config.sources({
+                { name = "vimtex" },
+                { name = "buffer" },
+                { name = "path" },
             })
         })
 

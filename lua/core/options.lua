@@ -72,7 +72,7 @@ vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
 vim.opt.spelllang     = "en,ru"
 vim.opt.spelloptions  = "camel"
 
--- fuck changing keyboard layout (this does not word properly)
+-- fuck changing keyboard layout (this does not work properly)
 local langmap_keys = {
   'ёЁ;`~', '№;#',
   'йЙ;qQ', 'цЦ;wW', 'уУ;eE', 'кК;rR', 'еЕ;tT', 'нН;yY', 'гГ;uU', 'шШ;iI', 'щЩ;oO', 'зЗ;pP', 'хХ;[{', 'ъЪ;]}',

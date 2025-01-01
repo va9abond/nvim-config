@@ -9,14 +9,10 @@ return {
 
     config = function()
         local lspconfig = require("lspconfig")
-        local cmp_lsp = require("cmp_nvim_lsp")
 
-        local default_capabilities = vim.tbl_deep_extend( "force", {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities()
-        )
+        local default_capabilities = vim.lsp.protocol.make_client_capabilities()
 
-        local servers = { "pyright", "marksman", "cmake", "bashls" }
+        local servers = { "pyright", "marksman", "cmake", "bashls", "julia" }
         for _, lsp_server in ipairs(servers) do
             lspconfig[lsp_server].setup({
                 capabilities = default_capabilities,
@@ -178,8 +174,7 @@ return {
         local function toggle_diagnostics()
             return vim.diagnostic.enable(not vim.diagnostic.is_enabled())
         end
-        vim.keymap.set('n', '<space>dt', toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle vim diagnostics" })
+        vim.keymap.set('n', "<space>dt", toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle vim diagnostics" })
 
     end,
-
 }

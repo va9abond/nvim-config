@@ -19,6 +19,8 @@ map('i', "<C-h>", "<BS>")
 map('i', "<BS>", "<NOP>")
 map('i', "<LeftMouse>", "<Nop>")
 map('i', "<RightMouse>", "<Nop>")
+map('i', "<C-RightMouse>", "<Nop>")
+map('i', "<C-LeftMouse>", "<Nop>")
 
 
 -- ---------------------------------------------------------
