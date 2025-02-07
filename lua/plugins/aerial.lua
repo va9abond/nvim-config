@@ -2,13 +2,13 @@ return {
     "stevearc/aerial.nvim", cond = true, lazy = true,
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
+        -- "nvim-treesitter/nvim-treesitter",
         "nvim-tree/nvim-web-devicons"
     },
 
     opts = {
         attach_mode = "global", -- global | window
-        backends = { "lsp", "treesitter", "markdown", "man" },
+        backends = { "lsp", "markdown", "man" },
         show_guides = true,
 
         layout = {

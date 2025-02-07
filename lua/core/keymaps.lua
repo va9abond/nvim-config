@@ -8,15 +8,18 @@ vim.g.maplocalleader = ';'
 -- ---------------------------------------------------------
 -- Other
 map('n', "<C-\\>", "<C-l>")
-map('n', "<C-f>", "<Nop>")
+-- map('n', "<C-f>", "<Nop>")
 map({'n', 'v'}, "<Space>", "<Nop>")
+map('n', "<C-LeftMouse>", "<Nop>")
 
 -- ---------------------------------------------------------
 -- Insert map-mode
 map('i', "jk", "<esc>")
 map('i', "<C-g>", "<del>")
 map('i', "<C-h>", "<BS>")
-map('i', "<BS>", "<NOP>")
+map('i', "<C-a>", "<Nop>")
+map('i', "<BS>", "<Nop>")
+map('i', "<C-Space>", "<Nop>")
 map('i', "<LeftMouse>", "<Nop>")
 map('i', "<RightMouse>", "<Nop>")
 map('i', "<C-RightMouse>", "<Nop>")
@@ -46,7 +49,7 @@ map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
 -- ---------------------------------------------------------
 -- Windows (:h window)
 map('n', "<C-w>v", "<CMD>vsplit<CR>")
-map('n', "<C-w>z", "<C-w>|")
+map('n', "<C-w>z", "<C-w>|<C-w>_")
 
 map('n', "<C-h>", "<C-w><C-h>")
 map('n', "<C-j>", "<C-w><C-j>")
@@ -152,6 +155,7 @@ map({'n', 'v', 'o'}, 'L', 'g_')
 -- `gv` means to reselect previous visual area
 -- see https://superuser.com/q/310417/736190
 map('x', '<', '<gv')
+
 map('x', '>', '>gv')
 
 

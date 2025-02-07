@@ -20,7 +20,7 @@ return {
 
             sources = {
                 -- { name = "server_name", max_item_count = 9, keyword_length = 3, priority = 1},
-                { name = "nvim_lsp", keyword_length = 4, priority = 99 },
+                { name = "nvim_lsp", keyword_length = 4, priority = 1 },
                 { name = "buffer", keyword_length = 4 },
                 { name = "path" },
             },

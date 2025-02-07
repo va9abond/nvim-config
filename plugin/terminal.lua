@@ -16,6 +16,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- ---------------------------------------------------------
 vim.keymap.set('t', "<C-[>", "<C-\\><C-n>")
 
+-- vim.keymap.set('t', "<C-h>", "<C-\\><C-N><C-w>h")
+vim.keymap.set('t', "<C-j>", "<C-\\><C-N><C-w>j")
+vim.keymap.set('t', "<C-k>", "<C-\\><C-N><C-w>k")
+-- vim.keymap.set('t', "<C-l>", "<C-\\><C-N><C-w>l")
+
+vim.keymap.set('t', "<C-c>", function()
+    vim.cmd.nvim_buf_delete(0)
+end)
+
 -- Open a terminal at the bottom of the screen with a fixed height.
 vim.keymap.set("n", "<leader>tt", function()
     vim.cmd.new()
