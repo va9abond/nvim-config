@@ -5,7 +5,7 @@ return {
 
     keys = {
         {
-            "<leader>x",
+            "<leader>C",
             function()
                 local bd = require("mini.bufremove").delete
 
@@ -24,6 +24,5 @@ return {
             end,
             desc = "Buffer Delete",
         },
-        { "<leader>bd", "<cmd>bd!<cr>" } -- just for terminal
     },
 }

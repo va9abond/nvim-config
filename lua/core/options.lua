@@ -15,7 +15,7 @@ vim.opt.backup   = false  -- Don't store backup
 vim.opt.hidden   = true
 vim.opt.swapfile = false
 
-vim.opt.scrolloff = 8  -- Hold X lines in the bottom when scrolling
+vim.opt.scrolloff = 5  -- Hold 'n' lines in the bottom when scrolling
 
 vim.opt.undofile = true -- Enable persistent undo
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

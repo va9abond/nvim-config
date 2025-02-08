@@ -3,8 +3,8 @@ local function map(m,k,v)
     vim.keymap.set(m,k,v, {noremap = true, silent = false})
 end
 -- ---------------------------------------------------------
-vim.g.mapleader = ';'
-vim.g.maplocalleader = ';'
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 -- ---------------------------------------------------------
 -- Other
 map('n', "<C-\\>", "<C-l>")
@@ -40,10 +40,8 @@ map('c', "<C-g>", "<del>")
 map('n', "[b", "<cmd>bprev<cr>")
 map('n', "]b", "<cmd>bnext<cr>")
 map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
-
--- enable mini-bufremove
--- map('n', "<leader>bd", "<cmd>bd!<cr>") -- check mini-bufremove (to save layout)
--- map('n', "<leader>x", "<cmd>bd<cr>") -- buffer delete + close window
+-- map('n', "<leader>c", "<cmd>bd<cr>") -- mini-bufremove
+map('n', "<leader>c", "<cmd>bd!<cr>")
 
 
 -- ---------------------------------------------------------

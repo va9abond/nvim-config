@@ -1,8 +1,11 @@
 return {
     { "nvim-lua/plenary.nvim",       cond = true,  lazy = true   },
     { "nvim-tree/nvim-web-devicons", cond = true,  lazy = true   },
-    { "tpope/vim-fugitive",          cond = true,  lazy = false, },
-    { "lyokha/vim-xkbswitch",        cond = false, lazy = true,  },
+
+    {
+        "tpope/vim-fugitive", lazy = false,
+        keys = { {"<leader>G", "<cmd>Git<cr>" }, }
+    },
 
     {
         "numToStr/Comment.nvim", cond = true, lazy = true,
