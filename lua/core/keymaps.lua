@@ -54,6 +54,8 @@ map('n', "<C-j>", "<C-w><C-j>")
 map('n', "<C-k>", "<C-w><C-k>")
 map('n', "<C-l>", "<C-w><C-l>")
 
+map('n', '<C-w>n', '<cmd>8new<cr>')
+
 -- <C-w>n - create new window with empty file as (:new)
 -- <C-w>q - similar to :q
 -- <C-w>o - make the current window the only one on the screen. All other
@@ -64,11 +66,35 @@ map('n', "<C-l>", "<C-w><C-l>")
 -- <C-w>b - bottom-right window
 -- <C-w>p - last accessed window
 -- <C-w>P - go to preview window
+-- <C-w>r - rotate window downwards/rightwards
+-- <C-w>R - rotate window upwards/leftwards
+-- <C-w>x - exchange current window with the next one
+-- <C-w>K - make current window most top
+-- <C-w>J - make current window most bottom
+-- <C-w>L - make current window most right
+-- <C-w>H - make current window most left
+-- <C-w>i - Open a new window, with the cursor on the first line
+--          that contains the keyword under the cursor.
+-- <C-w>] - :tag {name} in a split
+-- <C-w>g] - :tselect {name} in a split
+-- <C-w>} - :ptag {name} in a split
+-- <C-w>g} - :ptjump {name} in a split
 
-map('n', "<C-Left>", "<cmd>vertical resize -5<cr>")
-map('n', "<C-Right>", "<cmd>vertical resize +5<cr>")
-map('n', "<C-Up>", "<cmd>resize -5<cr>")
-map('n', "<C-Down>", "<cmd>resize +5<cr>")
+map('n', "<C-Left>", "<cmd>vertical resize -1<cr>")
+map('n', "<C-Right>", "<cmd>vertical resize +1<cr>")
+map('n', "<C-Up>", "<cmd>resize -1<cr>")
+map('n', "<C-Down>", "<cmd>resize +1<cr>")
+
+
+-- ---------------------------------------------------------
+-- tags
+-- :tag {name} - jump to the definition of name, using tag files
+-- ^] - jump to the definition of the keyword under the cursor
+--      = :tag {name} where {name} keyword under the cursor
+-- :tselect - list the tags that match {name}
+-- :tjump = :tselect but if only one item in the list jump on it
+-- g] - :tselect {name}
+-- g^] - :tjump {name}
 
 
 -- ---------------------------------------------------------
