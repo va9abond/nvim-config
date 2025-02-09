@@ -1,125 +1,113 @@
-return { -- TODO telescope-pathogen
-    "nvim-telescope/telescope.nvim",
-    cond = true, cmd = "Telescope",
-    version = false,
+return {
+    "nvim-telescope/telescope.nvim", cond = true,
+    tag = '0.1.8',
 
     dependencies = {
         "nvim-lua/plenary.nvim",
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            build = "make",
-            config = function()
-                require("telescope").load_extension("fzf")
-            end,
-        }
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
 
-    opts = function()
-        local actions = require("telescope.actions")
+    config = function()
+        local telescope = require('telescope')
+        local actions = require('telescope.actions')
+        local builtin = require('telescope.builtin')
 
-        return{
-            defaults = { -- :h telescope.defaults
-                scroll_strategy = "limit",
-
-                layout_strategy = "bottom_pane",
+        telescope.setup({
+            defaults = {
+                scroll_strategy = 'limit',
+                layout_strategy = 'bottom_pane',
                 layout_config = {
-                    bottom_pane = { height = 12, prompt_position = "top", border = "single" },
+                    bottom_pane = {
+                        height = 8,
+                        prompt_position = 'bottom',
+                        border = 'single',
+                    }
                 },
 
-                -- prompt_prefix = vim.api.nvim_buf_get_name(0) .. " > ",
-                border = true,
-                preview = false,
+                results_title = false,
+                -- prompt_title = false, -- inner buultin opts preferred
+                preview_title = false,
+                borderchars = { "─", "", "", "", "", "", "", "" },
 
-                -- completely remove all of telescope's default maps and use your own
-                -- default_mappings = {
-                --     n = {
-                --         ["q"] = actions.close,
-                --         ["<C-c>"] = actions.close,
-                --         ["<C-s>"] = actions.file_split,
-                --         ["<C-v>"] = actions.file_vsplit,
-                --         ["<C-t>"] = actions.file_tab,
-                --         ["<leader>q"] = actions.add_selected_to_qflist,
-                --         ["<leader>l"] = actions.add_selected_to_loclist,
-                --     },
-                --     i = {
-                --         ["<esc>"] = actions.close,
-                --         ["<C-c>"] = actions.close,
-                --     }
-                --
-                -- },
+                -- preview = false,
+                preview = {
+                    hide_on_startup = true,
+                },
+
                 mappings = {
+                    i = {
+                        ["<C-c>"] = actions.close,
+                        ["<Tab>"] = actions.toggle_selection,
+                        ['<C-y>'] = require('telescope.actions.layout').toggle_preview,
+                    },
                     n = {
-                        ["q"] = actions.close,
+                        ["<C-c>"] = actions.close,
+                        ["<Tab>"] = actions.toggle_selection,
+                        ['<C-y>'] = require('telescope.actions.layout').toggle_preview,
+                        ['Y'] = require('telescope.actions.layout').toggle_prompt_position,
                     },
                 },
 
-                git_worktrees = {
-                    { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.cfg" }
+            },
+
+
+            pickers = {
+                find_files = {
+                    prompt_title = false,
+                    preview_title = false,
+                    prompt_prefix = 'find files: ', -- vim.api.nvim_buf_get_name(0) .. ": ",
+                },
+
+                live_grep = {
+                    prompt_title = false,
+                    preview_title = false,
+                    prompt_prefix = 'live grep: ',
+                },
+
+                buffers = {
+                    prompt_title = false,
+                    preview_title = false,
+                    prompt_prefix = 'buffers: ',
+                },
+
+                oldfiles = {
+                    prompt_title = false,
+                    preview_title = false,
+                    prompt_prefix = 'oldfiles: ',
+                },
+
+                help_tags = {
+                    prompt_title = false,
+                    preview_title = false,
+                    prompt_prefix = 'help tags: ',
+                },
+
+                builtin = {
+                    prompt_title = false,
+                    preview_title = false,
+                    prompt_prefix = 'builtin: ',
                 },
             },
 
             extensions = {
-                fzf = {
-                    fuzzy = true,
-                    override_generic_sorter = true,
-                    override_file_sorter = true,
-                    case_mode = "smart_case",
-                },
+                fzf = {},
             },
+        })
 
-            pickers = {
-                -- buffers = { theme = "ivy", },
-                -- find_files = { theme = "ivy", }
-            }
 
-        }
+        -- load fzf extension
+        telescope.load_extension('fzf')
+
+        -- keymaps
+        vim.keymap.set('n', '<leader>ff', function()
+            builtin.find_files({
+                hidden = true,
+            })
+        end, { desc = 'telescope find files' })
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep,  { desc = 'telescope live grep' })
+        vim.keymap.set('n', '<leader>fb', builtin.buffers,    { desc = 'telescope buffers' })
+        vim.keymap.set('n', '<leader>fo', builtin.oldfiles,   { desc = 'telescope old (recent) files' })
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags,  { desc = 'telescope help tags' })
+        vim.keymap.set('n', '<leader>f?', builtin.builtin,    { desc = 'telescope builtin list' })
     end,
-
-    keys = {
-        -- { "<leader>ff", function() require("telescope.builtin").find_files() end },
-
-        { "<leader>ff", function()
-            require("telescope.builtin").find_files({
-                -- prompt_prefix = vim.api.nvim_buf_get_name(0) .. " > ",
-            }) end },
-
-        { "<leader>fb", function()
-            require("telescope.builtin").buffers({
-                -- require("telescope.themes").get_dropdown({})
-                -- sort_mru = true,
-                -- prompt_prefix = vim.api.nvim_buf_get_name(0) .. " > ",
-            }) end },
-
-        -- { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
-        -- { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-
-        -- { "<leader>fo", function() require("telescope.builtin").oldfiles({
-        --     prompt_prefix = vim.api.nvim_buf_get_name(0) .. " > ",
-        -- }) end, desc = "Recent" },
-
-        -- { "<leader>fg", function() require("telescope.builtin").live_grep({
-        --     prompt_prefix = vim.api.nvim_buf_get_name(0) .. " > ",
-        -- }) end, desc = "Live Grep" },
-
-        -- { "<leader>f?", "<cmd>Telescope builtin<cr>", desc = "View Telescope Builtin" },
-        -- { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-        -- { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
-
-        -- { "<leader>/", function() require("telescope.builtin").current_buffer_fuzzy_find({
-        --     prompt_prefix = vim.api.nvim_buf_get_name(0) .. " > ",
-        --     previewer = false,
-        --     sorting_strategy = "ascending", -- change results order
-        -- }) end },
-    },
-
-
-    -- vim.keymap.set('n', '<leader>/', function()
-    --     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    --         winblend = 10,
-    --         previewer = false,
-    --     })
-    -- end, { desc = '[/] Fuzzily search in current buffer' })
-
-    -- vim.keymap.set('n', '<Bslash>s' , "<cmd>Telescope aerial<cr>")
 }
-
