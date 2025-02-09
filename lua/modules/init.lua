@@ -1,19 +1,21 @@
 return {
-    { "nvim-lua/plenary.nvim",       cond = true,  lazy = true   },
-    { "nvim-tree/nvim-web-devicons", cond = true,  lazy = true   },
-
-    {
-        "tpope/vim-fugitive", lazy = false,
-        keys = { {"<leader>G", "<cmd>Git<cr>" }, }
+    { "nvim-lua/plenary.nvim",       cond = true, lazy = true },
+    { "nvim-tree/nvim-web-devicons", cond = true, lazy = true },
+    { "numToStr/Comment.nvim",       cond = true, lazy = false,
+        config = true
     },
 
     {
-        "numToStr/Comment.nvim", cond = true, lazy = true,
-        event = { "VeryLazy" }, config = true
+        "tpope/vim-fugitive", cond = true, lazy = false,
+        config = function()
+            vim.keymap.set('n', '<leader>g', '<cmd>Git<cr>')
+        end
     },
 
     {
-        "mbbill/undotree", cond = true, lazy = true,
-        keys = { { "<space>u", "<cmd>UndotreeToggle<cr>", mode = "n" }, },
+        "mbbill/undotree", cond = true, lazy = false,
+        config = function()
+            vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
+        end
     },
 }
