@@ -1,26 +1,32 @@
 return {
     "neovim/nvim-lspconfig", cond = true,
-    lazy = true, event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'saghen/blink.cmp',
+        { 'folke/lazydev.nvim', ft = 'lua',
+            opts = {
+                library = {
+                    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                },
+            },
+        },
     },
 
     config = function()
-        local lspconfig = require("lspconfig")
+        local lspconfig = require('lspconfig')
+        local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
 
-        local default_capabilities = vim.lsp.protocol.make_client_capabilities()
-
-        local servers = { "pyright", "marksman", "cmake", "bashls" }
-        for _, lsp_server in ipairs(servers) do
-            lspconfig[lsp_server].setup({
-                capabilities = default_capabilities,
+        local lsp_server_list = { 'pyright', 'marksman', 'cmake', 'bashls', 'julials' }
+        for _, server in ipairs(lsp_server_list) do
+            lspconfig[server].setup({
+                capabilities = blink_capabilities,
             })
         end
 
-        lspconfig["lua_ls"].setup({
-            capabilities = default_capabilities,
+        lspconfig.lua_ls.setup({
+            capabilities = blink_capabilities,
             settings = {
                 Lua = {
                     runtime = { version = "Lua 5.1" },
@@ -32,51 +38,52 @@ return {
             }
         })
 
-        lspconfig["clangd"].setup({
-            capabilities = {
-                offsetEncoding = { "utf-16" },
-            },
+        lspconfig.clangd.setup({
+            capabilities = blink_capabilities,
+            -- capabilities = {
+            --     offsetEncoding = { "utf-16" },
+            -- },
             -- keys = {
             --     { "<space>gs", "<cmd>ClangdSwitchSourceHeader<cr>",
             --         desc = "Switch Source/Header (C/C++)" },
             -- },
-            root_dir = function(fname)
-                return
-                    require("lspconfig.util").root_pattern(
-                        "Makefile",
-                        "configure.ac",
-                        "configure.in",
-                        "config.h.in",
-                        "meson.build",
-                        "meson_options.txt",
-                        "build.ninja"
-                    )(fname)
-                    or
-                    require("lspconfig.util").root_pattern(
-                        "compile_commands.json",
-                        "compile_flags.txt"
-                    )(fname)
-                    or
-                    require("lspconfig.util").find_git_ancestor(fname)
-            end,
-            cmd = {
-                "clangd",
-                "--background-index",
-                "--clang-tidy",
-                "--header-insertion=iwyu",
-                "--completion-style=detailed",
-                "--function-arg-placeholders",
-                "--fallback-style=llvm",
-            },
-            init_options = {
-                usePlaceholders = true,
-                completeUnimported = true,
-                clangdFileStatus = true,
-            },
+            -- root_dir = function(fname)
+            --     return
+            --         require("lspconfig.util").root_pattern(
+            --             "Makefile",
+            --             "configure.ac",
+            --             "configure.in",
+            --             "config.h.in",
+            --             "meson.build",
+            --             "meson_options.txt",
+            --             "build.ninja"
+            --         )(fname)
+            --         or
+            --         require("lspconfig.util").root_pattern(
+            --             "compile_commands.json",
+            --             "compile_flags.txt"
+            --         )(fname)
+            --         or
+            --         require("lspconfig.util").find_git_ancestor(fname)
+            -- end,
+            -- cmd = {
+            --     "clangd",
+            --     "--background-index",
+            --     "--clang-tidy",
+            --     "--header-insertion=iwyu",
+            --     "--completion-style=detailed",
+            --     "--function-arg-placeholders",
+            --     "--fallback-style=llvm",
+            -- },
+            -- init_options = {
+            --     usePlaceholders = true,
+            --     completeUnimported = true,
+            --     clangdFileStatus = true,
+            -- },
         })
 
-        lspconfig["texlab"].setup({
-            capabilities = default_capabilities,
+        lspconfig.texlab.setup({
+            capabilities = blink_capabilities,
             settings = {
                 texlab = {
                     diagnostics = {
@@ -86,95 +93,73 @@ return {
             }
         })
 
-        local disable_semantic_tokens = {
-            lua = true,
-            julia = true,
-        }
-
-        vim.diagnostic.config({
-            virtual_text = {
-                spacing = 4,
-                -- source = "if_many", -- "always"
-                prefix = '●', -- Could be '■', '▎', 'x'
-            },
-
-            float = {
-                -- style = "minimal",
-                header = "rustem, check this:", -- "Diagnostic:" (def)
-            },
-        })
-
-        vim.api.nvim_create_autocmd("LspAttach", {
+        vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(args)
                 local bufnr = args.buf
-                local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
+
+                vim.bo[bufnr].formatexpr = nil
+                vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+                vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
+
+
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
                 local opts = { buffer = 0, noremap = true, silent = true }
 
-                -- follow Tj (1)
-                local sets = servers[client.name]
-                if type(sets) ~= "table" then
-                    sets = {}
+                if client == nil then
+                    vim.print('LSP server is nil')
+                    return
                 end
 
-                vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-                vim.opt_local.tagfunc = "v:lua.vim.lsp.tagfunc"
-
-
-                -- vim.keymap.set('n', "gd", function() require("trouble").toggle("lsp_definitions") end)
-                -- vim.keymap.set('n', "gr", function() require("trouble").toggle("lsp_references") end)
-                -- vim.keymap.set('n', "gi", function() require("trouble").toggle("lsp_implementations") end)
-                -- vim.keymap.set('n', "<space>D", vim.lsp.buf.type_definition, opts)
-                -- vim.keymap.set('n', "<space>D", function() require("trouble").toggle("lsp_type_definitions") end)
-
-                vim.keymap.set('n', "gd", vim.lsp.buf.definition, opts)
-                vim.keymap.set('n', "gr", vim.lsp.buf.references, opts)
-                vim.keymap.set('n', "gD", vim.lsp.buf.declaration, opts)
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-                vim.keymap.set('n', "<space>k", vim.lsp.buf.signature_help, opts)
-
-                vim.keymap.set('n', "<space>rn", vim.lsp.buf.rename, opts)
-                vim.keymap.set('n', "<space>ca", vim.lsp.buf.code_action, opts)
-                vim.keymap.set('n', "<space>fs", vim.lsp.buf.document_symbol, opts)
-                vim.keymap.set('n', "<space>fS", vim.lsp.buf.workspace_symbol, opts)
-
-                vim.keymap.set('n', "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-                vim.keymap.set('n', "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-                vim.keymap.set('n', "<space>wl", function()
-                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                end, opts)
-
-                vim.keymap.set('n', "<space>e", vim.diagnostic.open_float, opts)
-                vim.keymap.set('n', "[d", vim.diagnostic.goto_prev, opts)
-                vim.keymap.set('n', "]d", vim.diagnostic.goto_next, opts)
-                vim.keymap.set('n', "<space>q", vim.diagnostic.setloclist, opts)
-
-
-                -- follow Tj (2)
-                local filetype = vim.bo[bufnr].filetype
-                if disable_semantic_tokens[filetype] then
-                    client.server_capabilities.semanticTokensProvider = nil
+                if client.supports_method('textDocument/rename') then
+                    vim.keymap.set('n', 'grn' ,vim.lsp.buf.rename, opts)
                 end
 
-                -- follow Tj (3), override server capabilities
-                if sets.server_capabilities then
-                    for k, v in pairs(sets.server_capabilities) do
-
-                        if v == vim.NIL then
-                            ---@diagnostic disable-next-line: cast-local-type
-                            v = nil
-                        end
-
-                        client.server_capabilities[k] = v
-                    end
+                if client.supports_method('textDocument/definition') then
+                    vim.keymap.set('n', 'gd' ,vim.lsp.buf.definition, opts)
                 end
 
-            end,
-        })
+                if client.supports_method('textDocument/references') then
+                    vim.keymap.set('n', 'grr' ,vim.lsp.buf.references, opts)
+                end
 
-        local function toggle_diagnostics()
-            return vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-        end
-        vim.keymap.set('n', "<space>dt", toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle vim diagnostics" })
+                if client.supports_method('textDocument/hover') then
+                    vim.keymap.set('n', 'K' ,vim.lsp.buf.hover, opts)
+                end
 
+                if client.supports_method('textdocument/signature_help') then
+                    vim.keymap.set('n', '<space>k' ,vim.lsp.buf.signature_help, opts)
+                end
+
+                if client.supports_method('textdocument/code_action') then
+                    -- gca -- comment(gc) around(a)
+                    vim.keymap.set('n', '<space>gca' ,vim.lsp.buf.code_action, opts)
+                end
+
+                if client.supports_method('textdocument/document_symbol') then
+                    vim.keymap.set('n', '<space>fs' ,vim.lsp.buf.document_symbol, opts)
+                end
+
+                if client.supports_method('textdocument/workspace_symbol') then
+                    vim.keymap.set('n', '<space>fS' ,vim.lsp.buf.workspace_symbol, opts)
+                end
+
+                vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+                vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+                vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+
+               -- add all diagnostic to the quickfix list
+                vim.keymap.set('n', '<space>dq', vim.diagnostic.setqflist, opts)
+                -- *vim.diagnostic.setloclist()*
+
+
+                -- Toggle off vim diagnostic by default
+                vim.diagnostic.enable(false)
+
+                local function diagnostics_toggle()
+                    return vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+                end
+                vim.keymap.set('n', '<space>dt', diagnostics_toggle, opts)
+
+        end, })
     end,
 }
