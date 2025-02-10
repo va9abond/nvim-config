@@ -8,7 +8,6 @@ vim.g.maplocalleader = ' '
 -- ---------------------------------------------------------
 -- Other
 map('n', "<C-\\>", "<C-l>")
--- map('n', "<C-f>", "<Nop>")
 map({'n', 'v'}, "<Space>", "<Nop>")
 map('n', "<C-LeftMouse>", "<Nop>")
 
@@ -42,6 +41,14 @@ map('n', "]b", "<cmd>bnext<cr>")
 map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
 -- map('n', "<leader>c", "<cmd>bd<cr>") -- mini-bufremove
 map('n', "<leader>c", "<cmd>bd!<cr>")
+
+
+-- ---------------------------------------------------------
+-- QuickFix
+map('n', '[q', '<cmd>cprev<cr>')
+map('n', ']q', '<cmd>cnext<cr>')
+map('n', '<leader>q', '<cmd>copen<cr>')
+-- :cdo
 
 
 -- ---------------------------------------------------------
@@ -179,7 +186,6 @@ map({'n', 'v', 'o'}, 'L', 'g_')
 -- `gv` means to reselect previous visual area
 -- see https://superuser.com/q/310417/736190
 map('x', '<', '<gv')
-
 map('x', '>', '>gv')
 
 
