@@ -19,8 +19,8 @@ return {
                 layout_config = {
                     bottom_pane = {
                         height = 8,
-                        prompt_position = 'bottom',
-                        border = 'single',
+                        prompt_position = 'top',
+                        -- border = 'none',
                     }
                 },
 
@@ -55,37 +55,37 @@ return {
                 find_files = {
                     prompt_title = false,
                     preview_title = false,
-                    prompt_prefix = 'find files: ', -- vim.api.nvim_buf_get_name(0) .. ": ",
+                    prompt_prefix = 'Find files: ', -- vim.api.nvim_buf_get_name(0) .. ": ",
                 },
 
                 live_grep = {
                     prompt_title = false,
                     preview_title = false,
-                    prompt_prefix = 'live grep: ',
+                    prompt_prefix = 'Live grep: ',
                 },
 
                 buffers = {
                     prompt_title = false,
                     preview_title = false,
-                    prompt_prefix = 'buffers: ',
+                    prompt_prefix = 'Buffers: ',
                 },
 
                 oldfiles = {
                     prompt_title = false,
                     preview_title = false,
-                    prompt_prefix = 'oldfiles: ',
+                    prompt_prefix = 'Oldfiles: ',
                 },
 
                 help_tags = {
                     prompt_title = false,
                     preview_title = false,
-                    prompt_prefix = 'help tags: ',
+                    prompt_prefix = 'Help tags: ',
                 },
 
                 builtin = {
                     prompt_title = false,
                     preview_title = false,
-                    prompt_prefix = 'builtin: ',
+                    prompt_prefix = 'Builtin: ',
                 },
             },
 
