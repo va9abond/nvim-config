@@ -18,7 +18,13 @@ return {
         local lspconfig = require('lspconfig')
         local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
 
-        local lsp_server_list = { 'pyright', 'marksman', 'cmake', 'bashls', 'julials' }
+        local lsp_server_list = {
+            'pyright',
+            'cmake',
+            'bashls',
+            'marksman',
+            -- 'julials',
+        }
         for _, server in ipairs(lsp_server_list) do
             lspconfig[server].setup({
                 capabilities = blink_capabilities,
@@ -40,9 +46,7 @@ return {
 
         lspconfig.clangd.setup({
             capabilities = blink_capabilities,
-            -- capabilities = {
-            --     offsetEncoding = { "utf-16" },
-            -- },
+            capabilities = { offsetEncoding = { "utf-16" }, },
             -- keys = {
             --     { "<space>gs", "<cmd>ClangdSwitchSourceHeader<cr>",
             --         desc = "Switch Source/Header (C/C++)" },
