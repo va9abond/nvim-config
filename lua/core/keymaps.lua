@@ -7,63 +7,71 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 -- ---------------------------------------------------------
 -- Other
-map('n', "<C-\\>", "<C-l>")
-map({'n', 'v'}, "<Space>", "<Nop>")
-map('n', "<C-LeftMouse>", "<Nop>")
+map('n', '<C-\\>',        '<C-l>')
+map('n', '<C-LeftMouse>', '<Nop>')
+
 
 -- ---------------------------------------------------------
 -- Insert map-mode
-map('i', "jk", "<esc>")
-map('i', "<C-g>", "<del>")
-map('i', "<C-h>", "<BS>")
-map('i', "<C-a>", "<Nop>")
-map('i', "<BS>", "<Nop>")
-map('i', "<C-Space>", "<Nop>")
-map('i', "<LeftMouse>", "<Nop>")
-map('i', "<RightMouse>", "<Nop>")
-map('i', "<C-RightMouse>", "<Nop>")
-map('i', "<C-LeftMouse>", "<Nop>")
+map('i', 'jk',        '<esc>')
+map('i', '<C-g>',     '<del>')
+map('i', '<C-h>',     '<BS>')
+map('i', '<C-a>',     '<Nop>')
+map('i', '<BS>',      '<Nop>')
+map('i', '<C-Space>', '<Nop>')
+
+-- Fuck mouse in insert mode
+map('i', '<LeftMouse>',    '<Nop>')
+map('i', '<RightMouse>',   '<Nop>')
+map('i', '<C-RightMouse>', '<Nop>')
+map('i', '<C-LeftMouse>',  '<Nop>')
 
 
 -- ---------------------------------------------------------
 -- Command-line map-mode
-map('c', "<C-b>", "<Left>")
-map('c', "<C-f>", "<Right>")
--- map('c', "<C-j>", "<S-Left>")
--- map('c', "<C-k>", "<S-Right>")
-map('c', "<C-g>", "<del>")
+map('c', '<C-b>', '<Left>')
+map('c', '<C-f>', '<Right>')
+-- map('c', '<C-j>', '<S-Left>')
+-- map('c', '<C-k>', '<S-Right>')
+map('c', '<C-g>', '<del>')
 
 
 -- ---------------------------------------------------------
 -- Buffers
-map('n', "[b", "<cmd>bprev<cr>")
-map('n', "]b", "<cmd>bnext<cr>")
-map('n', "<leader>bl", "<cmd>ls<cr>") -- buffer list
--- map('n', "<leader>c", "<cmd>bd<cr>") -- mini-bufremove
-map('n', "<leader>c", "<cmd>bd!<cr>")
+map('n', 'b', '<cmd>bprev<cr>')
+map('n', ']b', '<cmd>bnext<cr>')
+map('n', '<leader>h', '<cmd>bprev<cr>')
+map('n', '<leader>l', '<cmd>bnext<cr>')
+map('n', '<leader><C-b>', '<cmd>ls<cr>') -- buffer list
+map('n', '<leader>bl', '<cmd>ls<cr>') -- buffer list
+-- map('n', '<leader>c', '<cmd>bd<cr>') -- mini-bufremove
+map('n', '<leader>c', '<cmd>bd!<cr>') -- unload buffer (force)
+
+-- TODO change buffer navigation in more comfort way
 
 
 -- ---------------------------------------------------------
 -- QuickFix
 map('n', '[q', '<cmd>cprev<cr>')
 map('n', ']q', '<cmd>cnext<cr>')
-map('n', '<leader>q', '<cmd>copen<cr>')
+map('n', '<leader>q', '<cmd>copen<cr><cmd>resize 6<cr>')
 -- :cdo
 
 
 -- ---------------------------------------------------------
 -- Windows (:h window)
-map('n', "<C-w>v", "<CMD>vsplit<CR>")
-map('n', "<C-w>z", "<C-w>|<C-w>_")
+map('n', '<C-w>v', '<CMD>vsplit<CR>')
+map('n', '<C-w>z', '<C-w>|<C-w>_')
 
-map('n', "<C-h>", "<C-w><C-h>")
-map('n', "<C-j>", "<C-w><C-j>")
-map('n', "<C-k>", "<C-w><C-k>")
-map('n', "<C-l>", "<C-w><C-l>")
+map('n', '<C-h>', '<C-w><C-h>')
+map('n', '<C-j>', '<C-w><C-j>')
+map('n', '<C-k>', '<C-w><C-k>')
+map('n', '<C-l>', '<C-w><C-l>')
 
 map('n', '<C-w>n', '<cmd>8new<cr>')
+map('n', '<C-w>t', '<C-w>T') -- move current window in new tab (:tab split)
 
--- <C-w>n - create new window with empty file as (:new)
+-- <C-w>n - create new window with empty file as :new
 -- <C-w>q - similar to :q
 -- <C-w>o - make the current window the only one on the screen. All other
 --          windows are closed
@@ -82,19 +90,19 @@ map('n', '<C-w>n', '<cmd>8new<cr>')
 -- <C-w>H - make current window most left
 -- <C-w>i - Open a new window, with the cursor on the first line
 --          that contains the keyword under the cursor.
--- <C-w>] - :tag {name} in a split
+-- <C-w> - :tag {name} in a split
 -- <C-w>g] - :tselect {name} in a split
 -- <C-w>} - :ptag {name} in a split
 -- <C-w>g} - :ptjump {name} in a split
 
-map('n', "<C-Left>", "<cmd>vertical resize -1<cr>")
-map('n', "<C-Right>", "<cmd>vertical resize +1<cr>")
-map('n', "<C-Up>", "<cmd>resize -1<cr>")
-map('n', "<C-Down>", "<cmd>resize +1<cr>")
+map('n', '<C-Left>',  '<cmd>vertical resize -1<cr>')
+map('n', '<C-Right>', '<cmd>vertical resize +1<cr>')
+map('n', '<C-Up>',    '<cmd>resize -1<cr>')
+map('n', '<C-Down>',  '<cmd>resize +1<cr>')
 
 
 -- ---------------------------------------------------------
--- tags
+-- Tags
 -- :tag {name} - jump to the definition of name, using tag files
 -- ^] - jump to the definition of the keyword under the cursor
 --      = :tag {name} where {name} keyword under the cursor
