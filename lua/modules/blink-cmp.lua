@@ -67,8 +67,11 @@ return {
                 draw = {
                     columns = {
                         { "label", gap = 1 },
-                        { "label_description", gap = 1, "kind", gap = 1 },
-                        { "source_name" },
+                        { "label_description", gap = 1, "source_name" },
+
+                        -- { "label", gap = 1 },
+                        -- { "label_description", gap = 1, "kind", gap = 1 },
+                        -- { "source_name" },
                     },
 
                     components = {
@@ -121,11 +124,11 @@ return {
             -- min_keyword_length = 0,
 
             providers = {
-                lsp = { name = '[LSP]' },
-                path = { name = '[path]' },
-                buffer = { name = '[abc]' },
-                cmdline = { name = '[cmd]' },
-                snippets = { name = '[snip]' },
+                lsp = { name = 'LSP' },
+                path = { name = 'path' },
+                buffer = { name = 'abc' },
+                cmdline = { name = 'cmd' },
+                snippets = { name = 'snip' },
             },
         },
 
