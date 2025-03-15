@@ -83,7 +83,7 @@ map('n', '<C-w>t', '<C-w>T') -- move current window in new tab (:tab split)
 -- <C-w>P - go to preview window
 -- <C-w>r - rotate window downwards/rightwards
 -- <C-w>R - rotate window upwards/leftwards
--- <C-w>x - exchange current window with the next one
+-- <C-w>x - (mini-bufremove) exchange current window with the next one
 -- <C-w>K - make current window most top
 -- <C-w>J - make current window most bottom
 -- <C-w>L - make current window most right
