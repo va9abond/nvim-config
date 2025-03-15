@@ -18,7 +18,7 @@ return {
                 layout_strategy = 'bottom_pane',
                 layout_config = {
                     bottom_pane = {
-                        height = 8,
+                        height = 9,
                         prompt_position = 'top',
                         -- border = 'none',
                     }

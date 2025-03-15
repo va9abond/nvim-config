@@ -10,7 +10,7 @@ return {
             normal_cur = "yss",
             normal_line = false,
             normal_cur_line = false,
-            visual = "<C-x>",
+            visual = "<C-s>",
             visual_line = false,
             delete = "ds",
             change = "cs",

@@ -1,6 +1,5 @@
 return {
-    "lewis6991/gitsigns.nvim", cond = true, lazy = true,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" }, -- "LazyFile"
+    "lewis6991/gitsigns.nvim", cond = true,
 
     opts = {
         signs = {

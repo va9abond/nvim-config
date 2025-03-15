@@ -1,28 +1,24 @@
 return {
-    "echasnovski/mini.bufremove", cond = true, lazy = true,
+    "echasnovski/mini.bufremove", cond = true,
     version = false,
-    config = true,
+    config = function()
+        local function delete_buffer()
+            local mini_buffer_delete = require("mini.bufremove").delete
 
-    keys = {
-        {
-            "<leader>C",
-            function()
-                local bd = require("mini.bufremove").delete
-
-                if vim.bo.modified then
-                    local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
-                    if choice == 1 then -- Yes
-                        vim.cmd.write()
-                        bd(0)
-                    elseif choice == 2 then -- No
-                        bd(0, true)
-                    end
-                else
-                    bd(0)
+            if vim.bo.modified then
+                local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+                if choice == 1 then -- Yes
+                    vim.cmd.write()
+                    mini_buffer_delete(0)
+                elseif choice == 2 then -- No
+                    mini_buffer_delete(0, true)
                 end
+            else
+                mini_buffer_delete(0)
+            end
+        end
 
-            end,
-            desc = "Buffer Delete",
-        },
-    },
+        local opts = { noremap = true, silent = true }
+        vim.keymap.set('n', '<C-w>x', delete_buffer, opts)
+    end,
 }
