@@ -1,9 +1,6 @@
 -- ---------------------------------------------------------
--- Leader key
 vim.g.mapleader      = ';'
 vim.g.maplocalleader = ';'
-
-
 -- ---------------------------------------------------------
 -- General
 vim.opt.encoding = "utf-8"
@@ -59,11 +56,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth  = 4     -- Shift lines with '>/<' on N chars
 vim.opt.cindent     = true  -- C style indenting :h C-indenting
 
-vim.opt.hlsearch   = true  -- see :h 'hlsearch'
-vim.opt.smartcase  = false -- see :h 'smartcase'
+vim.opt.hlsearch   = true
+vim.opt.smartcase  = false
 vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
 vim.opt.incsearch  = true  -- Show search results while typing
-vim.opt.infercase  = true  -- see :h 'infercase'
+vim.opt.infercase  = true
 
 
 -- ---------------------------------------------------------
@@ -72,11 +69,9 @@ vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
 vim.opt.spelllang     = "en,ru"
 vim.opt.spelloptions  = "camel"
 
--- fuck changing keyboard layout (this does not work properly)
-local langmap_keys = {
-  'ёЁ;`~', '№;#',
-  'йЙ;qQ', 'цЦ;wW', 'уУ;eE', 'кК;rR', 'еЕ;tT', 'нН;yY', 'гГ;uU', 'шШ;iI', 'щЩ;oO', 'зЗ;pP', 'хХ;[{', 'ъЪ;]}',
-  'фФ;aA', 'ыЫ;sS', 'вВ;dD', 'аА;fF', 'пП;gG', 'рР;hH', 'оО;jJ', 'лЛ;kK', 'дД;lL', [[жЖ;\;:]], [[эЭ;'\"]],
-  'яЯ;zZ', 'чЧ;xX', 'сС;cC', 'мМ;vV', 'иИ;bB', 'тТ;nN', 'ьЬ;mM', [[бБ;\,<]], 'юЮ;.>',
-}
-vim.opt.langmap = table.concat(langmap_keys, ',')
+vim.opt.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
+
+
+-- ---------------------------------------------------------
+-- Test
+-- vim.lsp.set_log_level('off')
