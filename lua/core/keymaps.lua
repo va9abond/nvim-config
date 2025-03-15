@@ -38,7 +38,7 @@ map('c', '<C-g>', '<del>')
 
 -- ---------------------------------------------------------
 -- Buffers
-map('n', 'b', '<cmd>bprev<cr>')
+map('n', '[b', '<cmd>bprev<cr>')
 map('n', ']b', '<cmd>bnext<cr>')
 map('n', '<leader>h', '<cmd>bprev<cr>')
 map('n', '<leader>l', '<cmd>bnext<cr>')
