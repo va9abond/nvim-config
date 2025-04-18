@@ -8,7 +8,7 @@ return {
 
     keys = {
         {
-            "<C-CR>",
+            "<leader><leader>x",
             ft = "markdown",
             "<cmd>MarkdownPreviewToggle<cr>",
             desc = "Markdown Preview",
