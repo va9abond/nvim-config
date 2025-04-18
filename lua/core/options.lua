@@ -38,7 +38,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes" -- Always show signcolumn
 vim.o.laststatus   = 3     -- Global statusline (:h status-line)
 
-vim.opt.inccommand = "split" -- split | nosplit (def)
+vim.opt.inccommand = "nosplit" -- split | nosplit (def)
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -52,7 +52,6 @@ vim.opt.background    = "dark" -- Set dark background
 -- Editor
 vim.opt.expandtab   = true  -- Use spaces instead of tabs
 vim.opt.tabstop     = 4     -- Insert N spaces for a tab
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth  = 4     -- Shift lines with '>/<' on N chars
 vim.opt.cindent     = true  -- C style indenting :h C-indenting
 
