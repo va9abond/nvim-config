@@ -9,13 +9,18 @@ return {
     config = function()
         vim.g.compile_mode = {
             default_command = "make -B",
-            baleia_setup = false,
+            baleia_setup = false, -- ANSI escape codes support, require 'm00qek/baleia.nvim'
             auto_jump_to_first_error = false,
             error_locus_highlight = 1000,
             use_diagnostics = false,
             recompile_no_fail = true,
-            buffer_name = "[compilation results]",
+            -- buffer_name = "[compilation results]",
+            buffer_name = "*compilation results*",
         }
-    end,
 
+        vim.keymap.set(
+            'n', '<C-x>c', '<cmd>Compile<cr>',
+            { desc = 'compile-mode Compile' }
+        )
+    end,
 }
