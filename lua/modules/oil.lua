@@ -11,8 +11,8 @@ return {
         columns = {
             -- "icon",
             -- "permissions",
-            -- "size",
-            -- "mtime",
+            { "mtime", highlight = "Include" },
+            { "size", highlight = "Include" },
         },
 
         -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
