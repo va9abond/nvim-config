@@ -2,6 +2,7 @@ return {
     "echasnovski/mini.bufremove", cond = true,
     version = false,
     config = function()
+
         local function delete_buffer()
             local mini_buffer_delete = require("mini.bufremove").delete
 
@@ -19,6 +20,6 @@ return {
         end
 
         local opts = { noremap = true, silent = true }
-        vim.keymap.set('n', '<C-w>x', delete_buffer, opts)
+        vim.keymap.set('n', '<leader>c', delete_buffer, opts)
     end,
 }

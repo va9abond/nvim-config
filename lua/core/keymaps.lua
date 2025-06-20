@@ -10,6 +10,14 @@ vim.g.maplocalleader = ' '
 map('n', '<C-\\>',        '<C-l>')
 map('n', '<C-LeftMouse>', '<Nop>')
 
+-- map('n', "<C-\'", function() print("hello") end)
+
+-- vim.keymap.set(
+--     'n', "<C-'>", function() print("pdfjs") end
+-- )
+
+-- map('n', '<C-0>', function() print('keystroke event: ctrl+0') end)
+
 
 -- ---------------------------------------------------------
 -- Insert map-mode
@@ -19,6 +27,16 @@ map('i', '<C-h>',     '<BS>')
 map('i', '<C-a>',     '<Nop>')
 map('i', '<BS>',      '<Nop>')
 map('i', '<C-Space>', '<Nop>')
+
+-- some maps in russian layout
+map('i', '<C-п>',     '<del>')
+map('i', '<C-р>',     '<BS>')
+map('i', '<C-ц>',     '<C-w>')
+map('i', '<C-ь>',     '<CR>')
+map('i', '<C-х>',     '<Esc>')
+map('i', '<C-ш>',     '<Tab>')
+map('i', '<C-в>',     '<C-d>')
+map('i', '<C-е>',     '<C-t>')
 
 -- Fuck mouse in insert mode
 map('i', '<LeftMouse>',    '<Nop>')
@@ -45,7 +63,8 @@ map('n', '<leader>l', '<cmd>bnext<cr>')
 map('n', '<leader><C-b>', '<cmd>ls<cr>') -- buffer list
 map('n', '<leader>bl', '<cmd>ls<cr>') -- buffer list
 -- map('n', '<leader>c', '<cmd>bd<cr>') -- mini-bufremove
-map('n', '<leader>c', '<cmd>bd!<cr>') -- unload buffer (force)
+-- map('n', '<leader>C', '<cmd>bd!<cr><cmd>bnext<cr>') -- unload buffer (force)
+map('n', '<leader>C', '<cmd>bd!<cr>') -- unload buffer (force)
 
 -- TODO change buffer navigation in more comfort way
 
@@ -69,7 +88,6 @@ map('n', '<C-k>', '<C-w><C-k>')
 map('n', '<C-l>', '<C-w><C-l>')
 
 map('n', '<C-w>n', '<cmd>8new<cr>')
-map('n', '<C-w>t', '<C-w>T') -- move current window in new tab (:tab split)
 
 -- <C-w>n - create new window with empty file as :new
 -- <C-w>q - similar to :q
@@ -99,6 +117,12 @@ map('n', '<C-Left>',  '<cmd>vertical resize -1<cr>')
 map('n', '<C-Right>', '<cmd>vertical resize +1<cr>')
 map('n', '<C-Up>',    '<cmd>resize -1<cr>')
 map('n', '<C-Down>',  '<cmd>resize +1<cr>')
+
+
+-- ---------------------------------------------------------
+-- Tabs
+-- map('n', '<C-w>t', '<C-w>T') -- move current window in new tab (:tab split) -- use <C-w>T
+-- <C-w>gf - Open a new tab page and edit the file name under the cursor
 
 
 -- ---------------------------------------------------------

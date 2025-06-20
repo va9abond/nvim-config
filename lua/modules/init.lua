@@ -8,7 +8,7 @@ return {
     {
         "tpope/vim-fugitive", cond = true, lazy = false,
         config = function()
-            vim.keymap.set('n', '<leader>G', '<cmd>Git<cr>')
+            vim.keymap.set('n', '<leader>G', '<cmd>tab Git<cr>')
         end
     },
 
