@@ -110,15 +110,6 @@ return {
             --     lua = { 'lsp', 'path' },
             -- },
 
-            cmdline = function()
-                local type = vim.fn.getcmdtype()
-                -- Search forward and backward
-                if type == '/' or type == '?' then return { 'buffer' } end
-                -- Commands
-                if type == ':' or type == '@' then return { 'cmdline' } end
-                return {}
-            end,
-
             -- Minimum number of characters in the keyword to trigger all providers
             -- May also be `function(ctx: blink.cmp.Context): number`
             -- min_keyword_length = 0,
@@ -130,6 +121,10 @@ return {
                 cmdline = { name = 'cmd' },
                 snippets = { name = 'snip' },
             },
+        },
+
+        cmdline = {
+            keymap = { preset = 'inherit' },
         },
 
         -- Use a preset for snippets, check the snippets documentation for more information
