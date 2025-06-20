@@ -134,10 +134,10 @@ return {
                     vim.keymap.set('n', '<space>k' ,vim.lsp.buf.signature_help, opts)
                 end
 
-                if client.supports_method('textdocument/code_action') then
+                -- if client.supports_method('textdocument/code_action') then
                     -- gca -- comment(gc) around(a)
-                    vim.keymap.set('n', '<space>gca' ,vim.lsp.buf.code_action, opts)
-                end
+                --     vim.keymap.set('n', '<space>gca' ,vim.lsp.buf.code_action, opts)
+                -- end
 
                 if client.supports_method('textdocument/document_symbol') then
                     vim.keymap.set('n', '<space>fs' ,vim.lsp.buf.document_symbol, opts)
@@ -162,7 +162,12 @@ return {
                 local function diagnostics_toggle()
                     return vim.diagnostic.enable(not vim.diagnostic.is_enabled())
                 end
-                vim.keymap.set('n', '<space>dt', diagnostics_toggle, opts)
+
+                vim.keymap.set('n', '<space>gt', function()
+                        diagnostics_toggle()
+                        print('[INFO] diagnostic ' .. (vim.diagnostic.is_enabled() and 'ON' or 'OFF'))
+                    end,
+                opts)
 
         end, })
     end,
