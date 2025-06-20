@@ -8,7 +8,7 @@ return {
 
     config = function()
         vim.g.compile_mode = {
-            default_command = "make -B",
+            default_command = "",
             baleia_setup = false, -- ANSI escape codes support, require 'm00qek/baleia.nvim'
             auto_jump_to_first_error = false,
             error_locus_highlight = 1000,
