@@ -1,5 +1,5 @@
 return {
-    dir = "~/gitlocal/x-gruber-darker.nvim", cond = true,
+    dir = "~/gitlocal/xgruber.nvim", cond = true,
     lazy = false, priority = 1000,
     dependencies = { "rktjmp/lush.nvim" },
 
