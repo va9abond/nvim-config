@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = false, buffer = 0 }
 
+vim.keymap.set('n', '<CR>', '<CR>', opts)
 vim.keymap.set('n', '<C-p>', '<cmd>cprev<cr>', opts)
 vim.keymap.set('n', '<C-n>', '<cmd>cnext<cr>', opts)
 vim.keymap.set('n', 'P', '<cmd>cfirst<cr>', opts)

@@ -18,7 +18,7 @@ return {
                 layout_strategy = 'bottom_pane',
                 layout_config = {
                     bottom_pane = {
-                        height = 9,
+                        height = 6,
                         prompt_position = 'top',
                         -- border = 'none',
                     }
@@ -27,7 +27,7 @@ return {
                 results_title = false,
                 -- prompt_title = false, -- inner buultin opts preferred
                 preview_title = false,
-                borderchars = { "─", "", "", "", "", "", "", "" },
+                -- borderchars = { "─", "", "", "", "", "", "", "" },
 
                 -- preview = false,
                 preview = {

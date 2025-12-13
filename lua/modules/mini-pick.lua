@@ -1,5 +1,5 @@
 return {
-    "echasnovski/mini.pick", version = "*", cond = true, lazy = false,
+    "echasnovski/mini.pick", version = "*", cond = false, lazy = false,
     opts = {
         -- Keys for performing actions. See `:h MiniPick-actions`.
         mappings = {

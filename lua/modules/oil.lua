@@ -42,9 +42,18 @@ return {
         -- See :help oil-actions for a list of all available actions
         keymaps = {
             ["g?"] = "actions.show_help",
+            ["gs"] = "actions.change_sort",
+            ["gr"] = "actions.refresh",
+            ["g."] = "actions.toggle_hidden",
+            ["gh"] = "actions.toggle_hidden",
+
+            ["."] = "actions.open_cmdline",
+            ["-"] = "actions.parent",
+            ["_"] = "actions.open_cwd",
 
             ["<CR>"] = "actions.select",
-            ["<S-l>"] = "actions.select",
+            -- ["<S-l>"] = "actions.select",
+            -- ["<S-h>"] = "actions.parent",
 
             ["<C-v>"] = "actions.select_vsplit",
             ["<C-s>"] = "actions.select_split",
@@ -53,20 +62,6 @@ return {
 
             ["<C-c>"] = "actions.close",
             ["q"] = "actions.close",
-
-            ["gr"] = "actions.refresh",
-
-            ["-"] = "actions.parent",
-            ["<S-h>"] = "actions.parent",
-
-            ["_"] = "actions.open_cwd",
-            ["<leader>cd"] = "actions.cd",
-            ["<leader>tcd"] = "actions.tcd",
-
-            ["gs"] = "actions.change_sort",
-            ["g."] = "actions.toggle_hidden",
-
-            ["<leader>C"] = "actions.open_cmdline",
         },
 
         -- Set to false to disable all of the above keymaps
@@ -79,17 +74,20 @@ return {
 
         git = {
             -- Return true to automatically git add/mv/rm files
+
             add = function(path)
                 return true
             end,
+
             mv = function(src_path, dest_path)
                 return true
             end,
+
             rm = function(path)
                 return true
             end,
-        },
 
+        },
     },
 
     keys = {

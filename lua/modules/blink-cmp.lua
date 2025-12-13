@@ -5,18 +5,16 @@ return {
     opts = {
         -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
-            preset = 'default',
-            -- show_and_insert | show (trigger completion menu)
-            ['<Up>'] = { },
-            ['<Down>'] = { },
+            -- https://github.com/Saghen/blink.cmp/blob/main/lua/blink/cmp/keymap/presets.lua
+            preset = 'none',
+
+            ['<C-y>'] = { 'accept', 'fallback' },
+            ['<C-e>'] = { 'cancel', 'fallback' },
+
             ['<C-p>'] = { 'select_prev', 'fallback' },
             ['<C-n>'] = { 'show_and_insert', 'select_next', 'fallback' },
 
-            ['<C-d>'] = { 'scroll_documentation_up', 'fallback' },
-            ['<C-u>'] = { 'scroll_documentation_down', 'fallback' },
-
-            ['<C-b>'] = { },
-            ['<C-f>'] = { },
+            ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
         },
 
         completion = {
@@ -26,113 +24,107 @@ return {
             keyword = { range = 'full' },
 
             trigger = {
+                -- prefetch_on_insert = true,
                 show_on_keyword = false,
                 show_on_trigger_character = false,
-
-                -- LSPs can indicate when to show the completion window via trigger characters
-                -- however, some LSPs (i.e. tsserver) return characters that would essentially
-                -- always show the window. We block these by default.
-                -- show_on_blocked_trigger_characters = function()
-                --     if vim.api.nvim_get_mode().mode == 'c' then return {} end
-
-                    -- you can also block per filetype, for example:
-                    -- if vim.bo.filetype == 'markdown' then
-                    --   return { ' ', '\n', '\t', '.', '/', '(', '[' }
-                    -- end
-
-                --     return { ' ', '\n', '\t' }
-                -- end,
-
-                -- List of trigger characters (on top of `show_on_blocked_trigger_characters`) that won't trigger
-                -- the completion window when the cursor comes after a trigger character when
-                -- entering insert mode/accepting an item
-                -- show_on_x_blocked_trigger_characters = { "'", '"', '(' },
-                -- or a function, similar to show_on_blocked_trigger_character
             },
 
             list = {
-                max_items = 25,
                 selection = { preselect = true, auto_insert = true },
             },
 
             accept = {
+                dot_repeat = true,
+                create_undo_point = false,
                 auto_brackets = { enabled = false },
             },
 
             menu = {
+                enabled = true,
                 auto_show = false,
                 min_width = 15,
-                max_height = 10,
+                max_height = 5,
+                border = nil,
+                scrolloff = 2,
+                scrollbar = true,
 
                 draw = {
                     columns = {
-                        { "label", gap = 1 },
-                        { "label_description", gap = 1, "source_name" },
-
-                        -- { "label", gap = 1 },
-                        -- { "label_description", gap = 1, "kind", gap = 1 },
-                        -- { "source_name" },
+                        { "label", "label_description", gap = 1 },
+                        { "source_name" },
                     },
 
-                    components = {
-                        -- kind = {
-                        --     ellipsis = false,
-                        --     width = { fill = true },
-                        --     text = '[' .. tostring(function(ctx) return ctx.kind end) .. ']',
-                        --     highlight = function(ctx)
-                        --         return require('blink.cmp.completion.windows.render.tailwind').get_hl(ctx) or 'BlinkCmpKind' .. ctx.kind
-                        --     end,
-                        -- },
-                        -- source_name = {
-                        --     width = { max = 30 },
-                        --     text = '[' .. tostring(function(ctx) return ctx.source_name end) .. ']',
-                        --     highlight = 'BlinkCmpSource',
-                        -- },
-                    },
-
-                    treesitter = { 'lsp' },
+                    -- treesitter = { 'lsp' },
+                    treesitter = { },
                 },
             },
 
-            -- Experimental signature help support
-            -- signature = {
-            --     enabled = false,
-                -- window = { show_documentation = false },
-                -- signature.window.show_documentation = false
-            -- },
+            documentation = {
+                auto_show = false,
+                treesitter_highlighting = true,
+            },
+
+            ghost_text = {
+                enabled = false,
+            }
+        },
+
+        signature = {
+            enabled = true,
+            trigger = { enabled = false, }, -- hide by default
+            window = {
+                treesitter_highlighting = true,
+                show_documentation = false,
+            },
         },
 
         sources = {
             default = { 'lsp', 'path', 'buffer' }, -- 'buffer', 'path'
 
-            -- You may also define providers per filetype
-            -- per_filetype = {
-            --     lua = { 'lsp', 'path' },
-            -- },
+            per_filetype = {
+                vim = { inherit_defaults = true, 'cmdline' },
+            },
 
             -- Minimum number of characters in the keyword to trigger all providers
             -- May also be `function(ctx: blink.cmp.Context): number`
-            -- min_keyword_length = 0,
+                min_keyword_length = 2,
 
-            providers = {
-                lsp = { name = 'LSP' },
-                path = { name = 'path' },
-                buffer = { name = 'abc' },
-                cmdline = { name = 'cmd' },
-                snippets = { name = 'snip' },
+                providers = {
+                    lsp = { name = 'LSP' },
+                    path = { name = 'path' },
+                    buffer = { name = 'abc' },
+                    cmdline = { name = 'cmd' },
+                    omni = { name = 'omni' },
+                    -- snippets = { name = 'snip' },
+                },
+            },
+
+            cmdline = {
+                keymap = {
+                    preset = 'none',
+                    ['<C-e>'] = { 'cancel', 'fallback' },
+                    ['<C-p>'] = { 'select_prev', 'fallback' },
+                    ['<C-n>'] = { 'show_and_insert', 'select_next', 'fallback' },
+                },
+
+                sources = function()
+                    local type = vim.fn.getcmdtype()
+                    -- Search forward and backward
+                    if type == '/' or type == '?' then return { 'buffer' } end
+                    -- Commands
+                    if type == ':' or type == '@' then return { 'cmdline', 'buffer' } end
+                    return {}
+                end,
+
+
+            },
+
+            -- Use a preset for snippets, check the snippets documentation for more information
+            -- snippets = { preset = 'default' | 'luasnip' | 'mini_snippets' },
+
+            appearance = {
+                use_nvim_cmp_as_default = false,
+                nerd_font_variant = 'mono'
             },
         },
-
-        cmdline = {
-            keymap = { preset = 'inherit' },
-        },
-
-        -- Use a preset for snippets, check the snippets documentation for more information
-        -- snippets = { preset = 'default' | 'luasnip' | 'mini_snippets' },
-
-        appearance = {
-            use_nvim_cmp_as_default = false,
-            nerd_font_variant = 'mono'
-        },
-    },
 }

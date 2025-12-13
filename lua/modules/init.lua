@@ -1,19 +1,23 @@
 return {
     { "nvim-lua/plenary.nvim",       cond = true, lazy = true },
-    { "nvim-tree/nvim-web-devicons", cond = true, lazy = true },
-    { "numToStr/Comment.nvim",       cond = true, lazy = false,
-        config = true
-    },
+    { "nvim-tree/nvim-web-devicons", cond = false, lazy = true },
 
     {
-        "tpope/vim-fugitive", cond = true, lazy = false,
+        "numToStr/Comment.nvim", cond = true,
+        lazy = false, config = true
+    },
+
+    { "ludovicchabant/vim-gutentags", cond = true, lazy = false },
+
+    {
+        "tpope/vim-fugitive", cond = false, lazy = false,
         config = function()
             vim.keymap.set('n', '<leader>G', '<cmd>tab Git<cr>')
         end
     },
 
     {
-        "tpope/vim-dispatch", cond = true, lazy = false,
+        "tpope/vim-dispatch", cond = false, lazy = false,
     },
 
     {

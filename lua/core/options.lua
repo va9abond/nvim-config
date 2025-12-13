@@ -1,73 +1,85 @@
--- ---------------------------------------------------------
--- General
 vim.opt.encoding = "utf-8"
 
-vim.opt.timeoutlen   = 1000
-vim.opt.updatetime   = 450
-
-vim.opt.backup   = false  -- Don't store backup
-vim.opt.hidden   = true
-vim.opt.swapfile = false
-
-vim.opt.scrolloff = 4  -- Hold 'n' lines in the bottom when scrolling
-
-vim.opt.undofile = true -- Enable persistent undo
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-
-vim.opt.history = 100
-
-
--- ---------------------------------------------------------
--- UI
-vim.opt.wrap        = false -- Wrap long lines when it doesn't fit in window
--- vim.opt.textwidth   = 80
--- vim.opt.colorcolumn = "+1" -- 'textwidth' + 1
-vim.opt.colorcolumn = "81"
-
-vim.opt.cursorline = true  -- Switch highlighting of the current line
-
-vim.opt.list = true
--- 'eol:¬, space:·, lead: , trail:·, nbsp:◇, tab:→-, extends:▸, precedes:◂, multispace:···⬝, leadmultispace:│   ,'
-vim.opt.listchars:append { tab='→ ', leadmultispace='·', trail='·', --[[ eol = '↲' ]] }
-vim.opt.number         = true
+vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
-vim.opt.signcolumn = "yes" -- Always show signcolumn
-vim.o.laststatus   = 3     -- Global statusline (:h status-line)
+vim.opt.wrap = false
+vim.opt.textwidth = 56
+vim.opt.colorcolumn = "+1"
+vim.opt.signcolumn = "yes"
+vim.o.laststatus = 3
+vim.opt.list = true
+vim.opt.listchars:append {
+    tab='→-',
+    -- multispace='····',
+    leadmultispace='·',
+    trail='·',
+    -- eol='↲',
+    -- eol='¬',
+    -- space='·',
+    -- lead=' ',
+    -- trail='·',
+    -- nbsp='◇',
+    -- extends='▸', precedes='◂',
+    -- multispace='···⬝',
+    -- leadmultispace='│   '
+}
 
-vim.opt.inccommand = "nosplit" -- split | nosplit (def)
+vim.opt.scrolloff = 2
+vim.opt.sidescrolloff = 4
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+vim.opt.cindent = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.infercase = true
+
+vim.opt.showmatch = false
+-- vim.opt.matchtime = 2
+
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.cmdheight = 1
+vim.opt.pumheight = 10
+vim.opt.pumblend = 0
+vim.opt.winblend = 0
+vim.opt.lazyredraw = true
+vim.opt.synmaxcol = 300
+
+vim.opt.backup = false                             -- Don't create backup files
+vim.opt.swapfile = false                           -- Don't create swap files
+vim.opt.undofile = true                            -- Persistent undo
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.updatetime = 450
+vim.opt.timeoutlen = 1000
+vim.opt.autoread = true                            -- Auto reload files changed outside vim
+vim.opt.autowrite = false
+
+vim.opt.hidden = true
+vim.opt.modifiable = true                          -- Allow buffer modifications
+vim.opt.history = 100
+vim.opt.errorbells = false                         -- No error bells
+vim.opt.autochdir = false                          -- Don't auto change directory
+-- vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
+vim.opt.path:append("**")                          -- Include subdirectories in search
+-- vim.opt.selection = "exclusive"                    -- Selection behavior
+vim.opt.mouse = "a"
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.splitkeep = "screen" -- scroll behavior due actions with hor. split
+vim.opt.splitkeep = "screen"
+vim.opt.inccommand = "nosplit" -- split | nosplit (def)
 
-vim.opt.termguicolors = true   -- Switch gui colors
-vim.opt.background    = "dark" -- Set dark background
+vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:block-Cursor,r-cr:hor20-Cursor"
 
-
--- ---------------------------------------------------------
--- Editor
-vim.opt.expandtab   = true  -- Use spaces instead of tabs
-vim.opt.tabstop     = 4     -- Insert N spaces for a tab
-vim.opt.shiftwidth  = 4     -- Shift lines with '>/<' on N chars
-vim.opt.cindent     = true  -- C style indenting :h C-indenting
-
-vim.opt.hlsearch   = true
-vim.opt.smartcase  = false
-vim.opt.ignorecase = true  -- Ignore case when searching (use `\C` to force not doing that)
-vim.opt.incsearch  = true  -- Show search results while typing
-vim.opt.infercase  = true
-
-
--- ---------------------------------------------------------
--- Spell
 vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
-vim.opt.spelllang     = "en,ru"
-vim.opt.spelloptions  = "camel"
-
-vim.opt.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
-
-
--- ---------------------------------------------------------
--- Test
--- vim.lsp.set_log_level('off')
+vim.opt.spelllang = "en,ru"
+vim.opt.spelloptions = "camel"
+vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
