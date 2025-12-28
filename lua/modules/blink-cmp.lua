@@ -5,7 +5,7 @@ return {
     opts = {
         -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
-            -- https://github.com/Saghen/blink.cmp/blob/main/lua/blink/cmp/keymap/presets.lua
+            --https://github.com/Saghen/blink.cmp/blob/main/lua/blink/cmp/keymap/presets.lua
             preset = 'none',
 
             ['<C-y>'] = { 'accept', 'fallback' },

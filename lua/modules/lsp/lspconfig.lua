@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- ??
         -- vim.keymap.del('n', 'gra', { buffer = bufnr })
+        -- vim.keymap.del({'i', 's'}, '<C-S>', { buffer = bufnr })
 
 
         -- lsp-methon

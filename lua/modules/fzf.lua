@@ -74,7 +74,7 @@ return {
         -- { '<leader>fg', '<cmd>FzfLua grep resume=true<cr>', mode = 'n' },
         -- { '<leader>f',  '<cmd>FzfLua resume<cr>', mode = 'n' },
         { '<leader>/', '<cmd>FzfLua grep_curbuf resume=true<cr>', mode = 'n' },
-        { '<C-x>f', '<cmd>FzfLua files<cr>', mode = 'n' },
+        -- { '<C-x>f', '<cmd>FzfLua files<cr>', mode = 'n' },
         { '<C-x>g', '<cmd>FzfLua grep<cr>', mode = 'n' },
         { '<C-x>b', '<cmd>FzfLua buffers<cr>', mode = 'n' },
         { '<C-x>t', '<cmd>FzfLua tags<cr>', mode = 'n' },
