@@ -25,14 +25,14 @@ map('i', '<C-g>', '<del>')
 map('i', '<C-h>', '<BS>')
 map('i', '<BS>',  '<Nop>')
 
-map('i', '<C-п>', '<del>')
-map('i', '<C-р>', '<BS>')
-map('i', '<C-ц>', '<C-w>')
-map('i', '<C-ь>', '<CR>')
-map('i', '<C-х>', '<Esc>')
-map('i', '<C-ш>', '<Tab>')
-map('i', '<C-в>', '<C-d>')
-map('i', '<C-е>', '<C-t>')
+map({'i', 't'}, '<C-п>', '<del>')
+map({'i', 't'}, '<C-р>', '<BS>')
+map({'i', 't'}, '<C-ц>', '<C-w>')
+map({'i', 't'}, '<C-ь>', '<CR>')
+map({'i', 't'}, '<C-х>', '<Esc>')
+map({'i', 't'}, '<C-ш>', '<Tab>')
+map({'i', 't'}, '<C-в>', '<C-d>')
+map({'i', 't'}, '<C-е>', '<C-t>')
 
 
 -- Fuck mouse in insert mode

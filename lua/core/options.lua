@@ -11,7 +11,7 @@ vim.opt.signcolumn = "yes"
 vim.o.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars:append {
-    tab='→-',
+    tab='→ ',
     -- multispace='····',
     leadmultispace='·',
     trail='·',
@@ -83,3 +83,13 @@ vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
 vim.opt.spelllang = "en,ru"
 vim.opt.spelloptions = "camel"
 vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+
+vim.opt.path = {
+    '.',  -- current directory
+    ',,', -- directory of the current file
+    '**', -- search recursively
+    '/home/rustem/local',
+}
+
+
+

@@ -1,12 +1,12 @@
 -- Highlight on yank
-local HighlightYank_group =
+local grp_highlight_yank =
     vim.api.nvim_create_augroup('HighlightYank', { clear = true })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
         callback = function()
             vim.highlight.on_yank({ higroup = "IncSearch", timeout = 400, })
         end,
-        group = HighlightYank_group,
+        group = grp_highlight_yank,
         pattern = '*',
     }
 )
@@ -42,3 +42,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 --         end
 --     end,
 -- })
+
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "/home/rustem/local/msvc-stl/inc/*",
+    command = "set filetype=cpp"
+})
