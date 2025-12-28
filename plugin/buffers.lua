@@ -17,5 +17,5 @@ end
 -- Команда для удобного использования
 -- vim.api.nvim_create_user_command('ListBuffers', show_buffers, {})
 
-show_buffers()
+-- show_buffers()
 
