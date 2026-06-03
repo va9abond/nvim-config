@@ -1,5 +1,5 @@
 return {
-    'saghen/blink.cmp', cond = true, lazy = false,
+    'saghen/blink.cmp', cond = false, lazy = false,
     version = '*',
 
     opts = {

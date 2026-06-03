@@ -1,3 +1,5 @@
+-- vim.g.loaded_matchparen = 1 -- disable built-in MatchParen for macOSX.
+
 vim.opt.encoding = "utf-8"
 
 vim.opt.number = true
@@ -27,7 +29,7 @@ vim.opt.listchars:append {
 }
 
 vim.opt.scrolloff = 2
-vim.opt.sidescrolloff = 4
+vim.opt.sidescrolloff = 1
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -68,8 +70,6 @@ vim.opt.history = 100
 vim.opt.errorbells = false                         -- No error bells
 vim.opt.autochdir = false                          -- Don't auto change directory
 -- vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
-vim.opt.path:append("**")                          -- Include subdirectories in search
--- vim.opt.selection = "exclusive"                    -- Selection behavior
 vim.opt.mouse = "a"
 
 vim.opt.splitbelow = true
@@ -82,7 +82,7 @@ vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:block-Cursor,r-cr:hor20-Curso
 vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
 vim.opt.spelllang = "en,ru"
 vim.opt.spelloptions = "camel"
-vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+vim.opt.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
 vim.opt.path = {
     '.',  -- current directory
@@ -91,5 +91,17 @@ vim.opt.path = {
     '/home/rustem/local',
 }
 
+vim.cmd('cabbrev man Man')
+vim.cmd('cabbrev W w')
 
 
+vim.diagnostic.enable(false)
+vim.diagnostic.config({
+    underline = true,
+    virtual_text = false,
+    virtual_lines = false,
+    signs = true,
+    status = { format = function() return "" end },
+    update_in_insert = false,
+    severity_sort = false,
+})

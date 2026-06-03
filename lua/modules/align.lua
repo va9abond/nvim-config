@@ -7,8 +7,8 @@ return {
 
         -- Aligns to 1 character
         vim.keymap.set('x', 'ga', function()
-                require'align'.align_to_char({
-                    preview = true,
+                require('align').align_to_char({
+                    preview = false,
                     length = 1,
                 }) end,
             opts
@@ -16,8 +16,8 @@ return {
 
         -- Aligns to 2 characters with previews
         vim.keymap.set('x', 'gA', function()
-                require'align'.align_to_char({
-                    preview = true,
+                require('align').align_to_char({
+                    preview = false,
                     length = 2,
                 }) end,
             opts
@@ -25,9 +25,9 @@ return {
 
         -- Aligns to a string with previews
         vim.keymap.set('x', 'gs',
-            function() require'align'.align_to_string({
-                    preview = true,
-                    regex = false,
+            function() require('align').align_to_string({
+                    preview = false,
+                    regex = true,
                 }) end,
             opts
         )

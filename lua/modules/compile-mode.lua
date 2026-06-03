@@ -18,6 +18,8 @@ return {
             buffer_name = "*compilation results*",
         }
 
+        vim.cmd('cabbrev comp Compile')
+
         vim.keymap.set(
             'n', '<C-x>c', '<cmd>Compile<cr>',
             { desc = 'compile-mode Compile' }

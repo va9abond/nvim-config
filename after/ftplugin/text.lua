@@ -4,6 +4,7 @@ vim.opt_local.wrap        = true  -- Wrap long lines when it doesn't fit in wind
 vim.opt_local.linebreak   = true  -- Do not break long lines at 'breakat' (if 'wrap' is set)
 vim.opt_local.breakindent = true  -- Indent wrapped lines to match line start
 vim.opt_local.showbreak = string.rep(" ", 3)
+vim.opt_local.cindent = false
 
 -- vim.opt_local.listchars:remove { eol = '↲' } -- Doesn't work
 

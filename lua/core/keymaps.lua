@@ -25,15 +25,18 @@ map('i', '<C-g>', '<del>')
 map('i', '<C-h>', '<BS>')
 map('i', '<BS>',  '<Nop>')
 
+map("n", "<С-в>", "<C-d>zz", { desc = "Half page down (centered)" })
+map("n", "<С-г>", "<C-u>zz", { desc = "Half page up (centered)" })
+-- map('n', '<С-г>', '<C-u>')
+-- map('n', '<С-в>', '<C-d>')
 map({'i', 't'}, '<C-п>', '<del>')
 map({'i', 't'}, '<C-р>', '<BS>')
 map({'i', 't'}, '<C-ц>', '<C-w>')
-map({'i', 't'}, '<C-ь>', '<CR>')
-map({'i', 't'}, '<C-х>', '<Esc>')
+map({'i', 't', 'n'}, '<C-ь>', '<CR>')
+map({'i', 't', 'x', 'n'}, '<C-х>', '<Esc>')
 map({'i', 't'}, '<C-ш>', '<Tab>')
 map({'i', 't'}, '<C-в>', '<C-d>')
 map({'i', 't'}, '<C-е>', '<C-t>')
-
 
 -- Fuck mouse in insert mode
 map('i', '<LeftMouse>',    '<Nop>')
@@ -57,6 +60,7 @@ map('n', ']b', '<cmd>bnext<cr>')
 -- map('n', '<leader>l', '<cmd>bnext<cr>')
 -- map('n', '<leader>c', '<cmd>bd<cr>') -- mini-bufremove
 map('n', '<leader>C', '<cmd>bd!<cr>') -- unload buffer (force)
+map('n', '<C-w>C', '<cmd>bd!<cr>') -- unload buffer (force)
 
 
 -- QuickFix
@@ -125,8 +129,8 @@ map('n',"[<CR>", "O<ESC>", { desc = "Insert blank line above" })
 
 -- Center screen when jumping
 -- map('n', '*', "*N")
-map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
-map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
+-- map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
+-- map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 map("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 
@@ -164,6 +168,8 @@ map('v', "<leader><", "<cmd>.left 0<cr>")
 
 map({'n', 'v', 'o'}, '<S-h>', '^', { desc = "Go to the begin of the line" })
 map({'n', 'v', 'o'}, '<S-l>', '$', { desc = "Go to the end of the line" })
+map({'n', 'v', 'o'}, 'Р', '^', { desc = "Go to the begin of the line" })
+map({'n', 'v', 'o'}, 'Д', '$', { desc = "Go to the end of the line" })
 -- map({'n', 'v', 'o'}, '<S-l>', 'g_')
 
 map(

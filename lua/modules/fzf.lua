@@ -68,19 +68,20 @@ return {
     },
 
     keys = {
-        -- { '<leader>ff', '<cmd>FzfLua files resume=true<cr>', mode = 'n' },
+        { '<leader>ff', '<cmd>FzfLua files resume=false<cr>', mode = 'n' },
+        { '<leader>fb', '<cmd>FzfLua buffers<cr>', mode = 'n' },
+        { '<C-x>b', '<cmd>FzfLua buffers<cr>', mode = 'n' },
+        { '<leader>fg', '<cmd>FzfLua grep<cr>', mode = 'n' },
+        { '<C-x>g', '<cmd>FzfLua grep<cr>', mode = 'n' },
         -- { '<leader>fs', '<cmd>FzfLua lgrep_curbuf<cr>', mode = n },
         -- { '<leader>fo', '<cmd>FzfLua oldfiles<cr>', mode = 'n' },
         -- { '<leader>fg', '<cmd>FzfLua grep resume=true<cr>', mode = 'n' },
         -- { '<leader>f',  '<cmd>FzfLua resume<cr>', mode = 'n' },
         { '<leader>/', '<cmd>FzfLua grep_curbuf resume=true<cr>', mode = 'n' },
         -- { '<C-x>f', '<cmd>FzfLua files<cr>', mode = 'n' },
-        { '<C-x>g', '<cmd>FzfLua grep<cr>', mode = 'n' },
-        { '<C-x>b', '<cmd>FzfLua buffers<cr>', mode = 'n' },
-        { '<C-x>t', '<cmd>FzfLua tags<cr>', mode = 'n' },
+        { '<leader>ft', '<cmd>FzfLua tags<cr>', mode = 'n' },
         { '<C-x>s', '<cmd>FzfLua lsp_document_symbols resume=true<cr>', mode = 'n' },
         { '<C-x>S', '<cmd>FzfLua lsp_workspace_symbols resume=true<cr>', mode = 'n' },
         -- { '<C-x>S',     '<cmd>FzfLua lsp_workspace_symbols resume=true<cr>', mode = 'n' },
-
     }
 }

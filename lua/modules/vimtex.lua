@@ -26,8 +26,9 @@ return {
           "Token not allowed in a PDF string",
         })
 
-        vim.g.vimtex_view_method = "mupdf"
+        -- vim.g.vimtex_view_method = "mupdf"
         -- vim.g.vimtex_view_method = "sioyek"
+        vim.g.vimtex_view_method = "zathura"
         -- vim.g.vimtex_compiler_method = "latexmk" -- latexmk by default
         vim.g.vimtex_compiler_silent = 0 -- silent compiler msgs
         vim.g.vimtex_compiler_latexmk = {

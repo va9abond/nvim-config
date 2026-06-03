@@ -1,11 +1,9 @@
-vim.lsp.enable('luals');
+vim.lsp.enable('luals')
 vim.lsp.enable('clangd')
 vim.lsp.enable('texlab')
 vim.lsp.enable('pyright')
 vim.lsp.enable('marksman')
 
--- Off diagnostics by default
-vim.diagnostic.enable(false)
 
 -- ?? Is it works?
 vim.lsp.config('*', {
@@ -20,6 +18,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     group = vim.api.nvim_create_augroup('lsp-attach-custom', {}),
     callback = function(args)
+        -- print("hello, rustem")
 
         local bufnr = args.buf
         vim.bo[bufnr].formatexpr = nil
@@ -31,7 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = bufnr, noremap = true, silent = true }
 
         if client == nil then
-            vim.print("pupupu, something went wrong with LSP")
+            print("pupupu, something went wrong with LSP")
             return
         end
 
@@ -89,7 +88,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 return {
     'neovim/nvim-lspconfig',
-    cond = true, lazy = false,
+    cond = false, lazy = false,
 
     dependencies = {
         'williamboman/mason.nvim',

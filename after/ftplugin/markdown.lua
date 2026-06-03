@@ -4,6 +4,7 @@ vim.opt_local.wrap        = false  -- Wrap long lines when it doesn't fit in win
 vim.opt_local.linebreak   = true  -- Break long lines at 'breakat' (if 'wrap' is set)
 vim.opt_local.breakindent = true  -- Indent wrapped lines to match line start
 vim.opt_local.showbreak = string.rep(" ", 3)
+vim.opt_local.cindent = false
 
 vim.opt_local.tabstop     = 2
 vim.opt_local.shiftwidth  = 2

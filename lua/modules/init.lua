@@ -3,14 +3,14 @@ return {
     { "nvim-tree/nvim-web-devicons", cond = false, lazy = true },
 
     {
-        "numToStr/Comment.nvim", cond = true,
+        "numToStr/Comment.nvim", cond = false,
         lazy = false, config = true
     },
 
     { "ludovicchabant/vim-gutentags", cond = true, lazy = false },
 
     {
-        "tpope/vim-fugitive", cond = false, lazy = false,
+        "tpope/vim-fugitive", cond = true, lazy = false,
         config = function()
             vim.keymap.set('n', '<leader>G', '<cmd>tab Git<cr>')
         end
